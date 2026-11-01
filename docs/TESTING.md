@@ -15,7 +15,8 @@ This runs typechecking, reference validation, unit and integration tests, browse
 | `npm run test:unit` | Contracts, API, and web tests |
 | `npm test -w @scriptecho/api` | One workspace |
 | `npm run test:e2e` | Browser tests, desktop and mobile |
-| `npm run validate:knowledge` | Reference collection |
+| `npm run validate:knowledge` | Reference collection, sign inventories, and language packs |
+| `npm run eval:research -- <dataset> [predictions]` | Research evaluation, separate from M0. Marks non-held-out data as not reportable |
 | `cd experiments/m0_feasibility && ../../.venv/bin/python -m pytest -q` | Feasibility experiment |
 
 ## Where tests live
@@ -29,10 +30,23 @@ This runs typechecking, reference validation, unit and integration tests, browse
 | Stage D command, with fake catalogs and transports | `experiments/m0_feasibility/tests/test_stage_d.py` |
 | Q-10 margin clearing, including a pixel comparison with the originals | `experiments/m0_feasibility/tests/test_margin_clearing.py` |
 | Provider adapter, configuration, logging | `apps/api/test/providers.test.ts` |
+| Local Ollama provider and image-reading check, with **mocked HTTP**, plus real-socket concurrency | `apps/api/test/ollama.test.ts` |
 | Historical source and citation integrity | `apps/api/test/references.test.ts` |
 | API routes, limits, headers, envelopes | `apps/api/test/api.test.ts` |
 | Components, states, accessibility | `apps/web/src/test/app.test.tsx` |
 | Full flows, CSP, colour contrast, mobile layout | `e2e/app.spec.ts` |
+
+## Slow and real checks
+
+These are not part of `npm test`.
+
+| Command | What it shows |
+|---|---|
+| `npx -w @scriptecho/api tsx ../../scripts/slow-timeout-check.mts` | The real transport survives a reply held for 305 s. Takes over 5 minutes |
+| `npm run local:image-check` | A real local model reads randomly generated images |
+| `npm run local:analyze -- <image>` | One real analysis through PALEON, recorded in `experiments/local_vlm/records/`. It refuses below 4 GiB of free disk |
+
+Mocked tests never show that recognition works.
 
 ## Rules
 

@@ -2,7 +2,9 @@
 
 > **Version:** 0.9 | **Last updated:** 2026-11-01 | **Status:** Methodology Approved for M0. Harness Verified offline on synthetic fixtures. Real dataset validated at Stages C to C.2. Execution specification Proposed. **No model results exist.**
 
-The product prompt in `apps/api/prompts/` is separate from the frozen `prompts/eval_v1.md`. Passing M0 with the frozen prompt says nothing about the product prompt, which would need its own evaluation.
+Local inference is a separate experiment in [experiments/local_vlm](../experiments/local_vlm/README.md). Its results are not M0 results, and these gates do not apply to it.
+
+The product prompts in `apps/api/prompts/` are separate from the frozen `prompts/eval_v1.md`. Passing M0 with the frozen prompt says nothing about the product prompt, which would need its own evaluation.
 
 Related: [METHODOLOGY.md](../experiments/m0_feasibility/METHODOLOGY.md), [DATASET_STRATEGY.md](DATASET_STRATEGY.md), [MODEL_COMPARISON.md](MODEL_COMPARISON.md)
 

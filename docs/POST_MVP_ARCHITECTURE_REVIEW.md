@@ -27,6 +27,7 @@ The body below is the review as written, and it is not rewritten. Later changes 
 | F-09 | Fixed: duplicates count once, and direction is compared with stored records |
 | F-10 | Contradictions are refused. Whether to keep an abstention's tentative candidates is still undecided |
 | F-24 | Fixed: the expert notice stays on for `no_writing`, and model text cannot switch it off |
+| F-01, F-02, F-03, F-23 | Fixed for the local Ollama work (ADR-069) |
 | F-21 | Now 8 of 34 accepted images, because SE003 and SE004 joined the set |
 | Git identity (ADR-061) | Resolved by the user. The Pending entries below are out of date |
 | Q-10 | Applied (ADR-064). Its entries below are out of date |

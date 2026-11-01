@@ -1,6 +1,6 @@
 # Decisions
 
-> **Version:** 1.3 | **Last updated:** 2026-11-02
+> **Version:** 1.5 | **Last updated:** 2026-11-02
 
 Architecture Decision Records for ScriptEcho. Related: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md), [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md), [CLAUDE.md](../CLAUDE.md)
 
@@ -658,3 +658,67 @@ Proposed. These apply to the maintained documents, and the frozen baseline stays
 - **Alternatives:** Novita, whose listed price is above the configured price. Calling DeepInfra directly, which would change the gateway in ADR-014.
 - **Trade-offs:** Both models would sit on one host, so a host fault would affect both. Strict `json_schema` is undocumented there, so the `json_object` fallback may be needed.
 
+### ADR-069: Add local inference through Ollama, separate from M0
+
+- **Date:** 2026-11-02
+- **Status:** Approved by the user's brief; Implemented; Verified offline with mocked HTTP. No local model has run. This narrows ADR-062 for local inference only
+- **Context:** The owner wants genuine image analysis without a paid route. ADR-062 says the product P0 list must be fixed before real inference through the application. That rule mainly protects third-party images and spending, which local inference does not involve.
+- **Decision:** Add `OllamaProvider` as a third mode beside the mock and the external adapter, which all stay. The address must be loopback, and cloud model names are refused. Before each image is sent, the provider confirms that the model is installed, reports vision, and is not remote. There is no fallback to the mock. Local runs use prompt v2 and are recorded in `experiments/local_vlm/`. **M0 is unchanged and paused:** its prompt, manifest, gates, models, and Stage D path stay as they are. ADR-062 still applies in full to any external inference through the product.
+- **P0 work included:** F-01, F-02, F-03, and F-23 are fixed, F-04 does not apply to this adapter, and F-05 is addressed by prompt v2. The rest of the P0 list stays open.
+- **Alternatives:** Finish the whole P0 list first, which delays the demonstration. Use Ollama's OpenAI-compatible route, which loses its health and capability detail.
+- **Trade-offs:** The local model and prompt differ from M0's, so neither result says anything about the other. On 8 GB, the image edge is limited to 1,024 px, which may lose strokes.
+
+### ADR-070: Accept model statements only in reviewed words
+
+- **Date:** 2026-11-02
+- **Status:** Implemented at the user's direction; Verified offline by `apps/api/test/adversarial.test.ts`. Updates ADR-065, whose one-visual-word test let history through
+- **Context:** An audit showed "Straight strokes typical of the Mauryan edicts of Ashoka at Sarnath" passing as visual evidence, and history passing in `statusReason` and `limitations`. A blocklist of names can never be complete.
+- **Decision:** Every word of every model statement must be in `knowledge/visual_vocabulary.json` or be a stored script name, in all free-text fields, or the statement is removed. Numbers above two digits fail. Names, reading verbs, and non-Latin text fail by not being listed. A removed status reason becomes fixed text. A removed statement against a candidate still counts against it. Historical interpretation is not produced by the model: it comes only from stored, sourced records.
+- **Alternatives:** A longer blocklist. A model-based checker, which would be uncertain and unverifiable.
+- **Trade-offs:** Correct statements in unlisted words are lost, which can turn a real answer into an abstention. The list must never gain names, dates, or reading verbs. A false statement in reviewed words still passes, so strength stays capped and all model text stays labelled unverified.
+
+### ADR-071: Stream long analyses, and accept requests only from this machine
+
+- **Date:** 2026-11-02
+- **Status:** Implemented at the user's direction; Verified offline, including over real sockets and by a 305-second transport check
+- **Context:** `fetch` stops waiting for headers at 300 s, so a real analysis failed at 307 s. Browsers and proxies can also give up on a silent request. An audit showed a cross-origin POST being accepted.
+- **Decision:** The Ollama adapter uses `node:http` with `stream: true`, so only PALEON's own deadline applies. With `Accept: application/x-ndjson`, `POST /analyses` sends headers at once, then progress, heartbeats, and one final result event. A stream with no final event is an error. A client disconnect aborts the model request. Host must be on an allow-list for every request, and on writes Origin must also be allowed, with `null` origins and cross-site fetches refused. These are checked separately, so a spoofed Host cannot excuse a bad Origin.
+- **Alternatives:** A job queue with polling, which adds state that ADR-006 avoids. Adding `undici` to raise its limits, which adds a dependency and keeps the silent wait.
+- **Trade-offs:** The plain JSON form still exists for tools, and it stays silent until the end. Only clients on this machine are served unless `ALLOWED_HOSTS` is set.
+
+
+### ADR-072: Read inscriptions through a person-confirmed path, not a model
+
+- **Date:** 2026-11-02
+- **Status:** Approved by the user's PALEON development mandate; Implemented; Verified offline by `apps/api/test/research.test.ts`, on generated images only. Updates ADR-010, which stays in force for any automatic reading
+- **Context:** The owner's goal is decoding and translation. This machine has 8 GB of memory, and the project has 34 images and no sign-level ground truth, so a trained recogniser cannot be built or measured. ADR-070 forbids model reading statements, for good reason.
+- **Decision:** Research cases read through layers that stay separate and traceable: rule-based boxes, readings confirmed by a person, rule-based transliteration, and glosses from a sourced lexicon. No model output reaches a reading, and an analysis candidate never sets the script. The one-shot analysis keeps reporting transcription, transliteration, and translation as `unavailable`, because it still does none of them.
+- **Alternatives:** Ask the vision model to read signs, which is unmeasured and which ADR-070 would strip. Train a recogniser, which has no data or hardware here.
+- **Trade-offs:** Reading is manual, so the tool assists a person who can read the script. It does not yet read by itself. A model recogniser can join later as a measured suggestion source.
+
+### ADR-073: Store research cases on this machine, only when a person creates one
+
+- **Date:** 2026-11-02
+- **Status:** Approved by the user's mandate, which requires reopening analyses; Implemented; Verified offline. Narrows ADR-058, which still governs `POST /analyses`
+- **Context:** Review, history, and reopening need persistence. ADR-058 keeps uploads in memory and stores nothing.
+- **Decision:** Keep JSON and re-encoded images in `PALEON_DATA_DIR`, default `.paleon/`, which is gitignored. Each change checks the revision the client saw, and refuses a stale one. Deleting a case removes its image and any examples taken from it.
+- **Alternatives:** `node:sqlite`, which is experimental and needs a newer Node than the project minimum. A database package, which needs dependency approval.
+- **Trade-offs:** Files suit one local user, not concurrent servers. `GET /cases` reads every case. Older image and history copies are not encrypted.
+
+### ADR-074: Teach by approved examples, not by training
+
+- **Date:** 2026-11-02
+- **Status:** Approved by the user's stated goal that archaeologists teach scripts; Implemented; Verified offline on generated shapes only. Recognition accuracy on real inscriptions is **unknown**
+- **Context:** The owner wants archaeologists to teach the agent new scripts. Training is not feasible here (ADR-072).
+- **Decision:** A person approves one clearly read sign as an example. PALEON stores a 24 × 24 ink pattern and compares unread signs against examples of the same script. It shows up to three suggestions, with a shape overlap score that is not a probability. Accepting one marks the sign uncertain, and a sign is never compared with its own example.
+- **Alternatives:** A neural classifier, which needs far more data. Comparison with Unicode glyphs, which are not attested letter forms.
+- **Trade-offs:** The pattern is sensitive to the box, weathering, and letter style. It needs examples of each sign, and it cannot tell allographs apart.
+
+### ADR-075: Offer glosses, not sentences, and only from a listed lexicon
+
+- **Date:** 2026-11-02
+- **Status:** Approved by the user's mandate; Implemented; Verified offline. The seed lexicon is Unverified demonstration data
+- **Context:** The mandate forbids presenting a model's translation as fact, and asks for partial results to be split from untranslated text.
+- **Decision:** Translation is a lookup of listed forms in a language pack, for a language a person set. There is no sentence field. Every interpretation of an ambiguous word is kept, a word with a missing sign is never looked up, and forms are listed, never derived. The Latin seed has 12 entries from Wiktionary, read through a fetch tool's extract, and is labelled as such.
+- **Alternatives:** A general model, which the mandate rules out. Lewis and Short through Perseus, which refused the request.
+- **Trade-offs:** Most words find no match until a real lexicon is added. Grammar is not applied. A licensed or expert-prepared lexicon is an external dependency.

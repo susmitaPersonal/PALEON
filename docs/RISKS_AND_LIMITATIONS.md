@@ -1,6 +1,6 @@
 # Risks and Limitations
 
-> **Version:** 0.7 | **Last updated:** 2026-11-01 | **Status:** Active register.
+> **Version:** 0.8 | **Last updated:** 2026-11-01 | **Status:** Active register.
 
 Related: [IMPLEMENTATION_ROADMAP.md](IMPLEMENTATION_ROADMAP.md), [DATASET_STRATEGY.md](DATASET_STRATEGY.md), [MODEL_EVALUATION.md](MODEL_EVALUATION.md)
 
@@ -28,11 +28,13 @@ Likelihood and impact are judgments, not measurements.
 | Limitation | Effect |
 |---|---|
 | Demo results are fixtures chosen by image hash or scenario | They say nothing about the image, and the interface says so |
-| The product prompt has never been run | It may need changes, and prompt tuning must stay apart from independent evaluation |
+| The product prompts have never been run | They may need changes, and prompt tuning must stay apart from independent evaluation |
+| Local inference has not run | Memory, speed, and JSON quality on 8 GB are unknown. A 1,024 px image edge may lose strokes, and a small model may do poorly on these scripts |
+| A local result is not an M0 result | It uses a different model, prompt, and code path |
 | The real adapter has only met a fake `fetch` | Real providers may differ in image, schema, or usage behaviour |
 | Evidence strength has no check on truth | False statements in visual words still pass and can rate moderate. Strong cannot be reached today (ADR-065) |
-| History filters use written form and a visual vocabulary | History mixed with a visual word can survive, so model text stays labelled unverified |
-| The visual vocabulary may reject correct evidence | Unlisted words and other languages are dropped. The rate is unmeasured |
+| The vocabulary rule checks words, not truth | A false statement in reviewed words can pass, so model text stays labelled unverified |
+| The vocabulary may reject correct evidence | Unlisted words and other languages are dropped, which can force an abstention. The rate is unmeasured |
 | Records are source-checked by a non-specialist | No epigrapher has reviewed them. Brahmi direction and Greek and Latin period and region are empty |
 | Reference characters are modern Unicode forms | They are not attested letter shapes |
 | Script fonts come from the viewer's system | Characters may show as boxes |

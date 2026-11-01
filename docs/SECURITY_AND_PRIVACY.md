@@ -1,6 +1,6 @@
 # Security and Privacy
 
-> **Version:** 0.5 | **Last updated:** 2026-11-02 | **Status:** Local MVP controls Implemented and Verified by the named offline tests. Public deployment is Pending, and the gaps below must be closed first.
+> **Version:** 0.7 | **Last updated:** 2026-11-02 | **Status:** Local MVP controls Implemented and Verified by the named offline tests. Public deployment is Pending, and the gaps below must be closed first.
 
 Related: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md), [RISKS_AND_LIMITATIONS.md](RISKS_AND_LIMITATIONS.md)
 
@@ -36,11 +36,14 @@ Related: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md), [RISKS_AND_LIMITATION
 | Every pixel is decoded, with a pixel limit against decompression bombs | Verified offline | `intake.test.ts` |
 | Re-encoding removes EXIF, including GPS, and appended data | Verified offline | `intake.test.ts` |
 | No URL-fetch feature, so no server-side request forgery through uploads | Implemented | No such route exists |
-| Rate limit, and a concurrency cap on analyses | Verified offline | `api.test.ts` |
+| Rate limit, and a concurrency cap on analyses | Verified offline, including over real sockets (F-01 fixed) | `api.test.ts`, `ollama.test.ts` |
+| Local inference stays on this machine: loopback address only, cloud names refused, and a remote or non-vision model receives no image | Verified offline with mocked HTTP | `ollama.test.ts` |
+| Host is allow-listed on every request. Origin is allow-listed on writes, and `null` origins and cross-site fetches are refused, so a spoofed Host cannot excuse a bad Origin (ADR-071) | Verified offline | `ollama.test.ts` |
+| Uploads wait for runtime information, so a warning cannot fail open (F-03 fixed) | Verified offline | `app.test.tsx` |
 | `x-forwarded-for` is ignored unless `TRUST_PROXY=true`, so clients cannot forge their way past the limit | Verified offline | `api.test.ts` |
 | Content-Security-Policy with no `unsafe-inline`, plus `nosniff` and `no-referrer` | Verified | `api.test.ts`, and a console check in real Chrome in `e2e/app.spec.ts` |
 | Logs drop keys, tokens, image data, and model text | Verified offline | `providers.test.ts` |
-| Provider error bodies are not repeated | Verified offline | `providers.test.ts` |
+| Provider error bodies are not repeated, and the upload name is never returned | Verified offline | `providers.test.ts`, `ollama.test.ts` |
 | Internal error details never reach clients | Verified offline | `api.test.ts` |
 | Model output is rendered as text, and the web app uses no raw HTML | Implemented | No `dangerouslySetInnerHTML` in `apps/web/src` |
 | Links shown come only from stored records, and must be `https` | Verified offline | `references.test.ts` |
@@ -54,7 +57,6 @@ Local use is the only supported mode. These are not done, and deployment is not 
 | Gap | Why it matters |
 |---|---|
 | No authentication | Anyone who can reach the server can use it |
-| No cross-site request protection on uploads | With a real provider running locally, another website could trigger paid calls from the user's browser. It could not read the response |
 | No daily spending budget in the application | Rate limits do not protect the wallet. Use a provider key limit |
 | The rate limiter lives in memory, and all direct clients share one bucket | Adequate for one local user only. Behind a proxy, set `TRUST_PROXY=true` and use one instance |
 | No CI, secret scanning, or automated dependency checks | These checks were run by hand |
@@ -62,6 +64,8 @@ Local use is the only supported mode. These are not done, and deployment is not 
 | Web server static paths and TLS were not reviewed for internet exposure | The server is meant for loopback |
 
 ## Data retention
+
+Research cases are the exception to the points below. A case keeps a re-encoded image, with metadata removed, plus its readings and history, unencrypted in `PALEON_DATA_DIR`, until a person deletes it (ADR-073). Case IDs must be UUIDs before they reach a path. Approved examples hold a reduced 24 × 24 ink pattern of a sign, and are deleted with their case.
 
 | Data | Experiment | Product MVP (Implemented) |
 |---|---|---|
@@ -74,7 +78,7 @@ Nothing is shared between users, because there are no accounts or server-side hi
 
 ## Third-party inference risks
 
-In demo mode nothing leaves the machine. If a real provider is enabled, images are sent to a third-party model host, and the upload page warns the user first. **This has never been enabled.**
+In demo mode and local mode, images stay on this machine. Ollama cloud models run through the same local server, so start Ollama with `OLLAMA_NO_CLOUD=1`, and the adapter also refuses them. If an external provider is enabled, images are sent to a third-party model host, and the upload page warns the user first. **This has never been enabled.**
 
 | Risk | Mitigation | Status |
 |---|---|---|
@@ -95,7 +99,7 @@ In demo mode nothing leaves the machine. If a real provider is enabled, images a
 
 ## Responsible use
 
-ScriptEcho is not an authentication, dating, or valuation tool, and the interface and README say so. Some inscriptions are culturally sensitive, and a model's reading of them may be unwelcome or wrong.
+PALEON is not an authentication, dating, or valuation tool, and the interface and README say so. Some inscriptions are culturally sensitive, and a model's reading of them may be unwelcome or wrong.
 
 ## Reference material licensing
 

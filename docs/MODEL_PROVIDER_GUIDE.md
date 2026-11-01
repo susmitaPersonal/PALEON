@@ -1,6 +1,6 @@
 # Model Provider Integration Guide
 
-> **Version:** 0.1 | **Last updated:** 2026-11-01 | **Status:** Adapter Implemented and tested against a fake `fetch` only. **It has never contacted a real provider. Enabling it needs approval, because it sends images to a third party and costs money.**
+> **Version:** 0.2 | **Last updated:** 2026-11-02 | **Status:** External and local adapters Implemented, and tested against a fake `fetch` only. **Neither has analysed a real image.** External use needs approval, because it sends images to a third party and costs money.
 
 ## The interface
 
@@ -10,8 +10,15 @@ Everything model-specific sits behind `ModelProvider` in [apps/api/src/providers
 |---|---|---|
 | `MockProvider` | `providers/mock.ts` | Default. Replays fixtures, and never reads image content |
 | `OpenAICompatibleProvider` | `providers/openaiCompatible.ts` | Disabled by default. For gateways with an OpenAI-style chat API |
+| `OllamaProvider` | `providers/ollama.ts` | Local inference on this computer. See [LOCAL_DEMO.md](LOCAL_DEMO.md) |
 
-## Enabling a real model
+## Local inference
+
+`MODEL_PROVIDER=ollama` needs `OLLAMA_MODEL`, and no key or external switch. The server refuses to start with a non-loopback `OLLAMA_BASE_URL` or a cloud model name. Before each image, the provider calls `/api/show`, and it sends nothing unless the model is installed, lists `vision`, and has no remote host. A failure stops the analysis, and it never falls back to the mock.
+
+The adapter uses `node:http` and streams the reply, because `fetch` gives up after 300 s without headers. A stream with no final `done` chunk is never a result. Thinking is turned off for models that list it, because a thinking model can spend all its tokens and return empty content. That was observed on Ollama 0.40.3 with a text model. A reply ending with `done_reason` `length` fails at once.
+
+## Enabling an external model
 
 Two separate settings are required, so that this cannot happen by accident.
 
@@ -45,7 +52,7 @@ Never put error bodies from a provider in messages or logs, because they can ech
 | Situation | Behaviour |
 |---|---|
 | Attempt takes too long | Aborted after `MODEL_TIMEOUT_MS`, and retried if allowed |
-| Whole request takes too long | Stopped at `ANALYSIS_DEADLINE_MS`, returning 504 |
+| Whole request takes too long | Stopped at `ANALYSIS_DEADLINE_MS`, returning 504. This now includes retry waits, which are capped at 30 s |
 | Timeout, rate limit, or outage | Retried up to `MODEL_MAX_RETRIES`, honouring `retry-after` |
 | Credit, authorization, or request error | Not retried, returning 503 |
 | Malformed output | One repair retry, then 502 |

@@ -1,6 +1,6 @@
 # AI Architecture
 
-> **Version:** 0.3 | **Last updated:** 2026-11-01 | **Status:** Mixed. See the table below. Product code is Implemented and tested with fixtures, which says nothing about any model.
+> **Version:** 0.4 | **Last updated:** 2026-11-01 | **Status:** Mixed. See the table below. Product code is Implemented and tested with fixtures, which says nothing about any model.
 
 Related: [MODEL_EVALUATION.md](MODEL_EVALUATION.md), [MODEL_COMPARISON.md](MODEL_COMPARISON.md), [DATASET_STRATEGY.md](DATASET_STRATEGY.md), [DECISIONS.md](DECISIONS.md)
 
@@ -16,9 +16,9 @@ Related: [MODEL_EVALUATION.md](MODEL_EVALUATION.md), [MODEL_COMPARISON.md](MODEL
 | Output validation | Verified offline | Verified offline in Zod | `schema.py`, `validation.py`, `packages/contracts` |
 | Image normalization | Verified offline through `LocalImageSource`. Unused so far, because no real image exists | Verified offline | `preprocess.py`, `images.py`, `intake.ts` |
 | Language identification | Not in scope | Not planned for the MVP | The field stays `null` |
-| OCR and transcription | Forbidden by the prompt | Could-have, Latin and Greek only | Needs measured CER |
-| Transliteration | Not in scope | Not planned for the MVP | Needs per-script sign lists |
-| Translation | Forbidden by the prompt | Not planned for the MVP | Reported as unavailable |
+| OCR and transcription | Forbidden by the prompt | No model transcribes. Research cases hold readings confirmed by a person (ADR-072) | Automatic reading needs measured CER |
+| Transliteration | Not in scope | Rule-based, in research cases. Verified offline | Inventories are unreviewed |
+| Translation | Forbidden by the prompt | Glosses from a sourced lexicon, no sentences (ADR-075). Unavailable in the quick analysis | Latin seed only, Unverified |
 | Historical knowledge retrieval | Not in scope | Verified offline | Structured lookup by script ID |
 | Two-stage Observe and Hypothesize | Not tested | Not built | ADR-002 stays Proposed. See ADR-054 |
 | Evidence strength | Not in scope | Verified offline on adversarial fixtures | ADR-065. Strong needs sourced matches. See [API.md](API.md) |
@@ -54,12 +54,12 @@ The dispositions are `identified`, `insufficient_evidence`, `outside_supported_s
 ## Product pipeline as built (Implemented)
 
 1. **Intake** validates and re-encodes the image in memory.
-2. **Provider call** makes one request, using `apps/api/prompts/script_analysis_v1.md` and a strict schema.
+2. **Provider call** makes one request with a strict schema, using `apps/api/prompts/script_analysis_v1.md`, or v2 for local inference.
 3. **Validation** applies Zod. Invalid output gets one repair retry, then a 502.
-4. **Verification** removes statements that look like dates, links, citations, or percentages, keeps as evidence only unique visual statements that do not name the candidate, refuses contradictory output, compares direction with the sourced record, and computes evidence strength (ADR-065).
+4. **Verification** removes any statement with a word outside the reviewed vocabulary (ADR-070), keeps as evidence only unique visual statements that do not name the candidate, refuses contradictory output, compares direction with the sourced record, and computes evidence strength (ADR-065).
 5. **Reference lookup** happens separately, from stored records, and the interface labels it "From the sources".
 
-The model output schema has no field for a date, source, URL, or confidence. The filters on free text are a backstop: they classify the form of a statement, and they can miss history mixed with a visual word. So the interface labels all model text as unverified AI observation.
+The model output schema has no field for a date, source, URL, or confidence. The vocabulary rule fails closed, so names, places, and readings are removed. It checks words, not truth, so a false statement in reviewed words can pass. So the interface labels all model text as unverified AI observation.
 
 Evidence strength does not show that evidence is true. Model text alone can reach moderate at most. Strong needs 2 confirmed sourced traits, and only direction can be confirmed today, so no result can be strong. It is not calibrated, and it has never been tested against real output.
 

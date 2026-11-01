@@ -225,7 +225,7 @@ Estimates are judgments, not measurements. A "day" of effort means 6 focused hou
 **Status: partial**
 
 - **Evidence:** uploads stay in memory, metadata is stripped, nothing is stored, sensitive log fields are dropped, and real inference needs two settings. Demo mode sends nothing out, but it also runs no model.
-- **Missing:** a local inference path. No Ollama, llama.cpp, or LM Studio is installed. Any real use today sends images to a third party. `ALLOW_EXTERNAL_INFERENCE` is also required for a local endpoint, which misdescribes it. Provider data policies are unread.
+- **Missing:** a local inference path. No local vision model is installed. Ollama is present, with text-only models. (Corrected on 2026-11-02.) Any real use today sends images to a third party. `ALLOW_EXTERNAL_INFERENCE` is also required for a local endpoint, which misdescribes it. Provider data policies are unread.
 - **Why it matters:** Deis and Second Look both make privacy a reason to use open models. For unpublished finds, location and imagery can be sensitive, so a cataloguer has a real need.
 - **Recommended:** document a local route through the existing OpenAI-compatible adapter. Separate "local endpoint" from "external endpoint" in configuration, and add an egress check like the one in Deis.
 - **Effort:** 1 to 2 days, including testing.

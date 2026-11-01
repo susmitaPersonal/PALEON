@@ -8,7 +8,7 @@ This document is the maintained version of the design. [ARCHITECTURE.md](ARCHITE
 
 ## As built: product MVP
 
-Runs locally with a mock provider. No real model has been called.
+Runs locally with a mock provider by default. A local Ollama provider is Implemented, and no real model has been called.
 
 ```mermaid
 flowchart TD
@@ -18,6 +18,7 @@ flowchart TD
     Analysis --> Provider{"ModelProvider"}
     Provider --> Mock["mock<br/>Default, fixtures"]
     Provider -.->|"Two settings. Never enabled"| Real["openai-compatible<br/>Tested with fake fetch"]
+    Provider -.->|"Loopback only. Not yet run"| Local["ollama<br/>Tested with mocked HTTP"]
     Analysis --> Verify["services/verify<br/>Deterministic checks"]
     App --> Ref["services/references"]
     Ref --> Know["knowledge/<br/>Validated JSON"]
@@ -30,7 +31,7 @@ flowchart TD
 | Contracts | `packages/contracts` | Schemas shared by API and web. Script IDs are data, not an enum |
 | Routes | `apps/api/src/app.ts` | Envelopes, request IDs, headers, limits |
 | Intake | `services/intake.ts` | Content sniffing, decoding, re-encoding |
-| Analysis | `services/analysis.ts` | One provider call, with retries, a deadline, and one repair attempt |
+| Analysis | `services/analysis.ts` | One provider call, with retries, a deadline, cancellation, and one repair attempt |
 | Verify | `services/verify.ts` | Removes history and links, checks scripts, rates evidence |
 | References | `services/references.ts` | Records, sources, and comparisons |
 | Reference collection | `knowledge/` | Six records and 8 sources, validated at startup |
@@ -64,7 +65,7 @@ flowchart LR
 | Backend | Node.js, Hono, TypeScript | Approved; Implemented |
 | Validation | Zod | Approved; Implemented |
 | Testing | Vitest, Testing Library, Playwright with installed Chrome | Approved; Implemented |
-| Model access | Mock by default. OpenAI-compatible adapter behind `ModelProvider`, never run for real | Implemented |
+| Model access | Mock by default. OpenAI-compatible and local Ollama adapters behind `ModelProvider`, never run for real | Implemented |
 | Historical knowledge | Versioned JSON in Git, no database | Implemented |
 | Deployment | One Render service | Proposed, not authorized |
 
@@ -154,7 +155,9 @@ sequenceDiagram
     W-->>U: Observations, candidates, sources, uncertainty
 ```
 
-The system is stateless. Images exist in memory for the length of a request, and the full result returns in one response. No job store is needed.
+`POST /analyses` is stateless: images exist in memory for the length of a request. Research cases are the one exception, and persist in `PALEON_DATA_DIR` only when a person creates one (ADR-073). No job store is needed.
+
+**Research path (ADR-072):** `apps/api/src/research/` holds separate layers: `vision.ts` (rule-based quality and boxes), `suggestions.ts` (approved examples), `transliteration.ts` (rules), `translation.ts` (lexicon lookup), `report.ts`, `evaluation.ts`, and `store.ts`. Data lives in `knowledge/sign_inventories/` and `knowledge/languages/`.
 
 ## API design (earlier design, see API.md)
 
