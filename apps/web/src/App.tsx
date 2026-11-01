@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
+import { CasePage } from "./pages/CasePage";
+import { CasesPage } from "./pages/CasesPage";
 import { ComparePage } from "./pages/ComparePage";
 import { HomePage } from "./pages/HomePage";
 import { InvestigatePage } from "./pages/InvestigatePage";
@@ -16,6 +18,8 @@ export function App() {
         <Route index element={<HomePage />} />
         <Route path="investigate" element={<InvestigatePage />} />
         <Route path="results" element={<ResultsPage />} />
+        <Route path="cases" element={<CasesPage />} />
+        <Route path="cases/:id" element={<CasePage />} />
         <Route path="scripts" element={<ScriptsPage />} />
         <Route path="scripts/:id" element={<ScriptDetailPage />} />
         <Route path="compare" element={<ComparePage />} />

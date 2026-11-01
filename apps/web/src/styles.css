@@ -110,3 +110,21 @@ th, td { text-align: left; vertical-align: top; padding: .45rem .6rem; border-bo
   .fact-row { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+.case-form { display: grid; gap: .6rem; max-width: 36rem; }
+.case-controls { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); margin-top: 1rem; }
+.section-space { margin-top: 2rem; }
+.workspace { display: grid; gap: 1.2rem; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); margin: 1.2rem 0; align-items: start; }
+.inscription { margin: 0; }
+.inscription svg { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: var(--surface); }
+.inscription svg.drawing { cursor: crosshair; touch-action: none; }
+.box { fill: transparent; stroke: var(--ai-line); stroke-width: 2; vector-effect: non-scaling-stroke; cursor: pointer; }
+.box-certain { stroke: var(--strong); }
+.box-uncertain, .box-damaged { stroke: var(--moderate); }
+.box-illegible, .box-unknown_sign { stroke: var(--weak); }
+.box-selected { stroke: var(--accent); stroke-width: 4; }
+.sign-editor { display: grid; gap: .5rem; }
+.check { display: flex; gap: .5rem; align-items: center; }
+.reading { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 1.2rem; background: var(--paper); padding: .8rem; border: 1px solid var(--line); }
+.word-list { list-style: none; padding: 0; }
+.word-list > li { padding: .4rem 0; border-bottom: 1px solid var(--line); }
+@media (max-width: 52rem) { .workspace { grid-template-columns: minmax(0, 1fr); } }
