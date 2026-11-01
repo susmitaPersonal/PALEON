@@ -1,0 +1,25 @@
+# Frozen experiment settings. Any change after results exist is a new experiment.
+experiment: m0_feasibility
+split: dev
+repetitions: 3
+temperature: 0.0
+seed: 20261102
+preprocess:
+  version: v1
+  longest_edge: 2048
+  jpeg_quality: 92
+prompt:
+  version: eval_v1
+  path: prompts/eval_v1.md
+  sha256: 7240f44be2fd870fd2e596d5d317b10ca8ba18e4f8a408f2cac4da760775b902
+retries:
+  provider: 1
+  repair: 1
+# Preliminary engineering gates, fixed before any results exist.
+# Stored as fractions; required counts follow the actual denominator, rounded up.
+gates:
+  top1: {numerator: 1, denominator: 2}
+  top3: {numerator: 4, denominator: 5}
+  rejection: {numerator: 7, denominator: 10}
+  valid_after_retry: 0.90
+  reproducibility: 0.80

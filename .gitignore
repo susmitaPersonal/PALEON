@@ -1,0 +1,29 @@
+# Credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials*.json
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Downloaded images and raw datasets (never commit; hashes live in the manifest)
+experiments/*/data/
+*.tar
+*.tar.gz
+*.zip
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
+.vscode/

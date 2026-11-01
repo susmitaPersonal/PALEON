@@ -1,0 +1,22 @@
+# Prices are USD per million tokens from the 2026-11-01 catalog snapshot.
+# Stage D must re-check them, and they are used for estimates only.
+models:
+  qwen3_vl_30b:
+    base_url: https://openrouter.ai/api/v1
+    model: qwen/qwen3-vl-30b-a3b-instruct
+    api_key_env: OPENROUTER_API_KEY
+    response_format: json_schema
+    extra_body:
+      provider:
+        require_parameters: true
+        data_collection: deny
+    input_usd_per_mtok: 0.15
+    output_usd_per_mtok: 0.60
+  gemma4_31b:
+    base_url: https://router.huggingface.co/v1
+    model: google/gemma-4-31B-it:deepinfra
+    api_key_env: HF_TOKEN
+    response_format: json_schema
+    extra_body: {}
+    input_usd_per_mtok: 0.20
+    output_usd_per_mtok: 0.40
