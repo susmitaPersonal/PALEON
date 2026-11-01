@@ -17,6 +17,6 @@ export default defineConfig({
     url: `http://127.0.0.1:${PORT}/health`,
     reuseExistingServer: false,
     timeout: 60_000,
-    env: { PORT: String(PORT), RATE_LIMIT_PER_MINUTE: "1000", LOG_LEVEL: "warn", MODEL_PROVIDER: "mock" },
+    env: { PORT: String(PORT), RATE_LIMIT_PER_MINUTE: "1000", LOG_LEVEL: "warn", MODEL_PROVIDER: "mock", PALEON_DATA_DIR: "test-results/paleon-data" },
   },
 });

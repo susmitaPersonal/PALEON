@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { serve } from "@hono/node-server";
@@ -7,6 +7,8 @@ import { createApp } from "./app";
 import { loadConfig } from "./config";
 import { createLogger } from "./logger";
 import { createProvider } from "./providers";
+import { loadInventories, loadLanguages, ResearchKnowledge } from "./research/knowledge";
+import { CaseStore } from "./research/store";
 import { AnalysisService } from "./services/analysis";
 import { loadPrompt } from "./services/prompt";
 import { loadCollection, ReferenceService } from "./services/references";
@@ -21,14 +23,22 @@ if (existsSync(envFile)) process.loadEnvFile(envFile);
 
 const config = loadConfig();
 const logger = createLogger(config.logLevel);
-const references = new ReferenceService(loadCollection(resolve(REPOSITORY_ROOT, "knowledge")));
-const prompt = loadPrompt(resolve(API_ROOT, "prompts/script_analysis_v1.md"), references.scriptIds());
+const knowledgeDirectory = resolve(REPOSITORY_ROOT, "knowledge");
+const collection = loadCollection(knowledgeDirectory);
+const references = new ReferenceService(collection);
+const researchKnowledge = new ResearchKnowledge(loadInventories(knowledgeDirectory), loadLanguages(knowledgeDirectory), references.scriptIds(), collection.sources.map((source) => source.id));
+// Real local inference uses v3. v1 never reached a model, and v2 led the model to copy its example words.
+const promptFile = config.provider === "ollama" ? "script_analysis_v3.md" : "script_analysis_v1.md";
+const prompt = loadPrompt(resolve(API_ROOT, "prompts", promptFile), references.scriptIds());
 const provider = createProvider(config, resolve(API_ROOT, "fixtures/mock"));
 const analysis = new AnalysisService(provider, references, prompt, logger, {
   deadlineMs: config.analysisDeadlineMs, attemptTimeoutMs: config.modelTimeoutMs, maxRetries: config.modelMaxRetries,
-  experimentId: config.experimentId,
+  experimentId: config.experimentId, rawOutputDir: config.rawOutputDir ? resolve(REPOSITORY_ROOT, config.rawOutputDir) : null,
 });
-const app = createApp({ config, logger, provider, references, analysis, promptVersion: prompt.version });
+const dataDirectory = resolve(REPOSITORY_ROOT, config.dataDir);
+mkdirSync(dataDirectory, { recursive: true });
+const app = createApp({ config: { ...config, dataDir: dataDirectory }, logger, provider, references, analysis, promptVersion: prompt.version,
+  research: { store: new CaseStore(dataDirectory), knowledge: researchKnowledge } });
 
 const webDist = resolve(REPOSITORY_ROOT, config.webDist || "apps/web/dist");
 if (existsSync(webDist)) {
@@ -38,5 +48,5 @@ if (existsSync(webDist)) {
 }
 
 serve({ fetch: app.fetch, port: config.port, hostname: "127.0.0.1" }, ({ port }) => {
-  logger.info("server_started", { port, provider: provider.id, simulated: provider.simulated });
+  logger.info("server_started", { port, provider: provider.id, inferenceMode: provider.inferenceMode });
 });

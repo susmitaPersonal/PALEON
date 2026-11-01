@@ -35,6 +35,9 @@ experiments/m0_feasibility/results/synthetic/
 experiments/m0_feasibility/results/preflight/
 experiments/m0_feasibility/results/live/
 
+# Research cases and their images stay on this machine
+.paleon/
+
 # Node
 node_modules/
 dist/
