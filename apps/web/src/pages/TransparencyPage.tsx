@@ -1,12 +1,19 @@
+import type { InferenceMode } from "@scriptecho/contracts";
 import { ErrorNotice, Loading } from "../components/Feedback";
 import { useApp } from "../state/AppContext";
+
+const MODE_TEXT: Record<InferenceMode, string> = {
+  simulated: "Demo mode: simulated fixtures",
+  local: "Genuine inference by a local model on this computer",
+  external: "Third-party model inference",
+};
 
 export function TransparencyPage() {
   const { runtime } = useApp();
   return (
     <div className="page page-narrow">
       <h1>Research transparency</h1>
-      <p className="lead">What ScriptEcho knows, how it knows it, and what has not been tested.</p>
+      <p className="lead">What PALEON knows, how it knows it, and what has not been tested.</p>
 
       <section aria-labelledby="runtime-heading">
         <h2 id="runtime-heading">Current configuration</h2>
@@ -14,9 +21,10 @@ export function TransparencyPage() {
         {runtime.error && <ErrorNotice message={runtime.error} onRetry={runtime.retry} />}
         {runtime.data && (
           <dl className="facts">
-            <div className="fact-row"><dt>Mode</dt><dd>{runtime.data.simulated ? "Demo mode: simulated fixtures" : "Model inference"}</dd></div>
+            <div className="fact-row"><dt>Mode</dt><dd>{MODE_TEXT[runtime.data.inferenceMode]}</dd></div>
             <div className="fact-row"><dt>Provider</dt><dd>{runtime.data.provider}</dd></div>
             <div className="fact-row"><dt>Model</dt><dd>{runtime.data.modelId}</dd></div>
+            {runtime.data.modelDetails && <div className="fact-row"><dt>Model details</dt><dd>{[runtime.data.modelDetails.family, runtime.data.modelDetails.parameterSize, runtime.data.modelDetails.quantization].filter(Boolean).join(", ")}</dd></div>}
             <div className="fact-row"><dt>Prompt version</dt><dd>{runtime.data.promptVersion}</dd></div>
             <div className="fact-row"><dt>Reference version</dt><dd>{runtime.data.referenceVersion}</dd></div>
             <div className="fact-row"><dt>External inference</dt><dd>{runtime.data.externalInferenceEnabled ? "Enabled" : "Disabled. No image leaves this machine"}</dd></div>
@@ -26,7 +34,7 @@ export function TransparencyPage() {
 
       <section aria-labelledby="demo-heading">
         <h2 id="demo-heading">What demo mode means</h2>
-        <p>In demo mode, ScriptEcho does not examine your image. It returns one of a few fixed example responses, so that the interface can be explored without a paid service. The same image always gets the same example. These are not findings about your image.</p>
+        <p>In demo mode, PALEON does not examine your image. It returns one of a few fixed example responses, so that the interface can be explored without a paid service. The same image always gets the same example. These are not findings about your image.</p>
       </section>
 
       <section aria-labelledby="sources-heading">
@@ -40,17 +48,17 @@ export function TransparencyPage() {
 
       <section aria-labelledby="evaluation-heading">
         <h2 id="evaluation-heading">Evaluation status</h2>
-        <p><strong>No real model has been evaluated, so ScriptEcho makes no accuracy claim.</strong> A development dataset of 34 accepted images and an offline harness exist. The dataset is a small convenience sample, it is not representative of historical writing systems worldwide, and most images come from one museum.</p>
+        <p><strong>No real model has been evaluated, so PALEON makes no accuracy claim.</strong> A development dataset of 34 accepted images and an offline harness exist. The dataset is a small convenience sample, it is not representative of historical writing systems worldwide, and most images come from one museum.</p>
       </section>
 
       <section aria-labelledby="capabilities-heading">
         <h2 id="capabilities-heading">Separate capabilities</h2>
-        <p>Identifying a script is not reading it. A script does not determine a language, and ScriptEcho does not transcribe, transliterate, or translate.</p>
+        <p>Identifying a script is not reading it. A script does not determine a language. The quick analysis does not transcribe, transliterate, or translate. In a research case, a person confirms each reading, rules produce the transliteration, and a sourced word list offers glosses. No model reads the text, and the glosses are not a translation.</p>
       </section>
 
       <section aria-labelledby="privacy-heading">
         <h2 id="privacy-heading">Your images</h2>
-        <p>Uploads are processed in memory and are not stored. Results stay in this browser tab, and they disappear when you leave or reload the page.</p>
+        <p>The quick analysis processes uploads in memory and does not store them, and its results disappear when you leave or reload the page. A research case is different: when you create one, its image and readings are saved on this machine until you delete them.</p>
       </section>
     </div>
   );

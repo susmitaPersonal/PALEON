@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import type { AnalysisResult, CandidateResult, DirectionCheck, EvidenceStrength, ModelObservations } from "@scriptecho/contracts";
+import type { AnalysisResult, CandidateResult, DirectionCheck, EvidenceStrength, InferenceMode, ModelObservations } from "@scriptecho/contracts";
 import { api } from "../api/client";
 import { useApi } from "../api/useApi";
 import { ComparisonView } from "./ComparisonView";
@@ -14,6 +14,12 @@ const HEADLINES: Record<AnalysisResult["status"], string> = {
   out_of_scope: "Outside the supported scripts",
   no_writing: "No writing detected",
 };
+const MODE_TEXT: Record<InferenceMode, string> = {
+  simulated: "Simulated fixture, not AI inference",
+  local: "Genuine local model inference, on this computer",
+  external: "Third-party model inference",
+};
+const RESULT_KICKER: Record<InferenceMode, string> = { simulated: "Simulated result", local: "Local model result", external: "Third-party model result" };
 const STRENGTH_TEXT: Record<EvidenceStrength, string> = { strong: "Strong evidence", moderate: "Moderate evidence", weak: "Weak evidence" };
 const DIRECTION_TEXT: Record<ModelObservations["direction"], string> = {
   left_to_right: "Left to right", right_to_left: "Right to left", boustrophedon: "Alternating (boustrophedon)", vertical: "Vertical", unclear: "Unclear",
@@ -112,10 +118,20 @@ function CandidateComparison({ candidates }: { candidates: CandidateResult[] }) 
   );
 }
 
+function exportReport(result: AnalysisResult) {
+  const report = { generatedBy: "PALEON", notice: "AI observations are unverified. No historical claim here comes from the model.", result };
+  const url = URL.createObjectURL(new Blob([JSON.stringify(report, null, 2)], { type: "application/json" }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `paleon-${result.analysisId}.json`;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
 function Provenance({ result }: { result: AnalysisResult }) {
   const { provenance } = result;
   const rows: [string, string][] = [
-    ["Mode", provenance.simulated ? "Simulated fixture, not AI inference" : "Model inference"],
+    ["Mode", MODE_TEXT[provenance.inferenceMode]],
     ["Provider", provenance.provider], ["Model", provenance.modelId], ["Model version", provenance.modelVersion ?? "Not reported"],
     ["Prompt version", provenance.promptVersion], ["Reference version", provenance.referenceVersion],
     ["Analysed at", new Date(provenance.analyzedAt).toLocaleString()], ["Attempts", String(provenance.attempts)],
@@ -125,9 +141,10 @@ function Provenance({ result }: { result: AnalysisResult }) {
   return (
     <section className="panel" aria-labelledby="provenance-heading">
       <h2 id="provenance-heading">How this result was produced</h2>
+      <button type="button" className="button button-quiet" onClick={() => exportReport(result)}>Download report (JSON)</button>
       <dl className="facts">{rows.map(([label, value]) => <div className="fact-row" key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
       <h3>Not attempted</h3>
-      <p>ScriptEcho does not identify language, transcribe, transliterate, or translate. These are separate tasks, and each needs its own evidence.</p>
+      <p>PALEON does not identify language, transcribe, transliterate, or translate. These are separate tasks, and each needs its own evidence.</p>
     </section>
   );
 }
@@ -139,7 +156,7 @@ export function Results({ result, previewUrl, fileName }: { result: AnalysisResu
       <section className="result-head" aria-labelledby="result-heading">
         <img src={previewUrl} alt={`Uploaded image: ${fileName}`} />
         <div>
-          <p className="panel-kicker">{result.provenance.simulated ? "Simulated result" : "Analysis result"}</p>
+          <p className="panel-kicker">{RESULT_KICKER[result.provenance.inferenceMode]}</p>
           <h1 id="result-heading" tabIndex={-1}>{HEADLINES[result.status]}</h1>
           {result.statusReason && <p>{result.statusReason}</p>}
           {result.recommendExpertReview && (

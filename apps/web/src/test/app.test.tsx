@@ -1,4 +1,4 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import axe from "axe-core";
 import { MemoryRouter } from "react-router-dom";
@@ -51,11 +51,102 @@ describe("demo mode", () => {
   });
 
   it("is hidden for a real provider, which warns about third parties instead", async () => {
-    runtimeInfo = { ...runtime, simulated: false, provider: "x", externalInferenceEnabled: true };
+    runtimeInfo = { ...runtime, simulated: false, inferenceMode: "external", provider: "x", externalInferenceEnabled: true };
     open("/investigate");
     expect(await screen.findByText(/sent to a third-party model provider/)).toBeInTheDocument();
     expect(screen.queryByRole("note")).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/Simulated scenario/)).not.toBeInTheDocument();
+  });
+});
+
+describe("local model mode (mocked API, no model runs)", () => {
+  const local: RuntimeInfo = { ...runtime, simulated: false, inferenceMode: "local", provider: "ollama", modelId: "qwen2.5vl:3b", modelStatus: "ready",
+    modelDetails: { family: "qwen25vl", parameterSize: "3.0B", quantization: "Q4_K_M" } };
+
+  it("says the image stays on this computer, with no demo or third-party notice", async () => {
+    runtimeInfo = local;
+    open("/investigate");
+    expect(await screen.findByRole("note")).toHaveTextContent("analysed on this computer by qwen2.5vl:3b");
+    expect(screen.queryByText(/third-party/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/simulated fixtures/)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(/Simulated scenario/)).not.toBeInTheDocument();
+  });
+
+  it.each([
+    ["server_unreachable", /not running/], ["model_not_installed", /not installed/], ["no_vision_support", /does not report image input/], ["not_local", /runs remotely/],
+  ] as const)("blocks analysis when the model status is %s", async (modelStatus, message) => {
+    runtimeInfo = { ...local, modelStatus };
+    open("/investigate");
+    expect(await screen.findByRole("alert")).toHaveTextContent(message);
+    expect(screen.getByRole("button", { name: "Analyse image" })).toBeDisabled();
+  });
+
+  it("shows genuine local provenance on results", async () => {
+    runtimeInfo = local;
+    const result = { ...analysis(), provenance: { ...analysis().provenance, simulated: false, inferenceMode: "local" as const, provider: "ollama", modelId: "qwen2.5vl:3b" } };
+    render(<MemoryRouter><AppProvider><Results result={result} previewUrl="blob:x" fileName="stone.png" /></AppProvider></MemoryRouter>);
+    expect(await screen.findByText("Local model result")).toBeInTheDocument();
+    expect(screen.getByText("Genuine local model inference, on this computer")).toBeInTheDocument();
+    expect(screen.queryByText("Simulated result")).not.toBeInTheDocument();
+  });
+
+  it("states the mode and model details on the transparency page", async () => {
+    runtimeInfo = local;
+    open("/transparency");
+    expect(await screen.findByText("Genuine inference by a local model on this computer")).toBeInTheDocument();
+    expect(screen.getByText("qwen25vl, 3.0B, Q4_K_M")).toBeInTheDocument();
+  });
+});
+
+describe("analysis controls", () => {
+  const upload = async () => {
+    open("/investigate");
+    await screen.findByRole("heading", { name: "New investigation" });
+    const input = document.querySelector("input[type=file]") as HTMLInputElement;
+    fireEvent.change(input, { target: { files: [new File(["x"], "stone.png", { type: "image/png" })] } });
+    fireEvent.click(await screen.findByRole("button", { name: "Analyse image" }));
+  };
+
+  it("shows real streamed progress, and a stream with no result is an error", async () => {
+    const lines = [{ type: "progress", progress: { stage: "analysing" } }, { type: "progress", progress: { stage: "generating", tokens: 7 } }];
+    let finish = () => {};
+    const stream = new ReadableStream<Uint8Array>({ start(controller) {
+      controller.enqueue(new TextEncoder().encode(lines.map((line) => `${JSON.stringify(line)}\n`).join("")));
+      finish = () => controller.close();
+    } });
+    const original = globalThis.fetch;
+    vi.stubGlobal("fetch", vi.fn(async (input: string, init?: RequestInit) => init?.method === "POST"
+      ? new Response(stream, { headers: { "content-type": "application/x-ndjson" } }) : original(input, init)));
+    await upload();
+    expect(await screen.findByRole("status")).toHaveTextContent("7 tokens so far");
+    expect(screen.getByRole("button", { name: "Cancel analysis" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Analysing" })).toBeDisabled();
+    finish();
+    expect(await screen.findByText(/could not reach its server/)).toBeInTheDocument();
+  });
+
+  it("cancels a running analysis, and aborts its request", async () => {
+    let seen: AbortSignal | undefined;
+    const original = globalThis.fetch;
+    vi.stubGlobal("fetch", vi.fn((input: string, init?: RequestInit) => {
+      if (init?.method !== "POST") return original(input, init);
+      seen = init.signal ?? undefined;
+      return new Promise((_, reject) => init.signal!.addEventListener("abort", () => reject(new DOMException("aborted", "AbortError"))));
+    }));
+    await upload();
+    fireEvent.click(await screen.findByRole("button", { name: "Cancel analysis" }));
+    expect(await screen.findByText("The analysis was cancelled.")).toBeInTheDocument();
+    expect(seen?.aborted).toBe(true);
+    expect(screen.getByRole("button", { name: "Analyse image" })).toBeEnabled();
+  });
+});
+
+describe("when runtime information cannot be read", () => {
+  it("blocks analysis, so a privacy warning cannot silently disappear", async () => {
+    failing = /runtime/;
+    open("/investigate");
+    expect(await screen.findByRole("alert")).toHaveTextContent(/configuration can be read/);
+    expect(screen.getByRole("button", { name: "Analyse image" })).toBeDisabled();
   });
 });
 
@@ -64,7 +155,7 @@ describe("home", () => {
     open("/");
     expect(await screen.findByRole("link", { name: "Brahmi" })).toBeInTheDocument();
     expect(screen.getByText(/no accuracy is claimed/)).toBeInTheDocument();
-    expect(screen.getByText(/does not transcribe, transliterate, or translate/)).toBeInTheDocument();
+    expect(screen.getByText(/quick analysis does not transcribe, transliterate, or translate/)).toBeInTheDocument();
     expect(await screen.findByText(/Planned evaluation also checks/)).toBeInTheDocument();
   });
 

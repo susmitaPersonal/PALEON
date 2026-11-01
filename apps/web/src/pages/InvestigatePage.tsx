@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type DragEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { DEMO_SCENARIOS, type DemoScenario } from "@scriptecho/contracts";
+import { DEMO_SCENARIOS, type AnalysisProgress, type DemoScenario, type ModelStatus } from "@scriptecho/contracts";
 import { api, ApiClientError } from "../api/client";
 import { ErrorNotice } from "../components/Feedback";
 import { useApp } from "../state/AppContext";
@@ -13,6 +13,19 @@ const SCENARIO_LABELS: Record<DemoScenario, string> = {
 
 type Chosen = { file: File; previewUrl: string };
 
+function progressText(progress: AnalysisProgress | null, local: boolean): string {
+  if (progress?.stage === "generating") return `The model is writing its answer: ${progress.tokens ?? 0} tokens so far`;
+  if (progress?.stage === "analysing") return local ? "The local model is examining the image. This can take many minutes" : "Running the analysis";
+  return "Validating the image";
+}
+
+const MODEL_STATUS_TEXT: Partial<Record<ModelStatus, string>> = {
+  server_unreachable: "The local model server is not running. Start Ollama, then reload this page.",
+  model_not_installed: "The configured local model is not installed.",
+  no_vision_support: "The configured local model does not report image input.",
+  not_local: "The configured model runs remotely, so images will not be sent to it.",
+};
+
 export function InvestigatePage() {
   const { runtime, setInvestigation } = useApp();
   const navigate = useNavigate();
@@ -21,10 +34,25 @@ export function InvestigatePage() {
   const [error, setError] = useState<string | null>(null);
   const [retryable, setRetryable] = useState(false);
   const [working, setWorking] = useState(false);
+  const [progress, setProgress] = useState<AnalysisProgress | null>(null);
+  const [elapsed, setElapsed] = useState(0);
+  const cancel = useRef<AbortController | null>(null);
   const [dragging, setDragging] = useState(false);
   const [scenario, setScenario] = useState<DemoScenario>("auto");
   const kept = useRef(false);
   const maxBytes = runtime.data?.maxUploadBytes ?? 8 * 1024 * 1024;
+  // Warnings depend on this information, so uploads wait for it rather than failing open.
+  const blocked = !runtime.data ? (runtime.error ? "Analysis is unavailable until the server configuration can be read." : null)
+    : runtime.data.modelStatus in MODEL_STATUS_TEXT ? MODEL_STATUS_TEXT[runtime.data.modelStatus]! : null;
+
+  useEffect(() => {
+    if (!working) return undefined;
+    const timer = setInterval(() => setElapsed((seconds) => seconds + 1), 1000);
+    return () => clearInterval(timer);
+  }, [working]);
+
+  // Leaving the page stops the analysis, so a local model does not keep running for nobody.
+  useEffect(() => () => cancel.current?.abort(), []);
 
   useEffect(() => () => { if (chosen && !kept.current) URL.revokeObjectURL(chosen.previewUrl); }, [chosen]);
 
@@ -45,15 +73,20 @@ export function InvestigatePage() {
   };
 
   const submit = async () => {
-    if (!chosen) return;
+    if (!chosen || working) return;
+    const controller = new AbortController();
+    cancel.current = controller;
+    setProgress(null);
+    setElapsed(0);
     setWorking(true);
     setError(null);
     try {
-      const result = await api.analyze(chosen.file, runtime.data?.simulated ? scenario : undefined);
+      const result = await api.analyze(chosen.file, runtime.data?.simulated ? scenario : undefined, controller.signal, setProgress);
       kept.current = true;
       setInvestigation({ result, previewUrl: chosen.previewUrl, fileName: chosen.file.name });
       navigate("/results");
     } catch (failure) {
+      if (controller.signal.aborted && !cancel.current) return;
       setError(failure instanceof ApiClientError ? failure.message : "Something went wrong.");
       setRetryable(failure instanceof ApiClientError && failure.error.retryable);
       setWorking(false);
@@ -64,9 +97,10 @@ export function InvestigatePage() {
     <div className="page page-narrow">
       <h1>New investigation</h1>
       <p className="lead">Upload a clear photograph, cropped as close to the writing as you can.</p>
-      {runtime.data && !runtime.data.simulated && (
+      {runtime.data?.inferenceMode === "external" && (
         <p className="notice notice-warning">Your image will be sent to a third-party model provider. Do not upload private or sensitive material.</p>
       )}
+      {blocked && <p className="notice notice-warning" role="alert">{blocked}</p>}
 
       <label className={`dropzone${dragging ? " dropzone-active" : ""}`} onDrop={onDrop}
         onDragOver={(event) => { event.preventDefault(); setDragging(true); }} onDragLeave={() => setDragging(false)}>
@@ -93,10 +127,11 @@ export function InvestigatePage() {
       )}
 
       {error && <ErrorNotice message={error} onRetry={retryable ? submit : undefined} />}
-      {working && <p className="status-line" role="status">Validating the image and running the analysis</p>}
+      {working && <p className="status-line" role="status">{progressText(progress, runtime.data?.inferenceMode === "local")}{` (${elapsed} s)`}</p>}
 
       <div className="actions">
-        <button type="button" className="button" disabled={!chosen || working} onClick={submit}>{working ? "Analysing" : "Analyse image"}</button>
+        <button type="button" className="button" disabled={!chosen || working || blocked !== null} onClick={submit}>{working ? "Analysing" : "Analyse image"}</button>
+        {working && <button type="button" className="button button-quiet" onClick={() => cancel.current?.abort()}>Cancel analysis</button>}
         {chosen && !working && <button type="button" className="button button-quiet" onClick={() => { setChosen(null); setError(null); input.current?.focus(); }}>Remove image</button>}
       </div>
     </div>

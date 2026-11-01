@@ -1,7 +1,7 @@
 import type { AnalysisResult, Comparison, RuntimeInfo, ScriptDetail, ScriptSummary, SourceRecord } from "@scriptecho/contracts";
 
 export const runtime: RuntimeInfo = {
-  provider: "mock", modelId: "scriptecho-mock", simulated: true, externalInferenceEnabled: false, promptVersion: "script_analysis_v1",
+  provider: "mock", modelId: "scriptecho-mock", simulated: true, inferenceMode: "simulated", modelStatus: "not_checked", modelDetails: null, externalInferenceEnabled: false, promptVersion: "script_analysis_v1",
   referenceVersion: "2026-11-01", maxUploadBytes: 1024 * 1024, acceptedFormats: ["jpeg", "png", "webp"], maxCandidates: 3,
   rejectionClasses: ["Cuneiform", "Egyptian hieroglyphs", "No writing"],
 };
@@ -46,7 +46,7 @@ export function analysis(overrides: Partial<AnalysisResult> = {}): AnalysisResul
     unsupportedScriptIds: [], removedStatements: 0, recommendExpertReview: true,
     capabilities: { scriptIdentification: "available", languageIdentification: "unavailable", transcription: "unavailable", transliteration: "unavailable", translation: "unavailable" },
     image: { width: 100, height: 80, format: "png", processedBytes: 1000 },
-    provenance: { simulated: true, provider: "mock", modelId: "scriptecho-mock", modelVersion: "fixture-v1", promptVersion: "script_analysis_v1", promptSha256: "a".repeat(64), referenceVersion: "2026-11-01", experimentId: null, analyzedAt: "2026-11-01T00:00:00.000Z", latencyMs: 3, attempts: 1, inputTokens: null, outputTokens: null, estimatedCostUsd: null },
+    provenance: { simulated: true, inferenceMode: "simulated", provider: "mock", modelId: "scriptecho-mock", modelVersion: "fixture-v1", promptVersion: "script_analysis_v1", promptSha256: "a".repeat(64), referenceVersion: "2026-11-01", experimentId: null, analyzedAt: "2026-11-01T00:00:00.000Z", latencyMs: 3, attempts: 1, inputTokens: null, outputTokens: null, estimatedCostUsd: null },
     ...overrides,
   };
 }

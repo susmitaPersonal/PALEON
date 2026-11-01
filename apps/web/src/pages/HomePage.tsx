@@ -12,7 +12,7 @@ export function HomePage() {
       <section className="hero">
         <p className="eyebrow">Evidence before explanation</p>
         <h1>Investigate an unfamiliar inscription</h1>
-        <p className="lead">ScriptEcho reports what is visible in an image, names up to three candidate writing systems with the evidence for and against each, and links them to sourced reference records. When an image does not support a conclusion, it says so.</p>
+        <p className="lead">PALEON reports what is visible in an image, names up to three candidate writing systems with the evidence for and against each, and links them to sourced reference records. When an image does not support a conclusion, it says so.</p>
         <Link className="button" to="/investigate">Start an investigation</Link>
       </section>
 
@@ -28,7 +28,7 @@ export function HomePage() {
         <section>
           <h2>What it does not do</h2>
           <ul>
-            <li>It does not transcribe, transliterate, or translate.</li>
+            <li>The quick analysis does not transcribe, transliterate, or translate. Research cases help a person do that, with every reading labelled.</li>
             <li>It does not identify the language of a text.</li>
             <li>It shows no percentages, because model confidence is not a calibrated probability.</li>
             <li>It has not been evaluated on a real model, so no accuracy is claimed.</li>
