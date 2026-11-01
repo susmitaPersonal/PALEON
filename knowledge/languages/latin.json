@@ -1,0 +1,26 @@
+{
+  "id": "latin",
+  "name": "Latin",
+  "scriptIds": ["latin"],
+  "sources": [
+    {"id":"wiktionary-en","title":"Wiktionary, the free dictionary, English edition, Latin sections","publisher":"Wikimedia Foundation","year":2026,"url":"https://en.wiktionary.org/wiki/Wiktionary:Main_Page","accessedOn":"2026-11-02","accessMethod":"search_excerpt","reuseNote":"Short glosses, under CC BY-SA 4.0. Read through a fetch tool's extract, not by a person, and not a scholarly lexicon."}
+  ],
+  "entries": [
+    {"id":"manes","lemma":"mānēs","forms":["manes","manium","manibus","manis"],"partOfSpeech":"noun, masculine plural","gloss":"souls or spirits of the dead, shades","sourceIds":["wiktionary-en"],"locator":"Entry manes, Latin section"},
+    {"id":"deus","lemma":"deus","forms":["deus","dis","diis","deis"],"partOfSpeech":"noun, masculine","gloss":"god, deity","sourceIds":["wiktionary-en"],"locator":"Entry deus, Latin section, declension table"},
+    {"id":"vivo","lemma":"vīvō","forms":["vivo","vixit"],"partOfSpeech":"verb","gloss":"to live","sourceIds":["wiktionary-en"],"locator":"Entry vivo, Latin section, conjugation table"},
+    {"id":"annus","lemma":"annus","forms":["annus","anni","annos","annis"],"partOfSpeech":"noun, masculine","gloss":"year","sourceIds":["wiktionary-en"],"locator":"Entry annus, Latin section, declension table"},
+    {"id":"filius","lemma":"fīlius","forms":["filius","filii","fili","filio","filium","filie"],"partOfSpeech":"noun, masculine","gloss":"a son","sourceIds":["wiktionary-en"],"locator":"Entry filius, Latin section, declension table"},
+    {"id":"pater","lemma":"pater","forms":["pater","patris","patri","patrem","patre"],"partOfSpeech":"noun, masculine","gloss":"father","sourceIds":["wiktionary-en"],"locator":"Entry pater, Latin section, declension table"},
+    {"id":"hic-determiner","lemma":"hic","forms":["hic"],"partOfSpeech":"determiner or pronoun","gloss":"this; this one; he, she, it","sourceIds":["wiktionary-en"],"locator":"Entry hic, Latin section, Etymology 1"},
+    {"id":"hic-adverb","lemma":"hīc","forms":["hic"],"partOfSpeech":"adverb","gloss":"here, in or at this place","sourceIds":["wiktionary-en"],"locator":"Entry hic, Latin section, Etymology 2"},
+    {"id":"situs-participle","lemma":"situs","forms":["situs"],"partOfSpeech":"participle of sinō","gloss":"permitted, allowed, suffered","sourceIds":["wiktionary-en"],"locator":"Entry situs, Latin section, Etymology 1"},
+    {"id":"situs-position","lemma":"situs","forms":["situs"],"partOfSpeech":"noun, masculine","gloss":"manner of lying; situation, position, or site","sourceIds":["wiktionary-en"],"locator":"Entry situs, Latin section, Etymology 2"},
+    {"id":"situs-decay","lemma":"situs","forms":["situs"],"partOfSpeech":"noun, masculine","gloss":"decay, rust, mould, dust","sourceIds":["wiktionary-en"],"locator":"Entry situs, Latin section, Etymology 3"},
+    {"id":"sum-est","lemma":"sum","forms":["est"],"partOfSpeech":"verb","gloss":"third-person singular present of sum, to be","sourceIds":["wiktionary-en"],"locator":"Entry est, Latin section, Etymology 1"}
+  ],
+  "limitations": [
+    "A demonstration seed of 12 entries from a general reference work. It is not a scholarly lexicon, and no expert has reviewed it.",
+    "Epigraphic abbreviations are not expanded, so a formula cut to a few letters finds no match."
+  ]
+}
