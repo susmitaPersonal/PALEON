@@ -1,6 +1,6 @@
 # Session Handover
 
-> **Version:** 1.8 | **Last updated:** 2026-11-02, catalog report change committed locally
+> **Version:** 1.10 | **Last updated:** 2026-11-02, first real local image check passed on generated images
 
 Update this document at the end of every substantial session, with observed results only. Older entries move to the session log at the bottom.
 
@@ -17,7 +17,7 @@ ScriptEcho helps people investigate unfamiliar historical scripts from images, r
 | Area | Status |
 |---|---|
 | Web app and API | Implemented; Verified by `npm test` and live runs of `npm start` and `npm run dev` |
-| Provider | Mock by default. Real adapter tested with a fake `fetch` only |
+| Provider | Mock by default. External and local Ollama adapters tested with a fake `fetch` only |
 | Product verifier | Hardened (ADR-065). Verified offline against the 13 adversarial cases. Never seen real model output |
 | Reference collection | 6 records, 8 sources, 32 citations all resolve. Source-checked by a non-specialist, no expert review |
 | Offline harness | Implemented; Verified offline on synthetic fixtures |
@@ -37,7 +37,13 @@ ScriptEcho helps people investigate unfamiliar historical scripts from images, r
 | SE009 | Excluded | Signs cannot be separated from speckle |
 | SE028 | Excluded | No recognisable writing |
 
+## Latest: research cases
+
+**Read [PALEON_MASTER_PROGRESS.md](PALEON_MASTER_PROGRESS.md) first.** It supersedes older statements here that no model result exists. On 2026-11-02 the owner issued a development mandate, then approved 23 commits and a push. That approval covers those commits only. A person-confirmed reading path is Implemented and Verified offline on generated images: 915 tests passed. The automatic sign finder failed on 6 of 6 real images, and a second session's local model runs got 1 of 6 in-scope images right at rank 1. **Stage D's approved hash must be renewed, because HEAD moved.** Stages D and E stay unauthorized.
+
 ## Exact next action
+
+**Local inference comes first (ADR-069).** The owner chose to add a local vision model through Ollama. It is Implemented and uncommitted. The owner approved downloading `qwen2.5vl:3b` and a test on generated images only. **`local:image-check` passed 3 of 3 on 512 px generated images, taking 100 to 138 s each. No inscription has been analysed, and the PALEON pipeline has not run on a real model.** Results are in [experiments/local_vlm](../experiments/local_vlm/README.md). **Known defect, not fixed, and now blocking:** a second session sent one generated image through the real API, adapter, and model with `local.env` settings, and got HTTP 503 after 307 s. The API log shows kind `unavailable` on attempt 1, which fits the 300 s default header limit on a non-streaming request. **So the PALEON pipeline has never returned a model result.** That audit also reports that a cross-origin POST with a spoofed Host header was accepted. **Disk fell to 2.8 GiB as swap grew, so free disk before any more inference.** Ollama was stopped afterwards, leaving 2.9 GiB free. That session also reports that the owner asked it to hold changes for a remediation plan, so confirm this before changing code. The next step needs the owner to decide that, then approve one inscription test. M0 is unchanged and paused. The notes below describe that paused path.
 
 **Wait for explicit approval.** The freeze commit is `67de8e71b119620a296fd3664d81de1f9e9aa0d9`. Stage D is prepared and has not run. The preparation is commit `285d91da9aad818b132ca362d9d146b57a5990e0`, the direct child of the freeze commit. **The catalog report change is committed locally as the direct child of `285d91d`. That commit is HEAD, and `git log` shows its hash, which a commit cannot contain.** The first approved catalog run, on `285d91d`, refused locally, because `OPENROUTER_API_KEY` was not set. No live catalog response exists. The owner decided that M0 precedes product-level real-model fixes (ADR-062), and that decision authorizes no inference. Stage D and Stage E stay unauthorized. Do not start anything until the user says so.
 
@@ -218,7 +224,9 @@ Images are gitignored. On a machine without them, `--check` validates metadata o
 
 Final run on the finished MVP code, 2026-11-01. **Passing tests do not cover the defects listed under [Post-MVP review](#post-mvp-review).**
 
-**Latest run, catalog report change:** 468 pytest and 219 Vitest tests passed, `--check` exited 0, and `--live` exited 2. Browser tests were not rerun.
+**Latest run, local Ollama work, mocked HTTP only:** `npm test` exited 0 with **792 passed, 0 failed**: contracts 4, API 244, web 40, browser 36, experiment 468. 17 of 17 deliberate breaks of the local safeguards were caught, after one survived at first and its test was added. `--check` exited 0, `--live` exited 2, and all four frozen hashes match. The browser run regenerated `docs/screenshots/results-desktop.png`.
+
+**Run for the catalog report change:** 468 pytest and 219 Vitest tests passed, `--check` exited 0, and `--live` exited 2. Browser tests were not rerun.
 
 **Run for the Stage D preparation:** 438 pytest tests passed, `--check` exited 0, `--live` exited 2, and the real Stage D command refused locally with exit 2. Vitest and browser tests were not rerun, because no product file changed.
 
@@ -285,7 +293,7 @@ The wider product architecture (ADR-001 to ADR-013) and the November 15 target (
 
 ### Not built
 
-- Experiment: live mode for Stage E, and fixes H-07, H-09, H-11, and H-15.
+- Local inference: never run. Experiment: live mode for Stage E, and fixes H-07, H-09, H-11, and H-15.
 - Product: crop tool, transcription, authentication, CI, spending budget, a clean-install check.
 
 ### Provider
@@ -303,7 +311,7 @@ The wider product architecture (ADR-001 to ADR-013) and the November 15 target (
 
 ## Git status
 
-`main` has four commits, and the tree is clean: `5e5941dd2b823e06981e6dad42cbd490b7d5e4fa`, its child the M0 freeze commit `67de8e71b119620a296fd3664d81de1f9e9aa0d9`, the Stage D preparation commit `285d91da9aad818b132ca362d9d146b57a5990e0`, and the catalog report commit. Run `git log` for that hash, which a commit cannot contain. **All work to date is committed, and none of it has been pushed.** A remote, `origin`, is configured, its `main` holds a commit this clone does not have, and nothing has been pushed from this session. `data/`, `results/`, `node_modules/`, `dist/`, and test output are gitignored, apart from `results/.gitkeep`. Six screenshots in `docs/screenshots/` are committed, and a browser test run rewrites them, so it marks the tree as modified. Do not start a live run on a dirty tree.
+`main` has four commits, and the local Ollama work is uncommitted. All four are on GitHub branch `m0-freeze` at `7480443`, and GitHub `main` holds only the LICENSE commit: `5e5941dd2b823e06981e6dad42cbd490b7d5e4fa`, its child the M0 freeze commit `67de8e71b119620a296fd3664d81de1f9e9aa0d9`, the Stage D preparation commit `285d91da9aad818b132ca362d9d146b57a5990e0`, and the catalog report commit. Run `git log` for that hash, which a commit cannot contain. The owner approved that one push, to `m0-freeze`. A remote, `origin`, is configured, its `main` holds a commit this clone does not have, and nothing has been pushed from this session. `data/`, `results/`, `node_modules/`, `dist/`, and test output are gitignored, apart from `results/.gitkeep`. Six screenshots in `docs/screenshots/` are committed, and a browser test run rewrites them, so it marks the tree as modified. Do not start a live run on a dirty tree.
 
 ## How to resume
 
@@ -326,6 +334,7 @@ The wider product architecture (ADR-001 to ADR-013) and the November 15 target (
 | 2026-11-01 | Post-MVP review: architecture and ADR review, offline probes, 21 numbered findings plus a list of smaller issues. No source changed. Waiting on five user decisions |
 | 2026-11-01 | Harness fixes approved and done: 8 fixes, 62 new tests, 384 pytest tests passed, 24 of 24 deliberate breaks caught. Git identity, `origin`, and Q-10 decided. Q-10 not applied. No commit, API call, or spending. Waiting on the user |
 | 2026-11-01 | M0 readiness: owner set M0 first (ADR-062). Scoring passed, 16 harness findings recorded, Proposed execution specification written. No harness change, model call, or spending. Waiting on the user |
+| 2026-11-02 | Local Ollama provider, three inference modes, image-reading check, and `experiments/local_vlm` added, with F-01, F-02, F-03, and F-23 fixed. Then `qwen2.5vl:3b` downloaded with approval, and the image-reading check passed 3 of 3 on generated images. No inscription or pipeline run. Uncommitted, waiting on the user |
 | 2026-11-02 | Catalog run refused locally with no key set. Image input added to the catalog report from `data.architecture.input_modalities`, model level only. 468 pytest tests passed, 10 of 10 deliberate breaks caught. No catalog call. Committed locally on approval, not pushed. Waiting on the catalog approval for the new hash |
 | 2026-11-02 | Stage D prepared: host and policy evidence, guarded command, 34 new tests, 438 pytest tests passed, 14 of 14 deliberate breaks caught. No provider call or spending. Committed locally on approval, not pushed. Waiting on the user |
 | 2026-11-01 | M0 freeze commit approved and made, with 174 files reviewed and all freeze hashes matching. No push. Waiting on Stage D approval |

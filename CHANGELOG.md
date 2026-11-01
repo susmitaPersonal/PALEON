@@ -4,6 +4,62 @@ All notable changes to ScriptEcho. Dates are in IST. No version has been release
 
 ## [Unreleased]
 
+### 2026-11-02: Research cases, from image to report
+
+Added:
+- Research cases stored on this machine, with revision checks, history, notes, citations, and review (ADR-073).
+- Rule-based image measures and sign boxes, manual box drawing, and sign correction with alternatives, ligatures, damage, and gaps (ADR-072).
+- Teaching by approved examples, with shape comparison (ADR-074).
+- Sign inventories for six scripts, generated from Unicode names, and rule-based transliteration.
+- Glosses from a sourced lexicon, with a 12-entry Latin seed (ADR-075).
+- Markdown and JSON reports, a separate evaluation framework with leakage checks, `docs/ADDING_A_SCRIPT.md`, `CONTRIBUTING.md`, issue templates, and a CI workflow that has not run.
+- `docs/PALEON_MASTER_PROGRESS.md`, with a requirements matrix.
+
+Fixed:
+- The home and Transparency pages said PALEON never stores images or reads text, which no longer holds for research cases.
+
+Found:
+- The sign finder flagged 6 of 6 real images as texture, and reached its 400-box limit on 4. It works only on clean marks.
+- A real-image check showed that `sharp` `stats()` ignores pipeline operations, so sharpness had been reporting contrast. All tests had passed. Fixed, with a test.
+
+Verified, offline: `npm test` exited 0 with 915 passed. Generated images only for the new path. **Accuracy on real inscriptions is unknown.**
+
+### 2026-11-02: Local inference through Ollama
+
+Added:
+- `OllamaProvider`: the model must be installed, report vision, and not be remote before each image is sent. There is no fallback to the mock.
+- `inferenceMode` (`simulated`, `local`, or `external`) and `modelStatus`, shown in the runtime information, the interface, and result provenance.
+- `apps/api/prompts/script_analysis_v2.md`, used for local inference. It states the output shape.
+- `scripts/local-image-check.mjs`, which tests whether a model reads randomly generated images, and `scripts/local-analyze.mjs`, which records a run.
+- `experiments/local_vlm/`, separate from M0, `docs/LOCAL_DEMO.md`, and ADR-069.
+
+Fixed:
+- F-01: the concurrency cap now holds over real sockets. F-02: retry waits end at the deadline and are capped at 30 s.
+- F-03: uploads wait for runtime information. F-23: demo results no longer report identification as available.
+- `docs/COMPETITION_READINESS_AUDIT.md` wrongly said Ollama was not installed.
+
+Found:
+- This machine is an M1 MacBook Air with 8 GB, not the RTX 4070 machine in the brief.
+- Ollama 0.40.3 is installed, with text-only models. No local vision model exists yet.
+- A second session's live probes on text models showed that a thinking model can return empty content, and that a non-vision model rejects images with a 400. The adapter handles both.
+
+Verified, with mocked HTTP only:
+- `npm test` exited 0 with 792 passed: contracts 4, API 244, web 40, browser 36, experiment 468.
+- 17 of 17 deliberate breaks of the local safeguards were caught, after one survived at first and its test was added.
+- `--check` exited 0, `--live` exited 2, and all four frozen hashes match.
+
+Not checked:
+- No inscription has been analysed, and the PALEON pipeline has not run on a real model.
+
+Observed, with real local inference:
+- `local:image-check` passed 3 of 3 on 512 px generated images, in 137.7, 107.4, and 99.8 s, on an M1 with 8 GB. `qwen2.5vl:3b` used 3.86 GB, with 16 of 37 layers on the GPU.
+
+Found, and not yet fixed:
+- A non-streaming request fails at about 300 s with `unavailable`, although `local.env` allows 600 s. A second session saw this with a fake server, then on one real request through the PALEON API, which returned 503 after 307 s. **The pipeline has never returned a model result.**
+- Inference on this Mac pushed swap to about 9 GB and free disk down to 2.8 GiB.
+
+No frozen M0 file, label, gate, manifest, or result changed. The owner approved downloading one model from ollama.com. No image left this machine, nothing was spent, and nothing was committed or pushed.
+
 ### 2026-11-02: Image input in the Stage D catalog report
 
 Added:

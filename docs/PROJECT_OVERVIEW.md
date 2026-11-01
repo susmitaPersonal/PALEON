@@ -1,10 +1,10 @@
 # Project Overview
 
-> **Version:** 0.8 | **Last updated:** 2026-11-01 | **Phase:** Local MVP in demo mode. M0 model evaluation not started
+> **Version:** 0.9 | **Last updated:** 2026-11-01 | **Phase:** Local MVP in demo mode. M0 model evaluation not started
 
 ## Vision
 
-ScriptEcho helps people investigate unfamiliar historical writing systems from images of inscriptions, manuscripts, and ancient documents. It reports what is visible, names up to three candidate scripts with evidence, and gives sourced context. When an image does not support a conclusion, it says so.
+PALEON, known as ScriptEcho in early records and internal package names, helps people investigate unfamiliar historical writing systems from images of inscriptions, manuscripts, and ancient documents. It reports what is visible, names up to three candidate scripts with evidence, and gives sourced context. When an image does not support a conclusion, it says so.
 
 **Central principle: evidence before explanation.** Script identification, language identification, transcription, transliteration, and translation are separate tasks and are never conflated.
 
@@ -21,18 +21,18 @@ People who meet an unfamiliar inscription have two poor options. A general chatb
 
 ## Intended users
 
-| User | Need | What ScriptEcho offers |
+| User | Need | What PALEON offers |
 |---|---|---|
 | Archaeologists | A quick first hypothesis in the field or lab | Candidates with stated visual evidence |
 | Historical researchers | Leads on an unfamiliar script outside their specialism | Comparisons and citable sources |
 | Museum and archive staff | Triage of uncatalogued items | Abstention and expert-review prompts |
 | Students and enthusiasts | Understanding what they are looking at | Plain explanation, with uncertainty |
 
-ScriptEcho is a research aid, not an authority. It does not authenticate, date, or value objects.
+PALEON is a research aid, not an authority. It does not authenticate, date, or value objects.
 
 ## Current status
 
-**A local MVP runs in demo mode, on simulated fixtures. No model has ever been called.** The project also has a labelled dataset and an offline experiment harness. The app is not deployed.
+**A local app runs in demo mode by default, and also with a local vision model. It adds a person-confirmed reading path. See [PALEON_MASTER_PROGRESS.md](PALEON_MASTER_PROGRESS.md).** The project also has a labelled dataset and an offline experiment harness. The app is not deployed.
 
 | Area | Status |
 |---|---|
@@ -41,13 +41,15 @@ ScriptEcho is a research aid, not an authority. It does not authenticate, date, 
 | Web application and API | Implemented for local use with a mock provider. Verified by the offline suite |
 | Reference collection | Implemented. Six records, source-checked by a non-specialist, with no expert review |
 | Real provider adapter | Implemented, disabled by default, never run for real |
+| Local model adapter (Ollama) | Implemented. Real runs on development images are recorded in `experiments/local_vlm`, as anecdotes only. Separate from M0 |
 | Offline experiment harness (Stages A and B.2) | Implemented. Runs end to end on synthetic fixtures from one command, Verified offline |
 | Dataset (Stages B to C.2, Q-10) | Implemented. 24 in-scope and 10 rejection images are accepted, 3 are held, and 2 are excluded |
 | Evaluation gates | Approved as preliminary engineering gates |
 | Image download, cropping, and inspection (Stages C to C.2) | Complete, awaiting review |
+| Research cases: sign boxes, person-confirmed readings, examples, transliteration, glosses, review, reports (ADR-072 to ADR-075) | Implemented. Verified offline on generated images only. Accuracy on real inscriptions is unknown |
 | Experiment live checks (Stage D) | Not authorized |
 | Experiment full run (Stage E) | Not authorized |
-| Model capability on this task | **Unknown. No model has been called** |
+| Model capability on this task | **Unknown. M0 has not run** |
 
 The exact position is in [SESSION_HANDOVER.md](SESSION_HANDOVER.md).
 
@@ -81,9 +83,12 @@ Full boundaries are in [PRODUCT_REQUIREMENTS.md](PRODUCT_REQUIREMENTS.md).
 | [CLAUDE.md](../CLAUDE.md) | Rules for every session |
 | [SESSION_HANDOVER.md](SESSION_HANDOVER.md) | Exact current state and next action |
 | [M0_READINESS_AND_EXECUTION_SPEC.md](M0_READINESS_AND_EXECUTION_SPEC.md) | M0 review and Proposed run specification |
+| [PALEON_MASTER_PROGRESS.md](PALEON_MASTER_PROGRESS.md) | Requirements matrix, evidence, and blockers |
+| [ADDING_A_SCRIPT.md](ADDING_A_SCRIPT.md) | Adding a writing system |
 | [COMPETITION_READINESS_AUDIT.md](COMPETITION_READINESS_AUDIT.md) | Audit against winner-quality criteria, with a Proposed roadmap |
 | [PRODUCT_REQUIREMENTS.md](PRODUCT_REQUIREMENTS.md) | Requirements and acceptance criteria |
 | [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) | Components and data flow |
+| [LOCAL_DEMO.md](LOCAL_DEMO.md) | Running genuine local inference |
 | [API.md](API.md) | API reference |
 | [LOCAL_SETUP.md](LOCAL_SETUP.md) | Setup and troubleshooting |
 | [MODEL_PROVIDER_GUIDE.md](MODEL_PROVIDER_GUIDE.md) | Connecting a real model |

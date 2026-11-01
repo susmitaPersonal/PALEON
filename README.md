@@ -1,12 +1,12 @@
-# ScriptEcho
+# PALEON
 
 An evidence-first research tool for investigating historical writing systems from images.
 
-ScriptEcho reports what is visible in an image, names up to three candidate scripts with the evidence for and against each, and links them to sourced reference records. When an image does not support a conclusion, it says so.
+PALEON reports what is visible in an image, names up to three candidate scripts with the evidence for and against each, and links them to sourced reference records. When an image does not support a conclusion, it says so.
 
-> **Current status: runnable MVP in demo mode.** The application runs locally against simulated fixtures. **No real model has been called or evaluated, so ScriptEcho makes no accuracy claim.**
+> **Current status: runnable MVP in demo mode.** The application runs locally against simulated fixtures. **No real model has been called or evaluated, so PALEON makes no accuracy claim.**
 
-![ScriptEcho results page in demo mode](docs/screenshots/results-desktop.png)
+![PALEON results page in demo mode](docs/screenshots/results-desktop.png)
 
 ## Quick start
 
@@ -24,6 +24,7 @@ Open <http://127.0.0.1:5173>. Demo mode is the default, and every page says so.
 | `npm run dev` | API on port 8787, web app on port 5173 |
 | `npm start` | Build, then serve everything from <http://127.0.0.1:8787> |
 | `npm test` | Complete offline test suite |
+| `npm run local:image-check` | Check that a local model reads images. See [docs/LOCAL_DEMO.md](docs/LOCAL_DEMO.md) |
 | `npm run validate:knowledge` | Validate the reference collection |
 
 ## Principles
@@ -31,7 +32,7 @@ Open <http://127.0.0.1:5173>. Demo mode is the default, and every page says so.
 1. **Evidence before explanation.** Observations and hypotheses are separate.
 2. **The model may interpret an image, but it may never author history.** Historical facts and citations come only from stored records.
 3. **Uncertainty is visible.** No percentages are shown, because model confidence is not a calibrated probability.
-4. **Separate capabilities stay separate.** Script identification is not language identification, transcription, transliteration, or translation. Only the first exists here.
+4. **Separate capabilities stay separate.** Script identification is not language identification, transcription, transliteration, or translation. The quick analysis does only the first. Research cases add person-confirmed readings, rule-based transliteration, and sourced glosses, each labelled, and no model reads the text.
 5. **Simulated results are always labelled.**
 
 ## How it works
@@ -87,4 +88,4 @@ Adding a writing system needs a validated record in `knowledge/`, and no code ch
 - Reference characters are modern Unicode forms, not attested letter shapes.
 - The development dataset is a small convenience sample, and it is not representative of historical writing systems.
 
-ScriptEcho is a research aid. It does not authenticate, date, or value objects.
+PALEON is a research aid. It does not authenticate, date, or value objects.
