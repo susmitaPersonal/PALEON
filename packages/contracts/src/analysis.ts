@@ -66,8 +66,12 @@ export const CandidateResultSchema = ModelCandidateSchema.extend({
   directionCheck: DirectionCheckSchema,
 });
 
+/** Simulated fixtures, a model on this machine, or a third-party model. The interface must keep these apart. */
+export const InferenceModeSchema = z.enum(["simulated", "local", "external"]);
+
 export const ProvenanceSchema = z.strictObject({
   simulated: z.boolean(),
+  inferenceMode: InferenceModeSchema,
   provider: z.string(),
   modelId: z.string(),
   modelVersion: z.string().nullable(),
@@ -93,7 +97,7 @@ export const AnalysisResultSchema = z.strictObject({
   removedStatements: z.number().int().nonnegative(),
   recommendExpertReview: z.boolean(),
   capabilities: z.strictObject({
-    scriptIdentification: z.literal("available"),
+    scriptIdentification: z.enum(["available", "simulated"]),
     languageIdentification: z.literal("unavailable"),
     transcription: z.literal("unavailable"),
     transliteration: z.literal("unavailable"),
@@ -109,5 +113,6 @@ export type AnalysisStatus = z.infer<typeof AnalysisStatusSchema>;
 export type EvidenceStrength = z.infer<typeof EvidenceStrengthSchema>;
 export type DirectionCheck = z.infer<typeof DirectionCheckSchema>;
 export type CandidateResult = z.infer<typeof CandidateResultSchema>;
+export type InferenceMode = z.infer<typeof InferenceModeSchema>;
 export type Provenance = z.infer<typeof ProvenanceSchema>;
 export type AnalysisResult = z.infer<typeof AnalysisResultSchema>;

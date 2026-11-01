@@ -57,6 +57,7 @@ export const ReferenceCollectionSchema = z.strictObject({
   scripts: z.array(ScriptRecordSchema).min(1),
   sources: z.array(SourceRecordSchema).min(1),
   visualTerms: z.array(z.string().regex(/^\p{Ll}+$/u)).min(1),
+  statementTerms: z.array(z.string().regex(/^\p{Ll}+$/u)).min(1),
 });
 
 export const ScriptSummarySchema = z.strictObject({

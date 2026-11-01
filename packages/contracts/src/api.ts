@@ -1,9 +1,9 @@
 import { z } from "zod";
-import { MAX_CANDIDATES } from "./analysis";
+import { InferenceModeSchema, MAX_CANDIDATES } from "./analysis";
 
 export const ErrorCodeSchema = z.enum([
   "invalid_request", "file_too_large", "unsupported_media_type", "undecodable_image", "image_too_large",
-  "not_found", "rate_limited", "model_output_invalid", "provider_unavailable", "analysis_timeout", "internal_error",
+  "forbidden", "not_found", "conflict", "rate_limited", "model_output_invalid", "provider_unavailable", "analysis_timeout", "analysis_cancelled", "internal_error",
 ]);
 
 export const ApiErrorSchema = z.strictObject({
@@ -20,10 +20,20 @@ export const DEMO_SCENARIOS = [
 ] as const;
 export const DemoScenarioSchema = z.enum(DEMO_SCENARIOS);
 
+export const ModelStatusSchema = z.enum(["ready", "not_checked", "server_unreachable", "model_not_installed", "no_vision_support", "not_local"]);
+export const ModelDetailsSchema = z.strictObject({
+  family: z.string().nullable(),
+  parameterSize: z.string().nullable(),
+  quantization: z.string().nullable(),
+});
+
 export const RuntimeInfoSchema = z.strictObject({
   provider: z.string(),
   modelId: z.string(),
   simulated: z.boolean(),
+  inferenceMode: InferenceModeSchema,
+  modelStatus: ModelStatusSchema,
+  modelDetails: ModelDetailsSchema.nullable(),
   externalInferenceEnabled: z.boolean(),
   promptVersion: z.string(),
   referenceVersion: z.string(),
@@ -33,6 +43,15 @@ export const RuntimeInfoSchema = z.strictObject({
   rejectionClasses: z.array(z.string()),
 });
 
+export type ModelStatus = z.infer<typeof ModelStatusSchema>;
+export type ModelDetails = z.infer<typeof ModelDetailsSchema>;
+/** Streamed while an analysis runs, because a local model can take many minutes. */
+export const AnalysisProgressSchema = z.strictObject({
+  stage: z.enum(["received", "analysing", "generating"]),
+  tokens: z.number().int().nonnegative().optional(),
+});
+
+export type AnalysisProgress = z.infer<typeof AnalysisProgressSchema>;
 export type ApiError = z.infer<typeof ApiErrorSchema>;
 export type ErrorCode = z.infer<typeof ErrorCodeSchema>;
 export type DemoScenario = z.infer<typeof DemoScenarioSchema>;
