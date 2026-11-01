@@ -1,0 +1,88 @@
+{
+  "id": "phoenician",
+  "name": "Phoenician",
+  "alternativeNames": [],
+  "historicalPeriod": {
+    "id": "phoenician.period",
+    "text": "Evolved from about the twelfth century BCE until the second century BCE.",
+    "sourceIds": [
+      "unicode-16-ch10"
+    ],
+    "locator": "Section 10.3"
+  },
+  "geographicDistribution": {
+    "id": "phoenician.region",
+    "text": "The alphabet and its successors were widely used around the Mediterranean Sea.",
+    "sourceIds": [
+      "unicode-16-ch10"
+    ],
+    "locator": "Section 10.3"
+  },
+  "directionality": {
+    "id": "phoenician.direction",
+    "text": "Written horizontally from right to left.",
+    "sourceIds": [
+      "unicode-16-ch10"
+    ],
+    "locator": "Section 10.3"
+  },
+  "characteristics": [
+    {
+      "id": "phoenician.descenders",
+      "text": "Letters of Phoenician proper, and especially Punic, have very exaggerated descenders.",
+      "sourceIds": [
+        "unicode-16-ch10"
+      ],
+      "locator": "Section 10.3"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "phoenician.forerunner",
+      "text": "Described as a forerunner of the Greek, Old Italic, Latin, Hebrew, Arabic, and Syriac scripts.",
+      "sourceIds": [
+        "unicode-16-ch10"
+      ],
+      "locator": "Section 10.3"
+    }
+  ],
+  "traits": [
+    {
+      "key": "writing_direction",
+      "value": "right_to_left",
+      "claimId": "phoenician.direction"
+    },
+    {
+      "key": "letter_form",
+      "value": "exaggerated_descenders",
+      "claimId": "phoenician.descenders"
+    }
+  ],
+  "referenceCharacters": [
+    {
+      "character": "𐤀",
+      "codePoint": "U+10900",
+      "name": "PHOENICIAN LETTER ALF"
+    },
+    {
+      "character": "𐤁",
+      "codePoint": "U+10901",
+      "name": "PHOENICIAN LETTER BET"
+    },
+    {
+      "character": "𐤂",
+      "codePoint": "U+10902",
+      "name": "PHOENICIAN LETTER GAML"
+    },
+    {
+      "character": "𐤌",
+      "codePoint": "U+1090C",
+      "name": "PHOENICIAN LETTER MEM"
+    }
+  ],
+  "limitations": [
+    "Letter forms changed across the period and region, and a single reference glyph cannot show this.",
+    "The sources read do not state a letter count here."
+  ],
+  "verificationStatus": "source_checked_not_expert_reviewed"
+}

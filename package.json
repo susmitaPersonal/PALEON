@@ -1,0 +1,30 @@
+{
+  "name": "scriptecho",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence-first research tool for investigating historical writing systems from images.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "npm run build -w @scriptecho/web",
+    "start": "npm run build && npm run start -w @scriptecho/api",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "node scripts/test-all.mjs",
+    "test:unit": "npm run test --workspaces",
+    "test:e2e": "playwright test",
+    "validate:knowledge": "npm run validate:knowledge -w @scriptecho/api"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "typescript": "^5.6.0",
+    "axe-core": "^4.10.0",
+    "sharp": "^0.35.5"
+  }
+}

@@ -15,8 +15,19 @@ prompt:
 retries:
   provider: 1
   repair: 1
+# Limits for a live run. Spending figures are estimates from list prices, not billed amounts.
+limits:
+  max_output_tokens: 1500
+  attempt_timeout_s: 90
+  retry_after_cap_s: 30
+  max_consecutive_provider_failures: 5
+  max_attempts_per_model: 306
+  run_timeout_s: 14400
+  assumed_input_tokens: 8000
+  stop_limit_usd_per_gateway: 1.00
 # Preliminary engineering gates, fixed before any results exist.
 # Stored as fractions; required counts follow the actual denominator, rounded up.
+# Reproducibility applies to in-scope images only; rejection consistency is reported separately.
 gates:
   top1: {numerator: 1, denominator: 2}
   top3: {numerator: 4, denominator: 5}

@@ -36,6 +36,12 @@ class AttemptRecord:
     prediction: Prediction | None = None
     history_flags: list[str] = field(default_factory=list)
     raw_path: str | None = None
+    finish_reason: str | None = None
+    response_model: str | None = None
+    response_host: str | None = None
+    cached_input_tokens: int | None = None
+    reasoning_tokens: int | None = None
+    sent_sha256: str | None = None      # SHA-256 of the exact image bytes in the request.
 
     def to_dict(self) -> dict:
         return asdict(self)

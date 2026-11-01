@@ -41,11 +41,16 @@ Offline tests verify code behaviour only. They never verify any model capability
 ## Project rules that are easy to break
 
 - Do not make model API calls, download images, or spend money without stage approval.
-- Do not access package repositories such as PyPI or npm without approval. Stating the need first is required.
-- Do not commit unless the user asks, and approval for one commit does not extend to the next. Never push without approval. Never commit `.env`, keys, or images.
+- The npm registry is approved for project dependencies and security audits (ADR-053). That does not allow adding arbitrary dependencies: a new package or a version change needs the need stated first and fresh approval. Do not access PyPI or other package repositories without approval.
+- Do not commit unless the user asks, and approval for one commit does not extend to the next. Never push without approval. Never commit `.env`, keys, or dataset images. App screenshots in `docs/screenshots/` are allowed (ADR-066).
+- The user confirmed the current global Git identity and the `origin` remote (ADR-061). Do not change Git configuration.
 - Do not tune prompts on the development set and then present the result as independent evaluation.
 - Do not change gates or `prompts/eval_v1.md` after results exist. That requires a new, documented experiment.
-- Do not count `implied_record`, `secondary_source`, or `unverified` labels in metrics.
+- Do not count `implied_record`, `secondary_source`, or `unverified` labels in metrics, or any row whose `stage_c_status` is not `accepted`.
+- Do not change crops, or replace or add images, without approval. Do not send images to any third-party service. The one exception is ADR-060, which allows historical images to be processed through the approved Claude Code session. It approves no provider or evaluation, and what a session reads is never a model result.
+- Never modify `data/images/`. Originals are read-only, and crops belong in `data/processed/`.
+- Do not accept a crop that drops part of the inscription, unless the user has approved it (ADR-045). An excerpt also needs no clipped characters and no answer clues (ADR-048).
+- Do not treat decorative appearance or catalogue silence as proof of no writing, or a matching text as proof about a different object (ADR-049, ADR-050).
 - Do not infer a script from culture, location, or period. A language tag alone is not enough (ADR-032).
 - When verified counts change, recalculate gates on the actual denominator (ADR-031).
 - Do not claim 88% accuracy unless the measured results support it.
@@ -53,9 +58,25 @@ Offline tests verify code behaviour only. They never verify any model capability
 
 ## Working commands
 
+The application needs Node 22.12 or later. On this machine the default `node` is older, so run `export PATH=/opt/homebrew/bin:$PATH` first.
+
+```bash
+npm run dev     # API on 8787, web app on 5173
+npm start       # Build, then serve everything on 8787
+npm test        # Complete offline suite. Confirm counts in the output, not only the exit code
+```
+
+Stage D and Stage E always mean the experiment's live checks and full run, which remain unauthorized. The MVP mission reused those letters for model integration and backend work, and that approved no live call.
+
+The experiment harness:
+
 ```bash
 cd experiments/m0_feasibility
 ../../.venv/bin/python -m pytest -q
+../../.venv/bin/python -m src.run --check
+../../.venv/bin/python -m src.run --synthetic
 ```
+
+`--synthetic` replays invented fixtures offline. Its numbers must never be quoted as model performance. `--live` is refused until Stage D is approved.
 
 `.venv` is gitignored and inherits packages from the local Anaconda install. To recreate it: `/opt/anaconda3/bin/python -m venv --system-site-packages .venv`.

@@ -1,0 +1,16 @@
+# SYNTHETIC models for fixture replay. They name no real model and reach no network.
+models:
+  synthetic_strong:
+    base_url: https://synthetic.invalid/v1
+    model: synthetic/strong
+    api_key_env: SYNTHETIC_NOT_USED
+    response_format: json_schema
+    input_usd_per_mtok: 0.15
+    output_usd_per_mtok: 0.60
+  synthetic_weak:
+    base_url: https://synthetic.invalid/v1
+    model: synthetic/weak
+    api_key_env: SYNTHETIC_NOT_USED
+    response_format: json_schema
+    input_usd_per_mtok: 0.20
+    output_usd_per_mtok: 0.40

@@ -1,0 +1,11 @@
+met_object_id,accession,view,image_url,file_name,format,width,height,bytes,sha256,is_public_domain,rights_note,retrieved_at
+308335,62.266.45,0,https://images.metmuseum.org/CRDImages/ao/original/62.266.45.JPG,308335_0.jpg,JPEG,3456,2304,509839,a272a8b50bf0c703c6857a0605de85722dd7562a5cf5d37fd04e34678a5a30ea,True,,2026-11-01T11:47:42+00:00
+244044,74.51.5164,0,https://images.metmuseum.org/CRDImages/gr/original/DP202652.jpg,244044_0.jpg,JPEG,2000,2000,1922217,09ad637b0c31001c308340aa35e61f6f3ce60cd6974c9a888e95a14c854599f3,True,,2026-11-01T11:47:57+00:00
+327236,1986.311.1,0,https://images.metmuseum.org/CRDImages/an/original/DP-31627-001.jpg,327236_0.jpg,JPEG,4000,2666,899428,0608cb7c3be16481002278a6deaa7dbb67c330380aadb7b9bb3c58ffeae7a6a6,True,,2026-11-01T11:48:07+00:00
+327236,1986.311.1,1,https://images.metmuseum.org/CRDImages/an/original/DP-31627-004.jpg,327236_1.jpg,JPEG,2999,2401,490819,214643d81cf2830e5749f08dd94c32a853e7874cc98123f55fec4b0bc8fc7af8,True,,2026-11-01T11:48:14+00:00
+327236,1986.311.1,2,https://images.metmuseum.org/CRDImages/an/original/DP-31627-003.jpg,327236_2.jpg,JPEG,3005,2397,404523,72a05f06214c5bd0d609ce785bd1f309e31cd7300d7cb223b9f66db36f97a618,True,,2026-11-01T11:48:21+00:00
+327236,1986.311.1,3,https://images.metmuseum.org/CRDImages/an/original/DP-31627-002.jpg,327236_3.jpg,JPEG,3000,2399,409089,1cc7e15a5898d9c52cf23ba33dc4a7d56da4c6463a7a4f40b2c63d53a7160fc0,True,,2026-11-01T11:48:29+00:00
+321478,74.51.4398,0,https://images.metmuseum.org/CRDImages/an/original/ss74_51_4398gp.jpg,321478_0.jpg,JPEG,97,120,6237,b5ad3ccf6efabfc0756472b7539c972a431d2698728af49f684fdb2c02044d7c,True,,2026-11-01T11:48:31+00:00
+549748,27.3.367,0,https://images.metmuseum.org/CRDImages/eg/original/27.3.367_bot.jpg,549748_0.jpg,JPEG,1697,1899,363327,e6208afa2dd0fd29ef138d47ec593f20bc9996aec428dde9ca0bc395619628ff,True,,2026-11-01T11:48:38+00:00
+549748,27.3.367,1,https://images.metmuseum.org/CRDImages/eg/original/27.3.367_side.jpg,549748_1.jpg,JPEG,1494,2044,205617,2d5d96940488159f3e7991fe895be4118121e7ee0fe54dbd76673f06958657c8,True,,2026-11-01T11:48:41+00:00
+549748,27.3.367,2,https://images.metmuseum.org/CRDImages/eg/original/27.3.367_top.jpg,549748_2.jpg,JPEG,1682,2066,306917,47d7eeec09297735296dcaa1193678b1990c4c2b57084227f6054714f6dd04fb,True,,2026-11-01T11:48:47+00:00

@@ -1,0 +1,93 @@
+{
+  "id": "runic",
+  "name": "Runic",
+  "alternativeNames": [
+    "Futhark"
+  ],
+  "historicalPeriod": {
+    "id": "runic.period",
+    "text": "Use in various forms covers a period from the first century to the nineteenth century.",
+    "sourceIds": [
+      "unicode-16-ch08"
+    ],
+    "locator": "Section 8.7"
+  },
+  "geographicDistribution": {
+    "id": "runic.region",
+    "text": "Used in the German, Scandinavian, and Anglo-Saxon areas.",
+    "sourceIds": [
+      "unicode-16-ch08"
+    ],
+    "locator": "Section 8.7"
+  },
+  "directionality": {
+    "id": "runic.direction",
+    "text": "Modern scholarly literature writes Runic from left to right. This describes modern practice, not every historical inscription.",
+    "sourceIds": [
+      "unicode-16-ch08"
+    ],
+    "locator": "Section 8.7"
+  },
+  "characteristics": [
+    {
+      "id": "runic.form",
+      "text": "Has a distinct angular appearance, owing to carving in stone and wood.",
+      "sourceIds": [
+        "unicode-16-ch08"
+      ],
+      "locator": "Chapter introduction"
+    },
+    {
+      "id": "runic.futhark",
+      "text": "Named the futhark after its first six letters. The older futhark had 24 runes, and the simplified younger futhark had 16.",
+      "sourceIds": [
+        "unicode-16-ch08"
+      ],
+      "locator": "Section 8.7"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "runic.latin",
+      "text": "The shapes of most runes can be related to a Latin capital letter, and the most conspicuous difference is letter order.",
+      "sourceIds": [
+        "unicode-16-ch08"
+      ],
+      "locator": "Section 8.7"
+    }
+  ],
+  "traits": [
+    {
+      "key": "letter_form",
+      "value": "angular_for_carving",
+      "claimId": "runic.form"
+    }
+  ],
+  "referenceCharacters": [
+    {
+      "character": "ᚠ",
+      "codePoint": "U+16A0",
+      "name": "RUNIC LETTER FEHU FEOH FE F"
+    },
+    {
+      "character": "ᚢ",
+      "codePoint": "U+16A2",
+      "name": "RUNIC LETTER URUZ UR U"
+    },
+    {
+      "character": "ᚦ",
+      "codePoint": "U+16A6",
+      "name": "RUNIC LETTER THURISAZ THURS THORN"
+    },
+    {
+      "character": "ᚱ",
+      "codePoint": "U+16B1",
+      "name": "RUNIC LETTER RAIDO RAD REID R"
+    }
+  ],
+  "limitations": [
+    "Modern writing direction is not evidence for the direction of a given inscription.",
+    "Elder and younger forms differ, and a single reference glyph cannot show this."
+  ],
+  "verificationStatus": "source_checked_not_expert_reviewed"
+}

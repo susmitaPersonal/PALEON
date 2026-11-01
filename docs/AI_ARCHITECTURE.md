@@ -1,27 +1,27 @@
 # AI Architecture
 
-> **Version:** 0.1 | **Last updated:** 2026-11-01 | **Status:** Mixed. See the table below.
+> **Version:** 0.3 | **Last updated:** 2026-11-01 | **Status:** Mixed. See the table below. Product code is Implemented and tested with fixtures, which says nothing about any model.
 
 Related: [MODEL_EVALUATION.md](MODEL_EVALUATION.md), [MODEL_COMPARISON.md](MODEL_COMPARISON.md), [DATASET_STRATEGY.md](DATASET_STRATEGY.md), [DECISIONS.md](DECISIONS.md)
 
 ## Current versus planned
 
-**No model has been called. Nothing here shows that any capability works on historical scripts.**
+**No model has been called. Nothing here shows that any capability works on historical scripts.** In the table, "Implemented" means code exists. Offline tests verify code behaviour only.
 
 | Capability | Experiment harness | Product | Notes |
 |---|---|---|---|
-| Vision-language model integration | Implemented without live transport | Proposed | `adapter.py`, with a fake transport in tests |
-| Script identification | Implemented as a prompt and schema, untested on a model | Proposed | Single call, no reference material |
-| Abstention | Implemented as a prompt and schema, untested on a model | Proposed | Four dispositions |
-| Output validation | Verified offline | Proposed in Zod | `schema.py`, `validation.py` |
-| Image normalization | Verified offline, not yet connected to the runner | Proposed | `preprocess.py` |
+| Vision-language model integration | Implemented, with its transport unreachable from any command | Implemented, disabled by default, never run for real | `adapter.py` and `openaiCompatible.ts`, both tested with fakes |
+| Script identification | Implemented as a prompt and schema, untested on a model | Implemented, untested on a model | Single call, no reference material |
+| Abstention | Implemented as a prompt and schema, untested on a model | Implemented, untested on a model | Four dispositions |
+| Output validation | Verified offline | Verified offline in Zod | `schema.py`, `validation.py`, `packages/contracts` |
+| Image normalization | Verified offline through `LocalImageSource`. Unused so far, because no real image exists | Verified offline | `preprocess.py`, `images.py`, `intake.ts` |
 | Language identification | Not in scope | Not planned for the MVP | The field stays `null` |
 | OCR and transcription | Forbidden by the prompt | Could-have, Latin and Greek only | Needs measured CER |
 | Transliteration | Not in scope | Not planned for the MVP | Needs per-script sign lists |
 | Translation | Forbidden by the prompt | Not planned for the MVP | Reported as unavailable |
-| Historical knowledge retrieval | Not in scope | Proposed | Structured lookup |
-| Two-stage Observe and Hypothesize | Not tested | Proposed | ADR-002 |
-| Evidence strength | Not in scope | Proposed | Computed by rule |
+| Historical knowledge retrieval | Not in scope | Verified offline | Structured lookup by script ID |
+| Two-stage Observe and Hypothesize | Not tested | Not built | ADR-002 stays Proposed. See ADR-054 |
+| Evidence strength | Not in scope | Verified offline on adversarial fixtures | ADR-065. Strong needs sourced matches. See [API.md](API.md) |
 
 ## Separate operations
 
@@ -51,7 +51,50 @@ The response schema has no field for dates, sources, or URLs. A heuristic scan f
 
 The dispositions are `identified`, `insufficient_evidence`, `outside_supported_set`, and `no_writing`. Abstaining responses may not include candidates, so rejection can be scored.
 
-## Product pipeline (Proposed)
+## Product pipeline as built (Implemented)
+
+1. **Intake** validates and re-encodes the image in memory.
+2. **Provider call** makes one request, using `apps/api/prompts/script_analysis_v1.md` and a strict schema.
+3. **Validation** applies Zod. Invalid output gets one repair retry, then a 502.
+4. **Verification** removes statements that look like dates, links, citations, or percentages, keeps as evidence only unique visual statements that do not name the candidate, refuses contradictory output, compares direction with the sourced record, and computes evidence strength (ADR-065).
+5. **Reference lookup** happens separately, from stored records, and the interface labels it "From the sources".
+
+The model output schema has no field for a date, source, URL, or confidence. The filters on free text are a backstop: they classify the form of a statement, and they can miss history mixed with a visual word. So the interface labels all model text as unverified AI observation.
+
+Evidence strength does not show that evidence is true. Model text alone can reach moderate at most. Strong needs 2 confirmed sourced traits, and only direction can be confirmed today, so no result can be strong. It is not calibrated, and it has never been tested against real output.
+
+| Output | Deterministic result |
+|---|---|
+| `candidates` or `out_of_scope` with `writingPresent: false` | `insufficient_evidence`, because the output contradicts itself |
+| `candidates` on a poor image | `insufficient_evidence` |
+| `no_writing` on a poor image | `insufficient_evidence`, because a poor image cannot show absence |
+| `no_writing` on a usable image | Kept, with expert review recommended (ADR-049) |
+| Direction against the sourced record | Weak. The candidate is never removed, because early inscriptions vary |
+| Boustrophedon, vertical, or unclear | Not checkable, so never a conflict |
+
+### Evidence linking review (Proposed)
+
+The question is whether evidence should link to image regions, to verified source features, or to both. **They answer different questions, and neither proves a script.**
+
+| | Verified source feature | Image region |
+|---|---|---|
+| What it would be | An ID for a sourced visual feature, stored per script | Coordinates of the marks a claim refers to |
+| Deterministic check | The ID exists, belongs to that script, and is sourced | The box is valid and contains marks |
+| What the check shows | The claim is about a documented feature | Where a human should look |
+| What it cannot show | That the feature is really in this image | That the marks are that feature, or that the model read them |
+| Needs | Sourced features. Only 2 `letter_form` traits exist today | Model output of usable coordinates, which is unproven |
+
+**Recommendation:** build source features first, and treat regions as a reader's aid.
+
+1. Source diagnostic visual features per script, with expert review. Without them, nothing can be checked.
+2. Have the model cite feature IDs, in a new prompt and contract version. This would let a second sourced match exist, so Strong could become reachable, and it needs a new documented experiment.
+3. Test region output separately. A region must never raise evidence strength: its value is letting a reader check the claim against the image.
+
+Stop at step 1 if M0 fails.
+
+## Product pipeline: earlier five-stage design (Proposed)
+
+Kept for reference. The two-stage call and evidence-ID checks below are not built.
 
 ### Image handling
 
@@ -149,7 +192,7 @@ Retry policy:
 
 Vendor claims justify testing a model, not trusting it. Measured performance on this task decides the choice. See [MODEL_COMPARISON.md](MODEL_COMPARISON.md).
 
-## Hallucination mitigation and uncertainty (Proposed)
+## Hallucination mitigation and uncertainty (design; see "as built" above)
 
 The strategy relies on making errors impossible by construction first, and detecting the remainder second.
 
@@ -172,7 +215,7 @@ The strategy relies on making errors impossible by construction first, and detec
 
 | Condition | Outcome | `recommendExpertReview` |
 |---|---|---|
-| No writing observed | `no_writing_detected` | false |
+| No writing observed | `no_writing_detected` | false in this design. True as built (ADR-065) |
 | Image quality too poor for feature extraction | `insufficient_evidence` | true |
 | Model selects none, or names only an unsupported script | `out_of_scope` | true |
 | No candidate survives verification | `insufficient_evidence` | true |

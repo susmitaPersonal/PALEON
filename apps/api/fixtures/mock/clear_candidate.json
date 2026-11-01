@@ -1,0 +1,38 @@
+{
+  "simulated": true,
+  "notice": "Fixture for demo mode and tests. Not a model response.",
+  "response": {
+    "status": "candidates",
+    "statusReason": null,
+    "observations": {
+      "writingPresent": true,
+      "imageQuality": "good",
+      "visualFeatures": [
+        "Simulated observation: evenly spaced marks in straight rows.",
+        "Simulated observation: strokes appear deliberately cut."
+      ],
+      "characterShapes": [
+        "Simulated observation: angular shapes with straight strokes.",
+        "Simulated observation: few curved strokes."
+      ],
+      "direction": "left_to_right",
+      "directionBasis": "Simulated observation: marks appear to run in one horizontal line.",
+      "limitations": [
+        "Simulated result. The image was not examined."
+      ],
+      "ambiguities": []
+    },
+    "candidates": [
+      {
+        "rank": 1,
+        "scriptId": "greek",
+        "supportingEvidence": [
+          "Simulated observation: angular capital-like forms.",
+          "Simulated observation: even letter height.",
+          "Simulated observation: no signs joined together."
+        ],
+        "contradictingEvidence": []
+      }
+    ]
+  }
+}

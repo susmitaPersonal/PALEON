@@ -1,0 +1,86 @@
+{
+  "id": "greek",
+  "name": "Greek",
+  "alternativeNames": [],
+  "historicalPeriod": null,
+  "geographicDistribution": null,
+  "directionality": {
+    "id": "greek.direction",
+    "text": "The script is written from left to right. The source calls left-to-right writing a Greek innovation.",
+    "sourceIds": [
+      "unicode-16-ch07"
+    ],
+    "locator": "Chapter introduction and Section 7.2.1"
+  },
+  "characteristics": [
+    {
+      "id": "greek.spacing",
+      "text": "Archaic Greek texts do not use spaces.",
+      "sourceIds": [
+        "unicode-16-ch07"
+      ],
+      "locator": "Section 7.2.1"
+    },
+    {
+      "id": "greek.numbers",
+      "text": "Ancient Greeks mainly used letters of the alphabet to represent numbers.",
+      "sourceIds": [
+        "unicode-16-ch07"
+      ],
+      "locator": "Section 7.2.3"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "greek.origin",
+      "text": "An adaptation of the Phoenician alphabet.",
+      "sourceIds": [
+        "unicode-16-ch07"
+      ],
+      "locator": "Chapter introduction"
+    },
+    {
+      "id": "greek.influence",
+      "text": "Had a strong influence on the development of the Latin, Cyrillic, and Coptic scripts.",
+      "sourceIds": [
+        "unicode-16-ch07"
+      ],
+      "locator": "Section 7.2.1"
+    }
+  ],
+  "traits": [
+    {
+      "key": "writing_direction",
+      "value": "left_to_right",
+      "claimId": "greek.direction"
+    }
+  ],
+  "referenceCharacters": [
+    {
+      "character": "Α",
+      "codePoint": "U+0391",
+      "name": "GREEK CAPITAL LETTER ALPHA"
+    },
+    {
+      "character": "Β",
+      "codePoint": "U+0392",
+      "name": "GREEK CAPITAL LETTER BETA"
+    },
+    {
+      "character": "Λ",
+      "codePoint": "U+039B",
+      "name": "GREEK CAPITAL LETTER LAMDA"
+    },
+    {
+      "character": "Ω",
+      "codePoint": "U+03A9",
+      "name": "GREEK CAPITAL LETTER OMEGA"
+    }
+  ],
+  "limitations": [
+    "No period or geographic claim is stored, because the sources read do not give one in a form suited to this record.",
+    "The direction claim describes the script generally, and it does not cover every early inscription.",
+    "Modern Unicode capitals are not epigraphic letter forms."
+  ],
+  "verificationStatus": "source_checked_not_expert_reviewed"
+}

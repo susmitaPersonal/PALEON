@@ -1,6 +1,6 @@
 # Security and Privacy
 
-> **Version:** 0.1 | **Last updated:** 2026-11-01 | **Status:** Experiment controls Implemented where stated. Product controls Proposed.
+> **Version:** 0.4 | **Last updated:** 2026-11-01 | **Status:** Local MVP controls Implemented and Verified by the named offline tests. Public deployment is Pending, and the gaps below must be closed first.
 
 Related: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md), [RISKS_AND_LIMITATIONS.md](RISKS_AND_LIMITATIONS.md)
 
@@ -24,50 +24,69 @@ Related: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md), [RISKS_AND_LIMITATION
 - Rotate any key that appears in a log, a commit, or a conversation.
 - Use the narrowest permission available. A Hugging Face token needs only Inference Providers permission.
 
-## Image validation and upload security (Proposed)
+## Product controls
 
-Rules for the product:
+| Control | Status | Evidence |
+|---|---|---|
+| Server binds to `127.0.0.1` only | Verified | Live run of `npm start` and `npm run dev`, 2026-11-01 |
+| Real inference needs two settings, and is off by default | Verified offline | `providers.test.ts` |
+| Type is identified from file content, never the name or declared type | Verified offline | `intake.test.ts` |
+| SVG, GIF, and animated files are rejected | Verified offline | `intake.test.ts` |
+| Upload size is capped before parsing | Verified offline | `api.test.ts` |
+| Every pixel is decoded, with a pixel limit against decompression bombs | Verified offline | `intake.test.ts` |
+| Re-encoding removes EXIF, including GPS, and appended data | Verified offline | `intake.test.ts` |
+| No URL-fetch feature, so no server-side request forgery through uploads | Implemented | No such route exists |
+| Rate limit, and a concurrency cap on analyses | Verified offline | `api.test.ts` |
+| `x-forwarded-for` is ignored unless `TRUST_PROXY=true`, so clients cannot forge their way past the limit | Verified offline | `api.test.ts` |
+| Content-Security-Policy with no `unsafe-inline`, plus `nosniff` and `no-referrer` | Verified | `api.test.ts`, and a console check in real Chrome in `e2e/app.spec.ts` |
+| Logs drop keys, tokens, image data, and model text | Verified offline | `providers.test.ts` |
+| Provider error bodies are not repeated | Verified offline | `providers.test.ts` |
+| Internal error details never reach clients | Verified offline | `api.test.ts` |
+| Model output is rendered as text, and the web app uses no raw HTML | Implemented | No `dangerouslySetInnerHTML` in `apps/web/src` |
+| Links shown come only from stored records, and must be `https` | Verified offline | `references.test.ts` |
+| Key is absent from the web bundle | Verified | Search of `apps/web/dist`, 2026-11-01. Not automated |
+| No known vulnerable dependencies | Verified on 2026-11-01 | `npm audit`: 0 vulnerabilities. This goes out of date, so rerun it |
 
-1. Check the declared size before reading the body, and raise Hono's 100 KB `bodyLimit` default explicitly.
-2. Identify the type from magic bytes. Ignore filenames and the client `Content-Type`.
-3. Reject SVG, because it is executable markup rather than an image.
-4. Decode fully with a pixel limit, to block decompression bombs.
-5. Re-encode to a clean file, which removes EXIF and defeats polyglot files.
-6. Offer no URL-fetch feature, which removes server-side request forgery.
+## Gaps before any public deployment
 
-`preprocess.py` already applies a pixel limit, orientation, re-encoding, and metadata removal for the experiment.
+Local use is the only supported mode. These are not done, and deployment is not authorized.
 
-## Product security controls (Proposed)
-
-- **Secrets:** server-side environment variables only, with a `.env.example` and secret scanning in CI. The frontend bundle is checked for the key prefix in CI.
-- **Spending:** a per-key OpenRouter limit is the hard stop, backed by an application daily request budget. Rate limits alone do not protect the wallet.
-- **Abuse:** per-IP limits, in memory, which is adequate for a single instance. Concurrency is capped, because each request holds an image in memory.
-- **Upload attack surface:** covered by [image handling](AI_ARCHITECTURE.md#image-handling). There is no URL-fetch feature, which removes server-side request forgery entirely.
-- **Output handling:** React escaping, no raw HTML rendering, and links only from the reference collection.
-- **Headers:** a strict Content-Security-Policy, `X-Content-Type-Options: nosniff`, and `Referrer-Policy`.
-- **Dependencies:** lockfile committed, with automated update checks.
+| Gap | Why it matters |
+|---|---|
+| No authentication | Anyone who can reach the server can use it |
+| No cross-site request protection on uploads | With a real provider running locally, another website could trigger paid calls from the user's browser. It could not read the response |
+| No daily spending budget in the application | Rate limits do not protect the wallet. Use a provider key limit |
+| The rate limiter lives in memory, and all direct clients share one bucket | Adequate for one local user only. Behind a proxy, set `TRUST_PROXY=true` and use one instance |
+| No CI, secret scanning, or automated dependency checks | These checks were run by hand |
+| Provider data questions are open | Model A's host is unknown, and DeepInfra's exception is unresolved. See the table below |
+| Web server static paths and TLS were not reviewed for internet exposure | The server is meant for loopback |
 
 ## Data retention
 
-| Data | Experiment | Product (Proposed) |
+| Data | Experiment | Product MVP (Implemented) |
 |---|---|---|
-| Images | Gitignored local folder | Memory only, for one request |
+| Uploaded images | Gitignored local folder | Memory only, for one request. No temporary file or database |
 | Raw model responses | Stored in run directories | Not stored |
-| Logs | Local run files | Request ID, stage, timing, and error class only |
+| Results | Run directories | Held in the browser tab's memory, and lost on reload |
+| Logs | Local run files | JSON lines to standard output: request ID, event, status, timing. They are not persisted by the app |
+
+Nothing is shared between users, because there are no accounts or server-side history.
 
 ## Third-party inference risks
 
-Images are necessarily sent to a third-party model host.
+In demo mode nothing leaves the machine. If a real provider is enabled, images are sent to a third-party model host, and the upload page warns the user first. **This has never been enabled.**
 
 | Risk | Mitigation | Status |
 |---|---|---|
 | Provider retains or trains on images | `data_collection: "deny"` configured for OpenRouter | Configured, not tested |
-| Hugging Face and DeepInfra data handling | Read policies before Stage D | **Not yet read** |
+| Hugging Face and DeepInfra data handling | Policies read on 2026-11-01. See [M0_READINESS_AND_EXECUTION_SPEC.md](M0_READINESS_AND_EXECUTION_SPEC.md#does-image-data-leave-this-machine) | Vendor statements only. **DeepInfra's "Google models" training exception is unresolved for Gemma** |
+| Model A's host data handling | Read its policy once Stage D identifies and pins the host | **Host unknown** |
 | Free endpoints may have different terms | Use paid endpoints for this run | Decided |
 | Traffic screening by the gateway | OpenRouter's ZDR page announces CSAM screening from 2026-10-27. Confirm and disclose | Open |
 | Model output carries instructions | Treat output as untrusted data, with no tools or URL fields | Proposed |
 
-The product must tell users about this before upload, and warn against uploading private or sensitive material.
+**Development sessions are a separate case.** Opening a historical image in a Claude Code session sends it to Anthropic's model. The user approved this for the session on 2026-11-01 (ADR-060). It does not cover the app, a provider, user uploads, or any other service, and no provider has received an image.
+
 
 ## Privacy considerations
 
@@ -76,7 +95,7 @@ The product must tell users about this before upload, and warn against uploading
 
 ## Responsible use
 
-The README should state that ScriptEcho is not an authentication, dating, or valuation tool. It should also acknowledge that some inscriptions are culturally sensitive and that a model's reading of them may be unwelcome or wrong.
+ScriptEcho is not an authentication, dating, or valuation tool, and the interface and README say so. Some inscriptions are culturally sensitive, and a model's reading of them may be unwelcome or wrong.
 
 ## Reference material licensing
 
@@ -88,11 +107,11 @@ The README should state that ScriptEcho is not an authentication, dating, or val
 | Encyclopaedias and scholarly text | Paraphrase, cite, and link. Never copy passages. |
 | Wikimedia Commons images | Follow each file's licence and credit its author |
 
-## Deployment
+## Deployment (Proposed, not authorized)
 
-**Decision:** a single Node service on Render serves both the API and the built SPA.
+**Proposed:** a single Node service on Render serves both the API and the built SPA. `npm start` already runs this shape locally.
 
-This avoids CORS, requires one deployment, and lets the key sit in one place. Hono serves static files through `@hono/node-server/serve-static`, and it should serve only the built output directory.
+This avoids CORS, requires one deployment, and lets the key sit in one place. Hono serves static files through `@hono/node-server/serve-static`, and serves only the built output directory.
 
 The free tier's documented limits are:
 
@@ -103,4 +122,4 @@ The free tier's documented limits are:
 
 **Handling cold starts:** wake the service before any live demo, and show a clear waiting state. The recorded walkthrough protects against this entirely. Upgrade to a paid instance only if a live event requires it.
 
-Basic operations: `/healthz`, structured logs, and a rollback by redeploying the previous commit.
+Basic operations: `/health`, `/ready`, structured logs, and a rollback by redeploying the previous commit.

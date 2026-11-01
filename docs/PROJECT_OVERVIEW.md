@@ -1,6 +1,6 @@
 # Project Overview
 
-> **Version:** 0.2 | **Last updated:** 2026-11-01 | **Phase:** M0 feasibility, Stage B.1 complete
+> **Version:** 0.8 | **Last updated:** 2026-11-01 | **Phase:** Local MVP in demo mode. M0 model evaluation not started
 
 ## Vision
 
@@ -32,19 +32,21 @@ ScriptEcho is a research aid, not an authority. It does not authenticate, date, 
 
 ## Current status
 
-**Nothing that a user can run exists yet.** The project is an experiment harness and a design.
+**A local MVP runs in demo mode, on simulated fixtures. No model has ever been called.** The project also has a labelled dataset and an offline experiment harness. The app is not deployed.
 
 | Area | Status |
 |---|---|
-| Product architecture | Proposed. Used as the basis for Phase 1, with no formal approval recorded |
+| Product architecture | Stack Approved and Implemented. The wider design remains Proposed (Q-6) |
 | Six supported scripts | Approved for the feasibility experiment |
-| Web application and production API | Not started, and not authorized |
-| Experiment harness modules (Stage A) | Implemented. Offline tests pass. Not yet assembled into a runnable experiment |
-| Dataset metadata (Stages B and B.1) | Implemented. 29 of 30 in-scope labels count, and 10 of 10 rejection labels count. Images unseen |
+| Web application and API | Implemented for local use with a mock provider. Verified by the offline suite |
+| Reference collection | Implemented. Six records, source-checked by a non-specialist, with no expert review |
+| Real provider adapter | Implemented, disabled by default, never run for real |
+| Offline experiment harness (Stages A and B.2) | Implemented. Runs end to end on synthetic fixtures from one command, Verified offline |
+| Dataset (Stages B to C.2, Q-10) | Implemented. 24 in-scope and 10 rejection images are accepted, 3 are held, and 2 are excluded |
 | Evaluation gates | Approved as preliminary engineering gates |
-| Image download (Stage C) | Not authorized |
-| Live provider checks (Stage D) | Not authorized |
-| Full experiment (Stage E) | Not authorized |
+| Image download, cropping, and inspection (Stages C to C.2) | Complete, awaiting review |
+| Experiment live checks (Stage D) | Not authorized |
+| Experiment full run (Stage E) | Not authorized |
 | Model capability on this task | **Unknown. No model has been called** |
 
 The exact position is in [SESSION_HANDOVER.md](SESSION_HANDOVER.md).
@@ -55,7 +57,7 @@ The Hacktoberfest Week 4 entry period closed at 12:29 PM IST on 2026-11-01, befo
 
 ## Scope
 
-**MVP scope (Proposed):** image upload and validation, up to three candidates for six scripts, explicit abstention, sourced history from a curated collection, and documented comparisons.
+**MVP scope (Implemented in demo mode):** image upload and validation, up to three candidates for six scripts, explicit abstention, sourced history from a curated collection, and documented comparisons.
 
 **Future scope:** more scripts with wider regional coverage, a Bengali script evolution track, better retrieval, and transcription once measured. Translation and language identification need evidence before they are added.
 
@@ -75,10 +77,17 @@ Full boundaries are in [PRODUCT_REQUIREMENTS.md](PRODUCT_REQUIREMENTS.md).
 
 | Document | Purpose |
 |---|---|
+| [README.md](../README.md) | Project introduction and quick start |
 | [CLAUDE.md](../CLAUDE.md) | Rules for every session |
 | [SESSION_HANDOVER.md](SESSION_HANDOVER.md) | Exact current state and next action |
+| [M0_READINESS_AND_EXECUTION_SPEC.md](M0_READINESS_AND_EXECUTION_SPEC.md) | M0 review and Proposed run specification |
+| [COMPETITION_READINESS_AUDIT.md](COMPETITION_READINESS_AUDIT.md) | Audit against winner-quality criteria, with a Proposed roadmap |
 | [PRODUCT_REQUIREMENTS.md](PRODUCT_REQUIREMENTS.md) | Requirements and acceptance criteria |
-| [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) | Components, data flow, and API |
+| [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) | Components and data flow |
+| [API.md](API.md) | API reference |
+| [LOCAL_SETUP.md](LOCAL_SETUP.md) | Setup and troubleshooting |
+| [MODEL_PROVIDER_GUIDE.md](MODEL_PROVIDER_GUIDE.md) | Connecting a real model |
+| [TESTING.md](TESTING.md) | Test suite |
 | [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md) | AI pipeline and hallucination controls |
 | [DATASET_STRATEGY.md](DATASET_STRATEGY.md) | Scripts, sourcing, labels, and licensing |
 | [MODEL_EVALUATION.md](MODEL_EVALUATION.md) | Metrics, thresholds, and limits |

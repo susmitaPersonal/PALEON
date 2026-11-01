@@ -1,31 +1,40 @@
 # Dataset Quality Report
 
-> **Version:** 0.1 | **Date:** 2026-11-01 | **Stage:** B.1 | **Basis:** manifest metadata only
+> **Version:** 0.4 | **Date:** 2026-11-01 | **Stage:** C.2 | **Basis:** manifest metadata, plus visual inspection of all downloaded images and crops
 
-**No image has been viewed.** Everything here comes from metadata, so visual quality and inscription visibility are unknown. This dataset is **not representative** of worldwide historical writing systems, or of any defined population. It is a small convenience sample for an engineering decision.
+Stage C viewed every image. Its outcomes are in [STAGE_C_REPORT.md](STAGE_C_REPORT.md) and [visual_review.csv](visual_review.csv), and they replace the metadata estimates below where the two differ.
+
+This dataset is **not representative** of worldwide historical writing systems, or of any defined population. It is a small convenience sample for an engineering decision.
 
 ## Summary
 
 | Measure | Value |
 |---|---|
 | Development rows | 40 |
-| Rows counted in metrics | 39 (29 in-scope, 10 rejection) |
-| Excluded | 1 (Met 26.60.6, `implied_record`) |
-| Reserve rows | 3, never counted |
-| Share of counted rows from the Met | 26 of 39 (67%) |
-| In-scope rows that are printed plates | 6 of 29 (21%) |
-| In-scope rows flagged as famous | 9 of 29 (31%) |
-| Rows with a viewed image | 0 of 40 |
+| Rows counted in metrics | 34 (24 in-scope, 10 rejection) |
+| Held pending a decision | 3 (SE002, SE010, and SE008 on licence) |
+| Excluded after viewing | 2 (SE009, SE028) |
+| Not acquired | 1 development row (SE019) and 3 reserves |
+| Share of counted rows from the Met | **26 of 34 (76%)** |
+| Counted in-scope rows that are printed plates | 3 of 24 (SE003, SE004, SE005) |
+| Counted in-scope rows flagged as famous | 6 of 24 |
+| Rows with a viewed image | 39 of 40 |
 
 ## Severity
 
 | Finding | Severity | Why |
 |---|---|---|
-| Brahmi is confounded | **High** | 4 of 5 rows are both printed plates and famous objects |
+| Printed captions name the site | **Resolved for counted rows** | All 6 plates are cropped, cleared, or uncounted |
+| Brahmi and Kharosthi are thin | **High** | Brahmi has 4 counted images and Kharosthi 2, so the hardest contrast rests on 6 images |
+| Plates cannot be excerpted cleanly | **Resolved for SE003 and SE004 by Q-10** | SE010 has numbers printed on its impression, so it stays held |
+| Source concentration | **High** | 76% of counted rows come from one museum |
+| Framing differs after cropping | **Medium** | Close crops may act as a cue |
 | Source follows class | **High** | Phoenician and runic each come from a single source |
-| Inscription visibility unknown | **High** | A row may not show readable writing at all |
+| Modern marks and paint | **Medium** | Catalogue marks and conservators' paint are not part of the original writing |
+| Art style can reveal the class | **Medium** | Sculpture and Egyptian figures offer a shortcut |
 | Possible training exposure | **High** | Cannot be measured or excluded |
-| Easy negatives | **Medium** | Rejection may be overstated |
+| Easy negatives | **High** | Neither resembles writing, and no harder example has qualified |
+| Evidence for SE001 rests on one institution | **Medium** | A published parallel exists, on a different object |
 | Small class sizes | **Medium** | Per-script results are descriptive only |
 | Accession conflict on two caskets | **Medium** | Metadata needs correcting; script is unaffected |
 | Greek has 4 rows | **Low** | Slight imbalance |
@@ -49,6 +58,8 @@ Effects to expect:
 
 ## Printed plates versus photographs
 
+Viewing added a worse problem than the medium itself: all six plates print the site name. Crops removed the captions, and Stage C.1 outcomes are in the [Stage C report](STAGE_C_REPORT.md). The analysis below was written before cropping.
+
 | Class | Plates | Other |
 |---|---|---|
 | Brahmi | 4 | 1 |
@@ -59,7 +70,7 @@ All 6 plates are in the two South Asian classes. A model could separate "printed
 
 **Consequence:** Brahmi versus Kharosthi is the hardest planned contrast, and it is the one this dataset tests least cleanly.
 
-**Recommended at Stage D or E:** report plate and photograph results separately. Replace plates with photographs in any held-out set.
+Reports now show plate and photograph results separately. Replace plates with photographs in any held-out set.
 
 ## Famous objects and memorization
 
@@ -74,11 +85,11 @@ A model that recognizes the Delhi-Topra pillar or an Ashokan edict could answer 
 
 The flags are my judgment, not a measured quantity, and they may miss objects that are well known to specialists.
 
-Famous-object subgroup results are promised in the methodology, but **are not yet implemented**.
+Reports now give results for famous and printed-plate subgroups separately (Implemented, Verified offline on synthetic data).
 
 ## Image quality and inscription visibility
 
-**Unknown for all 40 rows.** `image_quality` is `unassessed`. Risks identified from metadata:
+**Assessed at Stage C.** Accepted images are 21 good, 9 fair, and 1 poor. Risks first identified from metadata, kept for reference, are below:
 
 | Risk | Rows |
 |---|---|
@@ -90,7 +101,7 @@ Famous-object subgroup results are promised in the methodology, but **are not ye
 | Little connected text | Met 27.122.5, a lettered polyhedron |
 | Another script on the same object | Rummindei pillar also carries a later Devanagari inscription |
 
-**Stage C must review every image** before the manifest is frozen. A row whose image shows no readable writing must leave the counted set, with the reason recorded, and without substituting a weaker image.
+Stage C applied this rule: SE028 showed no recognisable writing and was excluded, with no image substituted. Stage C.1 excluded SE009, whose signs cannot be separated from speckle.
 
 ## Script representation imbalance
 
@@ -151,7 +162,7 @@ No epigrapher has reviewed these labels, and every label was checked by a non-sp
 
 ## Recommendations for harder negatives
 
-**Not adopted.** No image has been downloaded and no row has been changed. All need approval, and a record that supports the label.
+**Inspected at Stage C.2, and none is accepted.** Three are held and two are excluded. Results are in [STAGE_C_REPORT.md](STAGE_C_REPORT.md). The table below shows the original reasoning.
 
 | Type | Why it is harder | Possible source | Label risk |
 |---|---|---|---|

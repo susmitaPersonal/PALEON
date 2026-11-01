@@ -1,10 +1,12 @@
 # Dataset Sourcing Report
 
-**Research date:** 2026-11-01, updated at Stage B.1. **Scope:** metadata and published text only. No image file was downloaded or viewed.
+**Research date:** 2026-11-01, updated at Stage C.2. This report covers label and licence research. Stage C outcomes are in [STAGE_C_REPORT.md](STAGE_C_REPORT.md), and they decide what counts.
 
-Related: [QUALITY_REPORT.md](QUALITY_REPORT.md)
+Related: [QUALITY_REPORT.md](QUALITY_REPORT.md), [ATTRIBUTION.md](ATTRIBUTION.md)
 
-## Result
+## Result at Stage B.1
+
+These are label counts before images were viewed. Current counted figures are 24 in-scope and 10 rejection.
 
 | Class | Target | Counted | Not counted | Shortfall |
 |---|---|---|---|---|
@@ -54,7 +56,7 @@ Exact attribution text for each image is in the manifest's `attribution` column.
 
 - **Default:** even permitted images are not committed. `data/` is gitignored, and only URLs, attribution, and hashes enter Git.
 - **Search summaries were wrong once.** A search result implied that Met 74.51.2293 was open access, but its record shows `isPublicDomain: false` and no image. It was excluded, and every Met row was checked against its own record.
-- **Commons statuses need confirmation.** Wikimedia does not warrant licence accuracy. All Commons rows should be rechecked on the file page at Stage C, especially the British Library file, whose status is reported by Commons rather than by the Library.
+- **Commons statuses were rechecked at Stage C.** All 12 file pages carry explicit templates. The British Library file (SE008) relies on a permission ticket that is not public, so it is held, not counted, and not redistributable until independently verified.
 - **CC BY terms:** the runic images must carry attribution wherever they appear, including reports and the demo.
 - **Sending images to a provider:** CC0 and public-domain material has no restriction on this. CC BY material carries its attribution requirement if results are published with the image.
 - **Excluded sources:** the British Museum and Ashmolean records found carried terms that were not confirmed as open, so neither was used.
@@ -87,7 +89,15 @@ USEP is the [U.S. Epigraphy Project](https://usepigraphy.brown.edu/projects/usep
 | Indravarman, year 63 (CKI 242) | 1987.142.71a,b, spherical | 1987.142.70a,b |
 | Ramaka and Uḍita (CKI 243) | 1987.142.70a,b, ovoid | 1987.142.71a,b |
 
-The two sources number these caskets the opposite way round. Script labels are unaffected, because both inscriptions are in the Corpus of Kharoṣṭhī inscriptions. Stage C should compare each object's shape with Baums's description, and the conflict should stay recorded until then.
+The two sources number these caskets the opposite way round. Script labels are unaffected, because both inscriptions are in the Corpus of Kharoṣṭhī inscriptions.
+
+**Stage C result:** SE006 is spherical and SE007 is ovoid, matching Baums under the Met's titles. Image and text agree, so the conflict concerns accession numbers only.
+
+**Stage C.2 result:** narrowed, not independently resolved. The Met's live record gives Diam. 9.2 cm for 1987.142.70 and H. 7.5 cm, Diam. 5.4 cm for 1987.142.71, which fits the images. Behrendt 2007, Salomon and Schopen, gandhari.org entries, and Met pages could not be read.
+
+### SE001 evidence
+
+The Cleveland record reads "Brahmi script." [Lüders, Bharhut Inscriptions](https://archive.org/details/corpusinscriptio014676mbp), A 101 (847), edits the same words, Mitasa suchi danam, on a rail-bar in the Indian Museum, Calcutta. That is a published parallel on a different object, not independent evidence for the Cleveland piece. Pal 1977 and Lee 1983 were not accessed.
 
 ## Coverage gaps
 
@@ -106,10 +116,10 @@ No poorly verified image was substituted to reach a target.
 | Combined confound | 4 of 5 Brahmi rows are plates and famous objects | Brahmi results are hard to interpret |
 | Repeated text | Ashokan edicts appear at several sites | Different rocks, closely related text |
 | Famous objects | 9 of 40 rows flagged | Recognition could replace reading |
-| Inscription not visible | Any row: no image has been viewed | Stage C must check each image |
+| Inscription not visible | Checked at Stage C | SE028 excluded, SE001 held |
 | Easy negatives | Both no-writing rows | Rejection may be overstated; 2 hard negatives are in reserve |
 
-`image_quality` is `unassessed` for every row, because no image has been seen. It must not be filled in from metadata. The full assessment is in [QUALITY_REPORT.md](QUALITY_REPORT.md).
+`image_quality` now comes from viewing. The full assessment is in [QUALITY_REPORT.md](QUALITY_REPORT.md).
 
 ## Reproducing the research
 

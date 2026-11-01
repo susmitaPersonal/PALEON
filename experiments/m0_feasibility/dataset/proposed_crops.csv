@@ -1,0 +1,8 @@
+image_id,source_file,left,top,right,bottom,status,note
+SE002,SE002.jpg,285,65,740,320,applied; held,Removes the printed caption and margin numbering. Preview checked
+SE003,SE003.jpg,691,760,3661,3315,superseded by Q-10; see margin_boxes.csv,Removes the printed caption and margin numbering. Preview checked
+SE004,SE004.jpg,333,1706,5649,3079,superseded by Q-10; see margin_boxes.csv,Removes the printed caption and margin numbering. Preview checked
+SE005,SE005.jpg,60,125,895,695,applied; accepted,Removes the printed caption and margin numbering. Preview checked
+SE009,SE009.jpg,509,894,3279,2484,applied; excluded,Removes the printed caption and margin numbering. Preview checked
+SE010,SE010.jpg,551,394,5039,3189,applied; held,Removes the printed caption and margin numbering. Preview checked
+SE001,"Cleveland print file 1982.44.a_print.jpg, 3400x2666",700,2170,1320,2400,applied; accepted,Needs approval to replace the web file with the print file from the same CC0 record. Preview checked

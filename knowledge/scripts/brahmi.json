@@ -1,0 +1,92 @@
+{
+  "id": "brahmi",
+  "name": "Brahmi",
+  "alternativeNames": [],
+  "historicalPeriod": {
+    "id": "brahmi.period",
+    "text": "Attested from the third century BCE until the late first millennium CE.",
+    "sourceIds": [
+      "unicode-16-ch14"
+    ],
+    "locator": "Section 14.1.1"
+  },
+  "geographicDistribution": {
+    "id": "brahmi.region",
+    "text": "A historical script of India, whose many regional varieties ultimately became the modern Indian writing systems.",
+    "sourceIds": [
+      "unicode-16-ch14"
+    ],
+    "locator": "Section 14.1.1"
+  },
+  "directionality": null,
+  "characteristics": [
+    {
+      "id": "brahmi.structure",
+      "text": "An abugida.",
+      "sourceIds": [
+        "unicode-16-ch14"
+      ],
+      "locator": "Section 14.1.1"
+    },
+    {
+      "id": "brahmi.girnar",
+      "text": "The Asokan rock inscription at Girnar is written in the Brahmi alphabet.",
+      "sourceIds": [
+        "hultzsch-1925"
+      ],
+      "locator": "Introduction, p. x"
+    },
+    {
+      "id": "brahmi.bharhut",
+      "text": "Bharhut inscriptions are edited as part of the work on early Brahmi inscriptions, and their letters were compared with those of Asoka's time.",
+      "sourceIds": [
+        "luders-1963"
+      ],
+      "locator": "Preface and Introduction"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "brahmi.origin",
+      "text": "Described, with Kharoshthi, as ultimately of Semitic origin, probably deriving from Aramaic. The source hedges this.",
+      "sourceIds": [
+        "unicode-16-ch14"
+      ],
+      "locator": "Chapter introduction"
+    }
+  ],
+  "traits": [
+    {
+      "key": "structure",
+      "value": "abugida",
+      "claimId": "brahmi.structure"
+    }
+  ],
+  "referenceCharacters": [
+    {
+      "character": "𑀅",
+      "codePoint": "U+11005",
+      "name": "BRAHMI LETTER A"
+    },
+    {
+      "character": "𑀓",
+      "codePoint": "U+11013",
+      "name": "BRAHMI LETTER KA"
+    },
+    {
+      "character": "𑀕",
+      "codePoint": "U+11015",
+      "name": "BRAHMI LETTER GA"
+    },
+    {
+      "character": "𑀢",
+      "codePoint": "U+11022",
+      "name": "BRAHMI LETTER TA"
+    }
+  ],
+  "limitations": [
+    "The sources read do not state a writing direction, so none is given here.",
+    "Regional and later forms differ from the early forms used in this research scope."
+  ],
+  "verificationStatus": "source_checked_not_expert_reviewed"
+}

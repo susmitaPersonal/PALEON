@@ -1,42 +1,76 @@
 # System Architecture
 
-> **Version:** 0.1 | **Last updated:** 2026-11-01 | **Status:** Proposed. **Nothing in this document is implemented.** The only code in the repository is the Python experiment harness described below.
+> **Version:** 0.2 | **Last updated:** 2026-11-01 | **Status:** "As built" is Implemented and running in demo mode. Sections headed Planned are the earlier design, kept for reference, and they differ from the code where noted.
 
 Related: [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md), [SECURITY_AND_PRIVACY.md](SECURITY_AND_PRIVACY.md), [DECISIONS.md](DECISIONS.md)
 
 This document is the maintained version of the design. [ARCHITECTURE.md](ARCHITECTURE.md) is the frozen original.
 
-## What exists today
+## As built: product MVP
+
+Runs locally with a mock provider. No real model has been called.
+
+```mermaid
+flowchart TD
+    Web["apps/web<br/>React, Vite"] -->|"HTTP, /api/v1"| App["apps/api<br/>Hono routes"]
+    App --> Intake["services/intake<br/>Validate, re-encode, in memory"]
+    App --> Analysis["services/analysis<br/>Retries, deadline, repair"]
+    Analysis --> Provider{"ModelProvider"}
+    Provider --> Mock["mock<br/>Default, fixtures"]
+    Provider -.->|"Two settings. Never enabled"| Real["openai-compatible<br/>Tested with fake fetch"]
+    Analysis --> Verify["services/verify<br/>Deterministic checks"]
+    App --> Ref["services/references"]
+    Ref --> Know["knowledge/<br/>Validated JSON"]
+    Contracts["packages/contracts<br/>Zod schemas"] --- Web
+    Contracts --- App
+```
+
+| Component | Path | Responsibility |
+|---|---|---|
+| Contracts | `packages/contracts` | Schemas shared by API and web. Script IDs are data, not an enum |
+| Routes | `apps/api/src/app.ts` | Envelopes, request IDs, headers, limits |
+| Intake | `services/intake.ts` | Content sniffing, decoding, re-encoding |
+| Analysis | `services/analysis.ts` | One provider call, with retries, a deadline, and one repair attempt |
+| Verify | `services/verify.ts` | Removes history and links, checks scripts, rates evidence |
+| References | `services/references.ts` | Records, sources, and comparisons |
+| Reference collection | `knowledge/` | Six records and 8 sources, validated at startup |
+| Web app | `apps/web` | Home, Investigate, Results, Scripts, Compare, Transparency |
+
+The routes, errors, and fields are documented in [API.md](API.md), which replaces the planned API section below. In production, `npm start` serves the API and built web app from one port.
+
+**Differences from the earlier design:** one structured call rather than Observe and Hypothesize (ADR-054), JSON rather than YAML for the collection (ADR-055), no crop tool, no transcription, no evidence IDs, and `no_writing` rather than `no_writing_detected`.
+
+## As built: experiment harness
 
 ```mermaid
 flowchart LR
     Manifest["dataset/manifest.csv<br/>Implemented"] --> Check["manifest.py checks<br/>Verified offline"]
     Prompt["prompts/eval_v1.md<br/>Implemented, hash checked"] --> Runner["runner.py<br/>Verified offline"]
     Runner --> Adapter["adapter.py<br/>Verified offline"]
-    Adapter -.->|"no live transport"| Provider["Hosted model<br/>Not connected"]
+    Adapter -.->|"no entry point uses live/"| Provider["Hosted model<br/>Not connected"]
     Runner --> Validate["validation.py + schema.py<br/>Verified offline"]
     Validate --> Metrics["metrics.py<br/>Verified offline"]
     Metrics --> Report["report.py<br/>Verified offline"]
 ```
 
-Each module works in isolation against synthetic data. They are **not yet joined by a runnable entry point**. See the gaps in [IMPLEMENTATION_ROADMAP.md](IMPLEMENTATION_ROADMAP.md).
+`src/run.py` joins these modules into one command that runs a full synthetic experiment. A transport exists in `live/`, but `src/` never imports it and `--live` is refused, so the harness cannot reach a provider. It shares no code with the product, and its prompt stays frozen.
 
 ## Technology decisions
 
 | Layer | Choice | Status |
 |---|---|---|
 | Experiment harness | Python 3.12, pydantic, pytest | Implemented |
-| Frontend | React, TypeScript, Vite | Proposed |
-| Backend | Node.js, Hono | Proposed |
-| Validation | Zod | Proposed |
-| Testing | Vitest | Proposed |
-| Model access | OpenAI-compatible gateway behind `ModelProvider` | Proposed for the product |
-| Historical knowledge | Versioned YAML in Git, no database | Proposed |
-| Deployment | One Render service | Proposed |
+| Frontend | React, TypeScript, Vite | Approved; Implemented |
+| Backend | Node.js, Hono, TypeScript | Approved; Implemented |
+| Validation | Zod | Approved; Implemented |
+| Testing | Vitest, Testing Library, Playwright with installed Chrome | Approved; Implemented |
+| Model access | Mock by default. OpenAI-compatible adapter behind `ModelProvider`, never run for real | Implemented |
+| Historical knowledge | Versioned JSON in Git, no database | Implemented |
+| Deployment | One Render service | Proposed, not authorized |
 
 Reasons and alternatives are in [DECISIONS.md](DECISIONS.md).
 
-## Planned system architecture
+## Planned system architecture (earlier design)
 
 ```mermaid
 flowchart TB
@@ -122,7 +156,7 @@ sequenceDiagram
 
 The system is stateless. Images exist in memory for the length of a request, and the full result returns in one response. No job store is needed.
 
-## API design
+## API design (earlier design, see API.md)
 
 The base path is `/api/v1`, on the same origin as the SPA, so CORS stays closed. These are contract definitions. They become Zod schemas in `packages/contracts`, shared by the API and the web app.
 
@@ -218,7 +252,7 @@ The request carries `image` and `scriptId`, and works only for scripts marked `e
 
 The response returns a list of units. Each has `original`, `normalized`, and `status: certain | uncertain | illegible`. Lost or unreadable sections stay in the output as `illegible` rather than being filled in. Every character is checked against the script's allowed Unicode ranges. There is no paired translation.
 
-## Repository structure
+## Repository structure (earlier design, see README)
 
 **Current:** `docs/`, `experiments/m0_feasibility/`, `CLAUDE.md`, and `CHANGELOG.md`.
 

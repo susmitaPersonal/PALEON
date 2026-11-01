@@ -91,7 +91,7 @@ def test_reproducibility_needs_identical_answers():
     records = identified("a", "greek")
     records += [record("b", 1, ["greek"]), record("b", 2, ["greek"]), record("b", 3, ["latin"])]
     view = score_view(records, [gold("a", "greek"), gold("b", "greek")], 3, "after_retry")
-    assert (view["reproducibility"]["k"], view["reproducibility"]["n"]) == (1, 2)
+    assert (view["reproducibility_in_scope"]["k"], view["reproducibility_in_scope"]["n"]) == (1, 2)
 
 
 def test_views_separate_first_attempt_from_final():
@@ -147,7 +147,7 @@ def test_all_gates_pass_on_perfect_synthetic_data():
 def test_gate_boundary_is_inclusive():
     block = {"k": 15, "n": 30, "rate": 0.5}
     after = {"top1": block, "top3": {"k": 24, "n": 30, "rate": 0.8}, "rejection": {"k": 7, "n": 10, "rate": 0.7},
-             "reproducibility": {"k": 32, "n": 40, "rate": 0.8}}
+             "reproducibility_in_scope": {"k": 24, "n": 30, "rate": 0.8}}
     stats = {"valid_after_retry": {"k": 9, "n": 10, "rate": 0.9}}
     assert evaluate_gates(after, stats)["all_passed"]
     after["top1"] = {"k": 14, "n": 30, "rate": 14 / 30}
@@ -179,7 +179,7 @@ def test_required_count_follows_the_denominator(name, n, required):
 
 def test_gate_at_actual_denominator_rounds_up():
     after = {"top1": {"k": 14, "n": 29, "rate": 14 / 29}, "top3": {"k": 23, "n": 29, "rate": 23 / 29},
-             "rejection": {"k": 7, "n": 10, "rate": 0.7}, "reproducibility": {"k": 32, "n": 39, "rate": 32 / 39}}
+             "rejection": {"k": 7, "n": 10, "rate": 0.7}, "reproducibility_in_scope": {"k": 24, "n": 29, "rate": 24 / 29}}
     stats = {"valid_after_retry": {"k": 9, "n": 10, "rate": 0.9}}
     gates = evaluate_gates(after, stats)["gates"]
     assert not gates["top1"]["passed"] and gates["top1"]["required"] == 15

@@ -1,0 +1,23 @@
+{
+  "simulated": true,
+  "notice": "Fixture for demo mode and tests. Not a model response.",
+  "response": {
+    "status": "no_writing",
+    "statusReason": "Simulated result: no marks that look like writing were found.",
+    "observations": {
+      "writingPresent": false,
+      "imageQuality": "good",
+      "visualFeatures": [
+        "Simulated observation: plain surface with no repeated signs."
+      ],
+      "characterShapes": [],
+      "direction": "unclear",
+      "directionBasis": null,
+      "limitations": [
+        "Simulated result. The image was not examined."
+      ],
+      "ambiguities": []
+    },
+    "candidates": []
+  }
+}

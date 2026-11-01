@@ -1,0 +1,14 @@
+{
+  "note": "Words that describe a visible property of marks. A statement needs at least one to count as a visual observation. Generic nouns such as letter, sign, form, shape, and mark are left out on purpose, because they describe nothing. This checks the kind of statement only, and says nothing about whether it is true.",
+  "terms": [
+    "aligned", "angle", "angled", "angular", "arc", "arch", "ascender", "attached", "bar", "baseline", "bent", "branch",
+    "branched", "carved", "chiselled", "circle", "circular", "column", "connected", "crossbar", "crossed", "crossing", "curl", "cursive",
+    "curve", "curved", "curving", "cut", "dented", "descender", "descending", "diagonal", "dot", "dotted", "engraved", "even",
+    "evenly", "flat", "fork", "forked", "gap", "hanging", "height", "hook", "hooked", "horizontal", "impressed", "incised",
+    "inked", "irregular", "joined", "ligature", "line", "linear", "long", "loop", "looped", "mirrored", "narrow", "notch",
+    "notched", "oval", "painted", "parallel", "pointed", "raised", "rectangular", "ring", "round", "rounded", "row", "separate",
+    "separated", "short", "slanted", "spaced", "spacing", "square", "stamped", "stem", "straight", "stroke", "symmetric", "symmetrical",
+    "tail", "tall", "thick", "thin", "triangle", "triangular", "uneven", "unjoined", "upright", "vertical", "wedge", "wide",
+    "width", "zigzag"
+  ]
+}

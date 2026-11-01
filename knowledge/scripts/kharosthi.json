@@ -1,0 +1,106 @@
+{
+  "id": "kharosthi",
+  "name": "Kharosthi",
+  "alternativeNames": [
+    "Kharoshthi"
+  ],
+  "historicalPeriod": {
+    "id": "kharosthi.period",
+    "text": "First appears in fully developed form in the Asokan inscriptions, and disappeared from its homeland around the third century CE.",
+    "sourceIds": [
+      "unicode-16-ch14"
+    ],
+    "locator": "Section 14.2.1"
+  },
+  "geographicDistribution": {
+    "id": "kharosthi.region",
+    "text": "Confined to the northwest of India.",
+    "sourceIds": [
+      "unicode-16-ch14"
+    ],
+    "locator": "Section 14.2.1"
+  },
+  "directionality": {
+    "id": "kharosthi.direction",
+    "text": "Letters and digits are written from right to left.",
+    "sourceIds": [
+      "unicode-16-ch14"
+    ],
+    "locator": "Section 14.2.1, Directionality"
+  },
+  "characteristics": [
+    {
+      "id": "kharosthi.structure",
+      "text": "An Indic script of the abugida type.",
+      "sourceIds": [
+        "unicode-16-ch14"
+      ],
+      "locator": "Section 14.2.1"
+    },
+    {
+      "id": "kharosthi.asoka",
+      "text": "The Shahbazgarhi and Mansehra versions of the Asokan edicts are written in Kharoshthi.",
+      "sourceIds": [
+        "hultzsch-1925"
+      ],
+      "locator": "Introduction, pp. xi-xii"
+    },
+    {
+      "id": "kharosthi.reliquary",
+      "text": "Gandharan reliquary inscriptions are catalogued in the Corpus of Kharoshthi inscriptions.",
+      "sourceIds": [
+        "baums-2012"
+      ],
+      "locator": "Catalog and bibliography"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "kharosthi.origin",
+      "text": "Exact origins remain obscure, though the source calls it almost certainly related to Aramaic.",
+      "sourceIds": [
+        "unicode-16-ch14"
+      ],
+      "locator": "Section 14.2.1"
+    }
+  ],
+  "traits": [
+    {
+      "key": "writing_direction",
+      "value": "right_to_left",
+      "claimId": "kharosthi.direction"
+    },
+    {
+      "key": "structure",
+      "value": "abugida",
+      "claimId": "kharosthi.structure"
+    }
+  ],
+  "referenceCharacters": [
+    {
+      "character": "𐨀",
+      "codePoint": "U+10A00",
+      "name": "KHAROSHTHI LETTER A"
+    },
+    {
+      "character": "𐨐",
+      "codePoint": "U+10A10",
+      "name": "KHAROSHTHI LETTER KA"
+    },
+    {
+      "character": "𐨕",
+      "codePoint": "U+10A15",
+      "name": "KHAROSHTHI LETTER CA"
+    },
+    {
+      "character": "𐨬",
+      "codePoint": "U+10A2C",
+      "name": "KHAROSHTHI LETTER VA"
+    }
+  ],
+  "limitations": [
+    "The sources give no finer dating than the range stated here.",
+    "Inscriptions and manuscripts can differ in letter form."
+  ],
+  "verificationStatus": "source_checked_not_expert_reviewed"
+}

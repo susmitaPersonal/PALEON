@@ -45,7 +45,7 @@ def base_row(**overrides) -> dict:
     row.update(image_id="a1", split="dev", gold_class="in_scope", script_label="brahmi", institution="Museum",
                object_id="1", source_url="https://example.org/1", licence="CC0", redistribution="allowed",
                image_quality="unassessed", label_status="verified_institution",
-               label_evidence_url="https://example.org/1")
+               label_evidence_url="https://example.org/1", stage_c_status="accepted")
     row.update(overrides)
     return row
 
@@ -100,6 +100,8 @@ def test_manifest_counts_match_the_documented_state():
 
     from src.manifest import read_csv
     rows = to_rows(read_csv(Path(__file__).resolve().parents[1] / "dataset" / "manifest.csv"))
-    assert sum(r.eligible_for_metrics for r in rows if r.gold_class == "in_scope") == 29
+    assert sum(r.eligible_for_metrics for r in rows if r.gold_class == "in_scope") == 24
     assert sum(r.eligible_for_metrics for r in rows if r.gold_class != "in_scope") == 10
     assert coverage(rows)["greek"]["shortfall"] == 1
+    assert coverage(rows)["brahmi"]["shortfall"] == 1
+    assert coverage(rows)["kharosthi"]["shortfall"] == 3

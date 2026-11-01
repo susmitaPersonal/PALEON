@@ -1,0 +1,24 @@
+{
+  "simulated": true,
+  "notice": "Fixture for demo mode and tests. Not a model response.",
+  "response": {
+    "status": "insufficient_evidence",
+    "statusReason": "Simulated result: the surface is too worn to assess.",
+    "observations": {
+      "writingPresent": true,
+      "imageQuality": "poor",
+      "visualFeatures": [],
+      "characterShapes": [],
+      "direction": "unclear",
+      "directionBasis": null,
+      "limitations": [
+        "Simulated result. The image was not examined.",
+        "Simulated observation: surface wear hides most marks."
+      ],
+      "ambiguities": [
+        "Simulated observation: marks may be damage and not writing."
+      ]
+    },
+    "candidates": []
+  }
+}

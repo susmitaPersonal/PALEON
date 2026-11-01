@@ -1,0 +1,61 @@
+{
+  "simulated": true,
+  "notice": "Fixture for demo mode and tests. Not a model response.",
+  "response": {
+    "status": "candidates",
+    "statusReason": null,
+    "observations": {
+      "writingPresent": true,
+      "imageQuality": "fair",
+      "visualFeatures": [
+        "Simulated observation: short rows of worn marks."
+      ],
+      "characterShapes": [
+        "Simulated observation: simple forms built from a few strokes."
+      ],
+      "direction": "unclear",
+      "directionBasis": null,
+      "limitations": [
+        "Simulated result. The image was not examined."
+      ],
+      "ambiguities": [
+        "Simulated observation: the worn forms fit more than one candidate."
+      ]
+    },
+    "candidates": [
+      {
+        "rank": 1,
+        "scriptId": "brahmi",
+        "supportingEvidence": [
+          "Simulated observation: simple forms hanging from upright strokes.",
+          "Simulated observation: marks attached to some forms."
+        ],
+        "contradictingEvidence": [
+          "Simulated observation: line direction cannot be seen."
+        ]
+      },
+      {
+        "rank": 2,
+        "scriptId": "kharosthi",
+        "supportingEvidence": [
+          "Simulated observation: some cursive-looking strokes.",
+          "Simulated observation: marks attached to some forms."
+        ],
+        "contradictingEvidence": [
+          "Simulated observation: line direction cannot be seen."
+        ]
+      },
+      {
+        "rank": 3,
+        "scriptId": "phoenician",
+        "supportingEvidence": [
+          "Simulated observation: simple linear forms."
+        ],
+        "contradictingEvidence": [
+          "Simulated observation: attached marks are unexpected.",
+          "Simulated observation: few long descending strokes."
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # Product Requirements
 
-> **Version:** 0.1 | **Last updated:** 2026-11-01 | **Status:** Proposed. None of these requirements is implemented in a product yet.
+> **Version:** 0.2 | **Last updated:** 2026-11-01 | **Status:** Local MVP Implemented in demo mode. Requirement status is listed below. No requirement has been tested against a real model.
 
 Related: [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md), [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md), [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md)
 
@@ -40,12 +40,25 @@ Regional coverage is limited in the MVP, and the README must say so.
 | F9 | Offer a labelled demo mode using recorded responses | Should |
 | F10 | Experimental transcription for Latin and Greek only, enabled only after CER is measured | Could |
 
+### Status of functional requirements
+
+| ID | Status |
+|---|---|
+| F1 | Verified offline |
+| F2, F3 | Implemented; response handling Verified offline on fixtures |
+| F4, F5 | Verified offline. Three records have empty fields, shown as gaps |
+| F6 | Verified offline, with `no_writing` as the status name |
+| F7 | Zod validation Verified offline. Evidence IDs are not built. Deterministic verification (ADR-054, ADR-065) is Verified offline against adversarial fixtures, and has never seen real output |
+| F8 | Verified offline against simulated failures |
+| F9 | Verified, using fixtures rather than recorded model responses |
+| F10 | Not built |
+
 ## Non-functional requirements
 
 | ID | Category | Requirement | Measure |
 |---|---|---|---|
 | N1 | Honesty | No fabricated citation, date, or example | Citation validity of 100% and manual claim audit |
-| N2 | Honesty | No claim of certainty the image does not justify | No numeric confidence; computed evidence strength |
+| N2 | Honesty | No claim of certainty the image does not justify | No numeric confidence; evidence strength needs sourced matches for Strong (ADR-065) |
 | N3 | Evaluation | Results reproducible from the repository | Clean-clone re-run |
 | N4 | Latency | A complete analysis within the deadline | 55-second deadline; p95 measured |
 | N5 | Security | The API key never reaches the browser | CI bundle check |
@@ -107,8 +120,10 @@ The release is complete when all of these hold:
 5. The evaluation report is reproducible from a clean clone, on a held-out set.
 6. The README states scope, limitations, model, and licensing.
 
+Status on 2026-11-01: criterion 1 is partly met, because records are source-checked by a non-specialist and not expert-reviewed. Criterion 2 is Pending, because nothing is deployed and fixture behaviour proves no model capability. Criterion 3 is met offline. Criterion 4 is Pending, because there is no CI, although the tests run with no key. Criterion 5 is Pending. Criterion 6 is met, except that no model exists to state.
+
 The 88% figure is a research target. Missing it does not block release, but reporting it honestly does.
 
 ## Precondition
 
-No product work starts until the M0 go/no-go. See [IMPLEMENTATION_ROADMAP.md](IMPLEMENTATION_ROADMAP.md).
+The original precondition was that no product work starts until the M0 go/no-go. The user replaced it with the implementation mission of 2026-11-01, which built the MVP on a mock provider (ADR-052). **Any real launch still depends on M0.**

@@ -8,6 +8,9 @@ models:
     response_format: json_schema
     extra_body:
       provider:
+        # Stage D sets the single host. `--check` reports a blocker until then.
+        order: []
+        allow_fallbacks: false
         require_parameters: true
         data_collection: deny
     input_usd_per_mtok: 0.15

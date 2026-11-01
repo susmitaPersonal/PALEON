@@ -1,0 +1,25 @@
+{
+  "simulated": true,
+  "notice": "Fixture for demo mode and tests. Not a model response.",
+  "response": {
+    "status": "out_of_scope",
+    "statusReason": "Simulated result: the marks look like writing, but they do not match a supported script.",
+    "observations": {
+      "writingPresent": true,
+      "imageQuality": "fair",
+      "visualFeatures": [
+        "Simulated observation: dense repeated wedge-like marks."
+      ],
+      "characterShapes": [
+        "Simulated observation: groups of wedge-shaped impressions."
+      ],
+      "direction": "unclear",
+      "directionBasis": null,
+      "limitations": [
+        "Simulated result. The image was not examined."
+      ],
+      "ambiguities": []
+    },
+    "candidates": []
+  }
+}

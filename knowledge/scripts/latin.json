@@ -1,0 +1,69 @@
+{
+  "id": "latin",
+  "name": "Latin",
+  "alternativeNames": [],
+  "historicalPeriod": null,
+  "geographicDistribution": null,
+  "directionality": {
+    "id": "latin.direction",
+    "text": "Written in linear sequence from left to right.",
+    "sourceIds": [
+      "unicode-16-ch07"
+    ],
+    "locator": "Section 7.1"
+  },
+  "characteristics": [
+    {
+      "id": "latin.scribes",
+      "text": "Its later appearance owes much to innovations of medieval scribes.",
+      "sourceIds": [
+        "unicode-16-ch07"
+      ],
+      "locator": "Chapter introduction"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "latin.origin",
+      "text": "Derived from the alphabet used by the Etruscans, who had adopted a Western variant of the Greek alphabet.",
+      "sourceIds": [
+        "unicode-16-ch07"
+      ],
+      "locator": "Chapter introduction and Section 7.1"
+    }
+  ],
+  "traits": [
+    {
+      "key": "writing_direction",
+      "value": "left_to_right",
+      "claimId": "latin.direction"
+    }
+  ],
+  "referenceCharacters": [
+    {
+      "character": "A",
+      "codePoint": "U+0041",
+      "name": "LATIN CAPITAL LETTER A"
+    },
+    {
+      "character": "B",
+      "codePoint": "U+0042",
+      "name": "LATIN CAPITAL LETTER B"
+    },
+    {
+      "character": "C",
+      "codePoint": "U+0043",
+      "name": "LATIN CAPITAL LETTER C"
+    },
+    {
+      "character": "R",
+      "codePoint": "U+0052",
+      "name": "LATIN CAPITAL LETTER R"
+    }
+  ],
+  "limitations": [
+    "No period or geographic claim is stored, because the sources read do not give one in a form suited to this record.",
+    "Modern Unicode capitals are not Roman epigraphic letter forms."
+  ],
+  "verificationStatus": "source_checked_not_expert_reviewed"
+}

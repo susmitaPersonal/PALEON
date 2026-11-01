@@ -1,0 +1,262 @@
+date,stage,image_id,field,old,new
+2026-11-01,C,SE001,image_quality,unassessed,poor
+2026-11-01,C,SE001,sha256,,a61d3595c5ace1c420b0e80c485d010e6aef61aec8d1055402bcda88a01116bd
+2026-11-01,C,SE001,image_seen,no,yes
+2026-11-01,C,SE001,stage_c_status,,held
+2026-11-01,C,SE001,stage_c_reason,,Inscription is too small and faint in the 1139 px web image. Cleveland's 3400 px CC0 file shows it clearly. Usable only with an approved switch to that file and an approved crop
+2026-11-01,C,SE002,image_quality,unassessed,fair
+2026-11-01,C,SE002,sha256,,41464ef73acf41b1814388e803a83eda494915cd5a0192dd8dfadf32f59aa49a
+2026-11-01,C,SE002,image_seen,no,yes
+2026-11-01,C,SE002,stage_c_status,,held
+2026-11-01,C,SE002,stage_c_reason,,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv"
+2026-11-01,C,SE003,image_quality,unassessed,fair
+2026-11-01,C,SE003,sha256,,ad2b1cac5e6fe24849b191e28d76578a5ba0fdf5e7933d9008da7694971d6a0b
+2026-11-01,C,SE003,image_seen,no,yes
+2026-11-01,C,SE003,stage_c_status,,held
+2026-11-01,C,SE003,stage_c_reason,,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv"
+2026-11-01,C,SE004,image_quality,unassessed,fair
+2026-11-01,C,SE004,sha256,,76165a85d9c4d2e33eb45bac6aca848ab7d3cdc7fea26bf7f5a15437f43a4e60
+2026-11-01,C,SE004,image_seen,no,yes
+2026-11-01,C,SE004,stage_c_status,,held
+2026-11-01,C,SE004,stage_c_reason,,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv"
+2026-11-01,C,SE005,image_quality,unassessed,good
+2026-11-01,C,SE005,sha256,,d8f7aa8ee7d0aa9d642d291db6aa3bf68c5d2020d6378c5c705ff571927d677d
+2026-11-01,C,SE005,image_seen,no,yes
+2026-11-01,C,SE005,stage_c_status,,held
+2026-11-01,C,SE005,stage_c_reason,,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv"
+2026-11-01,C,SE006,image_quality,unassessed,good
+2026-11-01,C,SE006,sha256,,08357b09e0c3b8b4fa32561f26012fe8143f7464bdd424307043d27d56090a4a
+2026-11-01,C,SE006,image_seen,no,yes
+2026-11-01,C,SE006,notes,"Record names the script. Text read through a search excerpt because the page returned HTTP 429; re-read it at Stage C. Met sources give 15-16 CE and 5-6 CE for the date. Stage B.1: Baums no. 8 gives this text as CKI 242 and dates it 5/6 CE. ACCESSION CONFLICT: Baums gives 1987.142.71a,b and the Met 1987.142.70a,b. Resolve at Stage C using shape (Baums: spherical).","Record names the script. Text read through a search excerpt because the page returned HTTP 429; re-read it at Stage C. Met sources give 15-16 CE and 5-6 CE for the date. Stage B.1: Baums no. 8 gives this text as CKI 242 and dates it 5/6 CE. ACCESSION CONFLICT: Baums gives 1987.142.71a,b and the Met 1987.142.70a,b. Resolve at Stage C using shape (Baums: spherical). Stage C: the image shows a spherical casket with a long inscription, matching Baums no. 8 (Indravarman). Image and text agree; only the accession numbers differ between Baums and the Met."
+2026-11-01,C,SE006,stage_c_status,,accepted
+2026-11-01,C,SE007,image_quality,unassessed,good
+2026-11-01,C,SE007,sha256,,95640319c778e0fe2916a28308764862da64c60ecc36f72a65b221e4c6868b33
+2026-11-01,C,SE007,image_seen,no,yes
+2026-11-01,C,SE007,notes,"Stage B.1: catalogue no. 15 ""Ramaka and Udita"" gives CKI 243, and the same publication defines ""CKI = Corpus of Kharosthi inscriptions"". The inscription text matches the Met record. ACCESSION CONFLICT: Baums gives this text as 1987.142.70a,b and the Met as 1987.142.71a,b. Resolve at Stage C using shape (Baums: ovoid).","Stage B.1: catalogue no. 15 ""Ramaka and Udita"" gives CKI 243, and the same publication defines ""CKI = Corpus of Kharosthi inscriptions"". The inscription text matches the Met record. ACCESSION CONFLICT: Baums gives this text as 1987.142.70a,b and the Met as 1987.142.71a,b. Resolve at Stage C using shape (Baums: ovoid). Stage C: the image shows an ovoid casket, matching Baums no. 15 (Ramaka). Image and text agree; only the accession numbers differ between Baums and the Met."
+2026-11-01,C,SE007,stage_c_status,,accepted
+2026-11-01,C,SE008,image_quality,unassessed,fair
+2026-11-01,C,SE008,sha256,,7b1e8bec6c5e6b7e86b91cda8b4a0417bc911d9bfcc8ef4e3dc1549d55b90899
+2026-11-01,C,SE008,image_seen,no,yes
+2026-11-01,C,SE008,notes,"Record names the script: ""written in Kharosthi script"". Ink on wood, unlike the carved examples. Commons status must be rechecked against British Library terms at Stage C.","Record names the script: ""written in Kharosthi script"". Ink on wood, unlike the carved examples. Commons status must be rechecked against British Library terms at Stage C. Stage C licence recheck: Commons records permission ticket 2012102610006645, which is not publicly readable."
+2026-11-01,C,SE008,stage_c_status,,accepted
+2026-11-01,C,SE009,image_quality,unassessed,poor
+2026-11-01,C,SE009,sha256,,d03932a428b85c04c60220e4871aa9b4cd0925e885bcc2bafee6bacd6edc52f3
+2026-11-01,C,SE009,image_seen,no,yes
+2026-11-01,C,SE009,stage_c_status,,held
+2026-11-01,C,SE009,stage_c_reason,,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv"
+2026-11-01,C,SE010,image_quality,unassessed,fair
+2026-11-01,C,SE010,sha256,,feb92e682b06f3bae5e7fa16b5cadf2a10190fe8cbc8ce353cf32f3c294732b9
+2026-11-01,C,SE010,image_seen,no,yes
+2026-11-01,C,SE010,stage_c_status,,held
+2026-11-01,C,SE010,stage_c_reason,,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv"
+2026-11-01,C,SE011,image_quality,unassessed,good
+2026-11-01,C,SE011,sha256,,7a82eb5707c917e0931cbdb2a273491965a51e1b8431a3714a6439c6010c08a4
+2026-11-01,C,SE011,image_seen,no,yes
+2026-11-01,C,SE011,stage_c_status,,accepted
+2026-11-01,C,SE012,image_quality,unassessed,fair
+2026-11-01,C,SE012,sha256,,9152d22f155f07ed47db450b156e9863886b57a37d58a8c09b257a18210030d1
+2026-11-01,C,SE012,image_seen,no,yes
+2026-11-01,C,SE012,stage_c_status,,accepted
+2026-11-01,C,SE013,image_quality,unassessed,fair
+2026-11-01,C,SE013,sha256,,151903ddf6a4d5ff40ab1dfe35525146ba91995fb6ff5dcdd85a67206a59e484
+2026-11-01,C,SE013,image_seen,no,yes
+2026-11-01,C,SE013,stage_c_status,,accepted
+2026-11-01,C,SE014,image_quality,unassessed,fair
+2026-11-01,C,SE014,sha256,,25b3be3221529eac85b0bc19fba78aadf49ceed2cede053c8f5f16e9c352589c
+2026-11-01,C,SE014,image_seen,no,yes
+2026-11-01,C,SE014,stage_c_status,,accepted
+2026-11-01,C,SE015,image_quality,unassessed,poor
+2026-11-01,C,SE015,sha256,,cf0ec6189e30589a23cee82d60ed986f3c460f344164cea577c9c83cc371d0f5
+2026-11-01,C,SE015,image_seen,no,yes
+2026-11-01,C,SE015,stage_c_status,,accepted
+2026-11-01,C,SE016,image_quality,unassessed,good
+2026-11-01,C,SE016,sha256,,3d35958accbeea5165fe4561e414dd70fc27806cac598839e3b8835b9b2505a9
+2026-11-01,C,SE016,image_seen,no,yes
+2026-11-01,C,SE016,stage_c_status,,accepted
+2026-11-01,C,SE017,image_quality,unassessed,good
+2026-11-01,C,SE017,sha256,,5d9722d5f3d37ab795f1938829a842a62b87b535a325f6423efd1c8c78d1f658
+2026-11-01,C,SE017,image_seen,no,yes
+2026-11-01,C,SE017,stage_c_status,,accepted
+2026-11-01,C,SE018,image_quality,unassessed,good
+2026-11-01,C,SE018,sha256,,3fe3543caece16ca75c5409fc66c7320edf6480ff6553ff11b61653514ff5b31
+2026-11-01,C,SE018,image_seen,no,yes
+2026-11-01,C,SE018,stage_c_status,,accepted
+2026-11-01,C,SE019,stage_c_status,,not_acquired
+2026-11-01,C,SE019,stage_c_reason,,"Label not verified, so not downloaded"
+2026-11-01,C,SE020,image_quality,unassessed,fair
+2026-11-01,C,SE020,sha256,,641d3655f934733900922d57326a2854fb67f9cf1f8e896f24f5229b1224be09
+2026-11-01,C,SE020,image_seen,no,yes
+2026-11-01,C,SE020,stage_c_status,,accepted
+2026-11-01,C,SE021,image_quality,unassessed,good
+2026-11-01,C,SE021,sha256,,4fc58b3cda71c0e25ea6f361fb498cf5380db40e497e4241ab5c1e652710c49b
+2026-11-01,C,SE021,image_seen,no,yes
+2026-11-01,C,SE021,stage_c_status,,accepted
+2026-11-01,C,SE022,image_quality,unassessed,good
+2026-11-01,C,SE022,sha256,,a8e2e333fe11fa917c7c8dccfeb50a57abd5c26cd7b23fa5e986fb5f6b16482e
+2026-11-01,C,SE022,image_seen,no,yes
+2026-11-01,C,SE022,stage_c_status,,accepted
+2026-11-01,C,SE023,image_quality,unassessed,good
+2026-11-01,C,SE023,sha256,,7c520f08f1a323d91b4ab432028f02358b743e0158c223ac8df1a0a624a00b6f
+2026-11-01,C,SE023,image_seen,no,yes
+2026-11-01,C,SE023,stage_c_status,,accepted
+2026-11-01,C,SE024,image_quality,unassessed,good
+2026-11-01,C,SE024,sha256,,a665ec648df7416a3ab9c6e30ab65d4a7ca6d53a1d9045fe9ae1276a96504e21
+2026-11-01,C,SE024,image_seen,no,yes
+2026-11-01,C,SE024,stage_c_status,,accepted
+2026-11-01,C,SE025,image_quality,unassessed,good
+2026-11-01,C,SE025,sha256,,d7dab240b842143bd04b775f2c8f12d05e26b6388af876dcf22a17c590148ab8
+2026-11-01,C,SE025,image_seen,no,yes
+2026-11-01,C,SE025,stage_c_status,,accepted
+2026-11-01,C,SE026,image_quality,unassessed,fair
+2026-11-01,C,SE026,sha256,,2c4c7f353a85ab491f0c3a993fa753ecce5194c6f7bac8ccbc8dfb73d0d17407
+2026-11-01,C,SE026,image_seen,no,yes
+2026-11-01,C,SE026,stage_c_status,,accepted
+2026-11-01,C,SE027,image_quality,unassessed,good
+2026-11-01,C,SE027,sha256,,5da2ea370c2ce973b0f0c1d26a1f1700fe61fea60a9682d22fe05fbd9521afea
+2026-11-01,C,SE027,image_seen,no,yes
+2026-11-01,C,SE027,stage_c_status,,accepted
+2026-11-01,C,SE028,image_quality,unassessed,fair
+2026-11-01,C,SE028,sha256,,ce7287851d720156cabe30737b2a667e731d532f0531c8b8a78c8e7e8f56c24d
+2026-11-01,C,SE028,image_seen,no,yes
+2026-11-01,C,SE028,stage_c_status,,excluded
+2026-11-01,C,SE028,stage_c_reason,,"No recognisable rune is visible. Only long curved painted lines survive, consistent with part of a decorative band"
+2026-11-01,C,SE029,image_quality,unassessed,good
+2026-11-01,C,SE029,sha256,,87368e84491078f0873e35df9a0134aba423fd802c1432be3d61e5658a476d81
+2026-11-01,C,SE029,image_seen,no,yes
+2026-11-01,C,SE029,stage_c_status,,accepted
+2026-11-01,C,SE030,image_quality,unassessed,good
+2026-11-01,C,SE030,sha256,,2765840a9a58a424c772823195d53e5dbc3b5fe2f4c89cde25424b6d8e1e4d38
+2026-11-01,C,SE030,image_seen,no,yes
+2026-11-01,C,SE030,stage_c_status,,accepted
+2026-11-01,C,SE031,image_quality,unassessed,good
+2026-11-01,C,SE031,sha256,,130727ed9ea4ce0ce28f17cc7e2ce53da079834e8b5993414ae43a5d60040ae5
+2026-11-01,C,SE031,image_seen,no,yes
+2026-11-01,C,SE031,stage_c_status,,accepted
+2026-11-01,C,SE032,image_quality,unassessed,good
+2026-11-01,C,SE032,sha256,,62ff65f9141c207520f6e9ee4cfba0791c2ceff0d6f721edd719927257336331
+2026-11-01,C,SE032,image_seen,no,yes
+2026-11-01,C,SE032,stage_c_status,,accepted
+2026-11-01,C,SE033,image_quality,unassessed,fair
+2026-11-01,C,SE033,sha256,,009044684c6d03ccbb347d1ed3fa02793acda301b14ee30a58d86c4d83fd1f14
+2026-11-01,C,SE033,image_seen,no,yes
+2026-11-01,C,SE033,stage_c_status,,accepted
+2026-11-01,C,SE034,image_quality,unassessed,fair
+2026-11-01,C,SE034,sha256,,e893bb4c21efcdd94c38c630877c2f9d80fd144e926a7f12086a963d485cd62e
+2026-11-01,C,SE034,image_seen,no,yes
+2026-11-01,C,SE034,stage_c_status,,accepted
+2026-11-01,C,SE035,image_quality,unassessed,good
+2026-11-01,C,SE035,sha256,,5ebf0ffc0d2a8611e8f1874d40eeb1d3b8fe5aedadc91b212acd251d114ec119
+2026-11-01,C,SE035,image_seen,no,yes
+2026-11-01,C,SE035,stage_c_status,,accepted
+2026-11-01,C,SE036,image_quality,unassessed,good
+2026-11-01,C,SE036,sha256,,a329bdfe05d1b54f760e4998ca8594dd284a5003d1230cdebef132f6b3b4c024
+2026-11-01,C,SE036,image_seen,no,yes
+2026-11-01,C,SE036,stage_c_status,,accepted
+2026-11-01,C,SE037,image_quality,unassessed,good
+2026-11-01,C,SE037,sha256,,06f28dba1aa1488b8de793250cceaf8de7627c995e0b4d6c2e89129ab5d52ad4
+2026-11-01,C,SE037,image_seen,no,yes
+2026-11-01,C,SE037,stage_c_status,,accepted
+2026-11-01,C,SE038,image_quality,unassessed,fair
+2026-11-01,C,SE038,sha256,,5b19b37c45297773d964d80ea9a55efb50fe417b6037aec5a6693375d1475ce0
+2026-11-01,C,SE038,image_seen,no,yes
+2026-11-01,C,SE038,stage_c_status,,accepted
+2026-11-01,C,SE039,image_quality,unassessed,good
+2026-11-01,C,SE039,sha256,,7cadc542c8aa719d9bc1c5e4187022eb430435917fb53c114601fcece553e8db
+2026-11-01,C,SE039,image_seen,no,yes
+2026-11-01,C,SE039,stage_c_status,,accepted
+2026-11-01,C,SE040,image_quality,unassessed,good
+2026-11-01,C,SE040,sha256,,5a4db0e3f0a7ab54e26f19cbd69a640e87a79496a9552b9ea8cb73f9f57654ad
+2026-11-01,C,SE040,image_seen,no,yes
+2026-11-01,C,SE040,stage_c_status,,accepted
+2026-11-01,C,RS001,stage_c_status,,not_acquired
+2026-11-01,C,RS001,stage_c_reason,,Reserve row. Not downloaded
+2026-11-01,C,RS002,stage_c_status,,not_acquired
+2026-11-01,C,RS002,stage_c_reason,,Reserve row. Not downloaded
+2026-11-01,C,RS003,stage_c_status,,not_acquired
+2026-11-01,C,RS003,stage_c_reason,,Reserve row. Not downloaded
+2026-11-01,C.1,SE001,image_quality,poor,fair
+2026-11-01,C.1,SE001,notes,"Record names the script. inscription_remark field reads ""Brahmi script"".","Record names the script. inscription_remark field reads ""Brahmi script"". Stage C.1: counted image is a crop of the same record's 3400 px print file. image_file_url and sha256 keep the original web acquisition. See replacement_images.csv. Label unchanged."
+2026-11-01,C.1,SE001,stage_c_status,held,accepted
+2026-11-01,C.1,SE001,stage_c_reason,Inscription is too small and faint in the 1139 px web image. Cleveland's 3400 px CC0 file shows it clearly. Usable only with an approved switch to that file and an approved crop,
+2026-11-01,C.1,SE001,processed_sha256,,779d5881ab68de733cdc6136f061d54b553f888db591e61964e16599c5c689c9
+2026-11-01,C.1,SE002,stage_c_reason,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv","Crop keeps about 45% of the plate, which is not the complete visible inscription, and it is the most aggressive cut"
+2026-11-01,C.1,SE002,processed_sha256,,a8910859aebc7f75fd8339fe437923965452310f17f2289a59bd9653d209832b
+2026-11-01,C.1,SE003,stage_c_reason,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv","Crop keeps about 64% of the plate, which is not the complete visible inscription"
+2026-11-01,C.1,SE003,processed_sha256,,8a9f862b8a1eeba260445e700675a9b41da0b38c96d7a91d326c39e5cfc3d81d
+2026-11-01,C.1,SE004,stage_c_reason,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv","Crop keeps about 69% of the plate, and drops the upper block beside the caption"
+2026-11-01,C.1,SE004,processed_sha256,,6ba2ec0c834c7246167156b67fd09da5c3ab050ec15af6b1ba8ddd29896c48ce
+2026-11-01,C.1,SE005,stage_c_status,held,accepted
+2026-11-01,C.1,SE005,stage_c_reason,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv",
+2026-11-01,C.1,SE005,processed_sha256,,083bb2a6b9463e41e2f71611047b97acd2c8e1b04b0c9c2ae4626233470db04d
+2026-11-01,C.1,SE008,redistribution,allowed,unknown
+2026-11-01,C.1,SE008,stage_c_status,accepted,held
+2026-11-01,C.1,SE008,stage_c_reason,,"Licence not independently verified. It rests on a non-public permission ticket. Not counted, not redistributed, and not part of any downloadable dataset"
+2026-11-01,C.1,SE009,stage_c_status,held,excluded
+2026-11-01,C.1,SE009,stage_c_reason,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv","At model size, signs have the same brightness and thickness as the surrounding speckle, and few can be separated. The caption is gone, but too little genuine evidence is readable"
+2026-11-01,C.1,SE009,processed_sha256,,3fae9a12dfadfddb8fcbf3512fb05c6a0e35fce1613f938a75bc43f758074aaf
+2026-11-01,C.1,SE010,stage_c_reason,"Printed caption names the site, which can reveal the script without reading it. Usable only with an approved crop that removes the caption; a checked box is in proposed_crops.csv","Crop keeps about 80% of the plate, which is not the complete visible inscription"
+2026-11-01,C.1,SE010,processed_sha256,,d28442fbc7554a396251b6663f6ddc818d1b5b91bc37babc3355e325fc51f509
+2026-11-01,C.2,SE001,notes,"Record names the script. inscription_remark field reads ""Brahmi script"". Stage C.1: counted image is a crop of the same record's 3400 px print file. image_file_url and sha256 keep the original web acquisition. See replacement_images.csv. Label unchanged.","Record names the script. inscription_remark field reads ""Brahmi script"". Stage C.1: counted image is a crop of the same record's 3400 px print file. image_file_url and sha256 keep the original web acquisition. See replacement_images.csv. Label unchanged. Stage C.2: label rests on the Cleveland record. Lüders, Bharhut Inscriptions (CII II.2, 1963), A 101 (847), edits the same words, but on a rail-bar in the Indian Museum, Calcutta, so it is a parallel, not independent evidence for this object."
+2026-11-01,C.2,SE001,sample_type,,complete
+2026-11-01,C.2,SE002,stage_c_reason,"Crop keeps about 45% of the plate, which is not the complete visible inscription, and it is the most aggressive cut","Held by user decision. The crop keeps about 45% of the plate, from a blurred photograph of a book page. Not counted"
+2026-11-01,C.2,SE002,sample_type,,excerpt
+2026-11-01,C.2,SE002,evaluation_scope,,script_identification_only
+2026-11-01,C.2,SE003,stage_c_reason,"Crop keeps about 64% of the plate, which is not the complete visible inscription","Fails the excerpt check: the box cuts characters along its left, right, top, and bottom edges, because the text runs up to the plate margin"
+2026-11-01,C.2,SE003,sample_type,,excerpt
+2026-11-01,C.2,SE003,evaluation_scope,,script_identification_only
+2026-11-01,C.2,SE004,stage_c_reason,"Crop keeps about 69% of the plate, and drops the upper block beside the caption","Fails the excerpt check: the bottom edge slices through a line of characters. Text lines slope, so no horizontal edge clears them"
+2026-11-01,C.2,SE004,sample_type,,excerpt
+2026-11-01,C.2,SE004,evaluation_scope,,script_identification_only
+2026-11-01,C.2,SE005,sample_type,,complete
+2026-11-01,C.2,SE006,notes,"Record names the script. Text read through a search excerpt because the page returned HTTP 429; re-read it at Stage C. Met sources give 15-16 CE and 5-6 CE for the date. Stage B.1: Baums no. 8 gives this text as CKI 242 and dates it 5/6 CE. ACCESSION CONFLICT: Baums gives 1987.142.71a,b and the Met 1987.142.70a,b. Resolve at Stage C using shape (Baums: spherical). Stage C: the image shows a spherical casket with a long inscription, matching Baums no. 8 (Indravarman). Image and text agree; only the accession numbers differ between Baums and the Met.","Record names the script. Text read through a search excerpt because the page returned HTTP 429; re-read it at Stage C. Met sources give 15-16 CE and 5-6 CE for the date. Stage B.1: Baums no. 8 gives this text as CKI 242 and dates it 5/6 CE. ACCESSION CONFLICT: Baums gives 1987.142.71a,b and the Met 1987.142.70a,b. Resolve at Stage C using shape (Baums: spherical). Stage C: the image shows a spherical casket with a long inscription, matching Baums no. 8 (Indravarman). Image and text agree; only the accession numbers differ between Baums and the Met. Stage C.2: Met record, dimensions, title, and image agree under Met numbering. Baums 2012 alone differs. Not independently settled."
+2026-11-01,C.2,SE006,sample_type,,complete
+2026-11-01,C.2,SE007,notes,"Stage B.1: catalogue no. 15 ""Ramaka and Udita"" gives CKI 243, and the same publication defines ""CKI = Corpus of Kharosthi inscriptions"". The inscription text matches the Met record. ACCESSION CONFLICT: Baums gives this text as 1987.142.70a,b and the Met as 1987.142.71a,b. Resolve at Stage C using shape (Baums: ovoid). Stage C: the image shows an ovoid casket, matching Baums no. 15 (Ramaka). Image and text agree; only the accession numbers differ between Baums and the Met.","Stage B.1: catalogue no. 15 ""Ramaka and Udita"" gives CKI 243, and the same publication defines ""CKI = Corpus of Kharosthi inscriptions"". The inscription text matches the Met record. ACCESSION CONFLICT: Baums gives this text as 1987.142.70a,b and the Met as 1987.142.71a,b. Resolve at Stage C using shape (Baums: ovoid). Stage C: the image shows an ovoid casket, matching Baums no. 15 (Ramaka). Image and text agree; only the accession numbers differ between Baums and the Met. Stage C.2: Met record, dimensions, title, and image agree under Met numbering. Baums 2012 alone differs. Not independently settled."
+2026-11-01,C.2,SE007,sample_type,,complete
+2026-11-01,C.2,SE008,notes,"Record names the script: ""written in Kharosthi script"". Ink on wood, unlike the carved examples. Commons status must be rechecked against British Library terms at Stage C. Stage C licence recheck: Commons records permission ticket 2012102610006645, which is not publicly readable.","Record names the script: ""written in Kharosthi script"". Ink on wood, unlike the carved examples. Commons status must be rechecked against British Library terms at Stage C. Stage C licence recheck: Commons records permission ticket 2012102610006645, which is not publicly readable. Stage C.2: stays held by user decision. Do not attempt to work around its licence."
+2026-11-01,C.2,SE008,sample_type,,complete
+2026-11-01,C.2,SE009,sample_type,,complete
+2026-11-01,C.2,SE010,stage_c_reason,"Crop keeps about 80% of the plate, which is not the complete visible inscription","Fails the excerpt check: the box cuts characters along its edges, and much of the surface stays noisy"
+2026-11-01,C.2,SE010,sample_type,,excerpt
+2026-11-01,C.2,SE010,evaluation_scope,,script_identification_only
+2026-11-01,C.2,SE011,sample_type,,complete
+2026-11-01,C.2,SE012,sample_type,,complete
+2026-11-01,C.2,SE013,sample_type,,complete
+2026-11-01,C.2,SE014,sample_type,,complete
+2026-11-01,C.2,SE015,sample_type,,complete
+2026-11-01,C.2,SE016,sample_type,,complete
+2026-11-01,C.2,SE017,sample_type,,complete
+2026-11-01,C.2,SE018,sample_type,,complete
+2026-11-01,C.2,SE020,sample_type,,complete
+2026-11-01,C.2,SE021,sample_type,,complete
+2026-11-01,C.2,SE022,sample_type,,complete
+2026-11-01,C.2,SE023,sample_type,,complete
+2026-11-01,C.2,SE024,sample_type,,complete
+2026-11-01,C.2,SE025,sample_type,,complete
+2026-11-01,C.2,SE026,sample_type,,complete
+2026-11-01,C.2,SE027,sample_type,,complete
+2026-11-01,C.2,SE028,sample_type,,complete
+2026-11-01,C.2,SE029,sample_type,,complete
+2026-11-01,C.2,SE030,sample_type,,complete
+2026-11-01,C.2,SE031,sample_type,,complete
+2026-11-01,C.2,SE032,sample_type,,complete
+2026-11-01,C.2,SE033,sample_type,,complete
+2026-11-01,C.2,SE034,sample_type,,complete
+2026-11-01,C.2,SE035,sample_type,,complete
+2026-11-01,C.2,SE036,sample_type,,complete
+2026-11-01,C.2,SE037,sample_type,,complete
+2026-11-01,C.2,SE038,sample_type,,complete
+2026-11-01,C.2,SE039,sample_type,,complete
+2026-11-01,C.2,SE040,sample_type,,complete
+2026-11-01,Q-10,SE003,stage_c_status,held,accepted
+2026-11-01,Q-10,SE003,stage_c_reason,"Fails the excerpt check: the box cuts characters along its left, right, top, and bottom edges, because the text runs up to the plate margin",
+2026-11-01,Q-10,SE003,sample_type,excerpt,complete
+2026-11-01,Q-10,SE003,evaluation_scope,script_identification_only,
+2026-11-01,Q-10,SE003,processed_sha256,8a9f862b8a1eeba260445e700675a9b41da0b38c96d7a91d326c39e5cfc3d81d,f20f584265b48c9517fe68e2cc087daf2961e6da99022679b0efecef8c856762
+2026-11-01,Q-10,SE003,leakage_risks,"Printed plate of an impression, not a photograph; edict texts recur across sites.","Printed plate of an impression, not a photograph; edict texts recur across sites. Whole plate with printed marks cleared from blank paper (Q-10)."
+2026-11-01,Q-10,SE004,stage_c_status,held,accepted
+2026-11-01,Q-10,SE004,stage_c_reason,"Fails the excerpt check: the bottom edge slices through a line of characters. Text lines slope, so no horizontal edge clears them",
+2026-11-01,Q-10,SE004,sample_type,excerpt,complete
+2026-11-01,Q-10,SE004,evaluation_scope,script_identification_only,
+2026-11-01,Q-10,SE004,processed_sha256,6ba2ec0c834c7246167156b67fd09da5c3ab050ec15af6b1ba8ddd29896c48ce,81db0d16d9ee3a415d0693b8a47aadeaa161b4251cbd81c66fef90958d162910
+2026-11-01,Q-10,SE004,leakage_risks,"Printed plate of an impression, not a photograph; edict texts recur across sites.","Printed plate of an impression, not a photograph; edict texts recur across sites. Whole plate with printed marks cleared from blank paper (Q-10)."
+2026-11-01,Q-10,SE010,stage_c_reason,"Fails the excerpt check: the box cuts characters along its edges, and much of the surface stays noisy","Q-10 inspection: line numbers 2, 4, 10, 12, and 14 are printed on or at the inked impression, not on blank paper, so they cannot be cleared. Still held"

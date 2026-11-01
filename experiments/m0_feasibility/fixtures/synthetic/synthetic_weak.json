@@ -1,0 +1,893 @@
+{
+ "notice": "SYNTHETIC. Invented to exercise the harness. Not a model response.",
+ "synthetic": true,
+ "scenarios": {
+  "SYN001": "correct",
+  "SYN002": "correct",
+  "SYN003": "correct",
+  "SYN004": "correct",
+  "SYN005": "correct",
+  "SYN006": "correct",
+  "SYN007": "correct",
+  "SYN008": "correct",
+  "SYN009": "top3_only",
+  "SYN010": "top3_only",
+  "SYN011": "top3_only",
+  "SYN012": "top3_only",
+  "SYN013": "top3_only",
+  "SYN014": "wrong",
+  "SYN015": "wrong",
+  "SYN016": "wrong",
+  "SYN017": "wrong",
+  "SYN018": "wrong",
+  "SYN019": "wrong",
+  "SYN020": "wrong",
+  "SYN021": "wrong",
+  "SYN022": "no_consensus",
+  "SYN023": "no_consensus",
+  "SYN024": "no_consensus",
+  "SYN025": "abstained",
+  "SYN026": "abstained",
+  "SYN027": "repair_exhausted_all",
+  "SYN028": "missing_evidence_exhausted_all",
+  "SYN029": "provider_exhausted_all",
+  "SYN030": "forced",
+  "SYN031": "forced",
+  "SYN032": "forced",
+  "SYN033": "forced",
+  "SYN034": "forced",
+  "SYN035": "forced",
+  "SYN036": "outside",
+  "SYN037": "outside",
+  "SYN038": "no_writing",
+  "SYN039": "no_writing"
+ },
+ "outcomes": {
+  "SYN001": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN002": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN003": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN004": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN005": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN006": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN007": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN008": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN009": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN010": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"kharosthi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN011": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN012": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN013": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"phoenician\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN014": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN015": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"greek\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN016": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN017": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN018": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN019": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN020": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN021": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}, {\"rank\": 2, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN022": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN023": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN024": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"brahmi\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN025": [
+   {
+    "content": "{\"disposition\": \"insufficient_evidence\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"insufficient_evidence\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"insufficient_evidence\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN026": [
+   {
+    "content": "{\"disposition\": \"insufficient_evidence\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"insufficient_evidence\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"insufficient_evidence\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN027": [
+   {
+    "content": "this is not JSON",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "this is not JSON",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "this is not JSON",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "this is not JSON",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "this is not JSON",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "this is not JSON",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN028": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"runic\", \"supporting_evidence\": [], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN029": [
+   {
+    "error": {
+     "kind": "unavailable",
+     "http_status": 503,
+     "detail": "synthetic failure",
+     "retry_after_s": 0
+    }
+   },
+   {
+    "error": {
+     "kind": "unavailable",
+     "http_status": 503,
+     "detail": "synthetic failure",
+     "retry_after_s": 0
+    }
+   },
+   {
+    "error": {
+     "kind": "unavailable",
+     "http_status": 503,
+     "detail": "synthetic failure",
+     "retry_after_s": 0
+    }
+   },
+   {
+    "error": {
+     "kind": "unavailable",
+     "http_status": 503,
+     "detail": "synthetic failure",
+     "retry_after_s": 0
+    }
+   },
+   {
+    "error": {
+     "kind": "unavailable",
+     "http_status": 503,
+     "detail": "synthetic failure",
+     "retry_after_s": 0
+    }
+   },
+   {
+    "error": {
+     "kind": "unavailable",
+     "http_status": 503,
+     "detail": "synthetic failure",
+     "retry_after_s": 0
+    }
+   }
+  ],
+  "SYN030": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN031": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN032": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN033": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN034": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN035": [
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"identified\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [{\"rank\": 1, \"script\": \"latin\", \"supporting_evidence\": [\"synthetic evidence\"], \"contradicting_evidence\": []}], \"alternative_interpretations\": [], \"abstention_reason\": null}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN036": [
+   {
+    "content": "{\"disposition\": \"outside_supported_set\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"outside_supported_set\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"outside_supported_set\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN037": [
+   {
+    "content": "{\"disposition\": \"outside_supported_set\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"outside_supported_set\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"outside_supported_set\", \"observations\": {\"writing_present\": true, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN038": [
+   {
+    "content": "{\"disposition\": \"no_writing\", \"observations\": {\"writing_present\": false, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"no_writing\", \"observations\": {\"writing_present\": false, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"no_writing\", \"observations\": {\"writing_present\": false, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ],
+  "SYN039": [
+   {
+    "content": "{\"disposition\": \"no_writing\", \"observations\": {\"writing_present\": false, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"no_writing\", \"observations\": {\"writing_present\": false, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   },
+   {
+    "content": "{\"disposition\": \"no_writing\", \"observations\": {\"writing_present\": false, \"image_quality\": \"fair\", \"apparent_direction\": \"unclear\", \"visual_features\": [\"synthetic feature\"], \"damage_or_limitations\": []}, \"candidates\": [], \"alternative_interpretations\": [], \"abstention_reason\": \"synthetic reason\"}",
+    "input_tokens": 4000,
+    "output_tokens": 500,
+    "finish_reason": "stop"
+   }
+  ]
+ }
+}

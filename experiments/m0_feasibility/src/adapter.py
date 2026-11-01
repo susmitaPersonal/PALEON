@@ -1,13 +1,15 @@
 """Provider adapters.
 
-Stage A ships no live transport, so nothing in this package can reach a network.
-OpenAICompatibleAdapter talks only to an injected Transport. Stage D, once approved,
-adds an httpx-backed Transport without changing this module.
+Nothing in this package can reach a network. OpenAICompatibleAdapter talks only to an
+injected Transport. The httpx-backed Transport lives in live/, outside src/, and no entry
+point reaches it until Stage D is approved.
 """
 import base64
 import json
+import math
 import os
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any, Protocol
 
 RETRYABLE_KINDS = {"timeout", "rate_limited", "unavailable"}
@@ -48,6 +50,10 @@ class ChatResult:
     input_tokens: int | None
     output_tokens: int | None
     finish_reason: str | None
+    response_model: str | None = None
+    response_host: str | None = None
+    cached_input_tokens: int | None = None
+    reasoning_tokens: int | None = None
 
 
 @dataclass(frozen=True)
@@ -107,9 +113,23 @@ def _classify_status(status: int) -> str:
 def _retry_after(headers: dict[str, str]) -> float | None:
     value = next((v for k, v in headers.items() if k.lower() == "retry-after"), None)
     try:
-        return float(value) if value is not None else None
+        seconds = float(value) if value is not None else None
     except ValueError:
         return None
+    return seconds if seconds is not None and math.isfinite(seconds) and seconds >= 0 else None
+
+
+def _count(value: Any) -> int | None:
+    return value if isinstance(value, int) and not isinstance(value, bool) and value >= 0 else None
+
+
+def _detail(usage: dict, section: str, name: str) -> int | None:
+    block = usage.get(section)
+    return _count(block.get(name)) if isinstance(block, dict) else None
+
+
+def _text(value: Any) -> str | None:
+    return value if isinstance(value, str) else None
 
 
 class OpenAICompatibleAdapter:
@@ -181,23 +201,39 @@ class OpenAICompatibleAdapter:
             kind = _classify_status(code) if isinstance(code, int) else "unavailable"
             raise ProviderError(kind, str(error)[:300], 200, raw_body=payload)
         choices = payload.get("choices") or []
-        if not choices:
+        if not isinstance(choices, list) or not choices:
             raise ProviderError("bad_response", "response has no choices", 200, raw_body=payload)
+        choice = choices[0]
+        message = choice.get("message") or {} if isinstance(choice, dict) else None
+        if not isinstance(message, dict):
+            raise ProviderError("bad_response", "response has a malformed choice", 200, raw_body=payload)
 
-        message = choices[0].get("message") or {}
-        usage = payload.get("usage") or {}
+        usage = payload.get("usage")
+        usage = usage if isinstance(usage, dict) else {}
         return ChatResult(
             content=message.get("content") or "",
             raw_body=payload,
             http_status=200,
-            input_tokens=usage.get("prompt_tokens"),
-            output_tokens=usage.get("completion_tokens"),
-            finish_reason=choices[0].get("finish_reason"),
+            input_tokens=_count(usage.get("prompt_tokens")),
+            output_tokens=_count(usage.get("completion_tokens")),
+            finish_reason=_text(choice.get("finish_reason")),
+            response_model=_text(payload.get("model")),
+            response_host=_text(payload.get("provider")),
+            cached_input_tokens=_detail(usage, "prompt_tokens_details", "cached_tokens"),
+            reasoning_tokens=_detail(usage, "completion_tokens_details", "reasoning_tokens"),
         )
 
 
+class LiveModeDisabled(RuntimeError):
+    """Raised for any attempt to reach a real provider. Stage D has not been approved."""
+
+
 class FixtureAdapter:
-    """Replays scripted outcomes, keyed by image then consumed in order."""
+    """Replays recorded outcomes, keyed by image then consumed in order.
+
+    An outcome is response text, a ProviderError, or a recorded dict. Token usage comes only from the
+    recording. When a recording has none it stays None, and is never estimated or filled in.
+    """
 
     def __init__(self, config: ProviderConfig, script: dict[str, list[Any]]):
         self.config = config
@@ -207,9 +243,32 @@ class FixtureAdapter:
     def complete(self, request: ChatRequest) -> ChatResult:
         queue = self._script.get(self.current_image or "")
         if not queue:
-            raise ProviderError("bad_response", f"no scripted outcome left for {self.current_image}")
+            raise ProviderError("bad_response", f"no recorded outcome left for {self.current_image}")
         item = queue.pop(0)
         if isinstance(item, ProviderError):
             raise item
-        return ChatResult(content=item, raw_body={"fixture": True, "content": item}, http_status=200,
-                          input_tokens=5000, output_tokens=800, finish_reason="stop")
+        if isinstance(item, str):
+            item = {"content": item}
+        if "error" in item:
+            error = item["error"]
+            raise ProviderError(error["kind"], error.get("detail", ""), error.get("http_status"),
+                                error.get("retry_after_s"), raw_body=item)
+        return ChatResult(content=item["content"], raw_body={"fixture": True, **item}, http_status=200,
+                          input_tokens=item.get("input_tokens"), output_tokens=item.get("output_tokens"),
+                          finish_reason=item.get("finish_reason"))
+
+
+def fixture_adapter_from_file(config: ProviderConfig, path: Path) -> FixtureAdapter:
+    recording = json.loads(path.read_text(encoding="utf-8"))
+    return FixtureAdapter(config, recording["outcomes"])
+
+
+def require_credentials(configs: list[ProviderConfig], env: dict[str, str] | None = None) -> list[str]:
+    """Return the names of missing variables. Only names are reported, never values."""
+    missing = []
+    for config in configs:
+        try:
+            load_api_key(config, env)
+        except ProviderError:
+            missing.append(config.api_key_env)
+    return missing

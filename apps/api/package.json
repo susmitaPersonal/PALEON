@@ -1,0 +1,25 @@
+{
+  "name": "@scriptecho/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "validate:knowledge": "tsx src/validateKnowledge.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.5",
+    "@scriptecho/contracts": "*",
+    "hono": "^4.6.0",
+    "sharp": "^0.35.5",
+    "tsx": "^4.19.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "vitest": "^5.0.5"
+  }
+}

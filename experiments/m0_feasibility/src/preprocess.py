@@ -8,10 +8,12 @@ import io
 from PIL import Image, ImageOps
 
 PREPROCESS_VERSION = "v1"
-MAX_PIXELS = 50_000_000
+# Museum runestone photographs reach about 62 megapixels. This is a safety ceiling, not a quality setting.
+MAX_PIXELS = 120_000_000
 
 
 def normalize_image(data: bytes, longest_edge: int = 2048, jpeg_quality: int = 92) -> tuple[bytes, str]:
+    Image.MAX_IMAGE_PIXELS = MAX_PIXELS     # Pillow warns far lower, so the explicit check below is the limit.
     with Image.open(io.BytesIO(data)) as source:
         width, height = source.size
         if width * height > MAX_PIXELS:
