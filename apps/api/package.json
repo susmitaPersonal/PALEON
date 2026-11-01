@@ -8,7 +8,8 @@
     "start": "tsx src/server.ts",
     "typecheck": "tsc -p tsconfig.json",
     "test": "vitest run",
-    "validate:knowledge": "tsx src/validateKnowledge.ts"
+    "validate:knowledge": "tsx src/validateKnowledge.ts",
+    "eval:research": "tsx src/research/evalCli.ts"
   },
   "dependencies": {
     "@hono/node-server": "^2.1.5",
