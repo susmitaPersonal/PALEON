@@ -17,9 +17,13 @@
     "start": "npm run build && npm run start -w @scriptecho/api",
     "typecheck": "npm run typecheck --workspaces",
     "test": "node scripts/test-all.mjs",
+    "local:analyze": "node scripts/local-analyze.mjs",
+    "local:image-check": "node scripts/local-image-check.mjs",
+    "test:e2e:local": "playwright test --config playwright.local.config.ts",
     "test:unit": "npm run test --workspaces",
     "test:e2e": "playwright test",
-    "validate:knowledge": "npm run validate:knowledge -w @scriptecho/api"
+    "validate:knowledge": "npm run validate:knowledge -w @scriptecho/api",
+    "eval:research": "npm run eval:research -w @scriptecho/api --"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",
