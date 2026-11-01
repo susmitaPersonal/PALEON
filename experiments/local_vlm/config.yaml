@@ -1,0 +1,22 @@
+# A separate local experiment. It is not part of M0, and it changes no M0 prompt, manifest, gate, or result.
+experiment: local_vlm
+status: image-reading check passed on generated images. No inscription analysed
+model:
+  name: qwen2.5vl:3b
+  quantization: Q4_K_M, as listed by Ollama. Confirm from the runtime report
+  size_on_disk: 3.2 GB, as listed by Ollama
+  digest: recorded with each run
+runtime:
+  name: Ollama
+  version: 0.40.3 installed on 2026-11-02. Recorded with each run
+hardware:
+  planned: MacBook Air, Apple M1, 8 GB memory, 7-core GPU. Recorded with each run
+parameters:
+  prompt: apps/api/prompts/script_analysis_v2.md
+  temperature: 0
+  seed: 20261102
+  num_ctx: 8192
+  num_predict: 1500
+  max_image_edge: 1024
+  timeout_ms: 600000
+gates: none. M0 gates do not apply here
