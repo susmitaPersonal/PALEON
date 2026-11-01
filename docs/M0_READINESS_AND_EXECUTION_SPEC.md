@@ -1,6 +1,6 @@
 # M0 Readiness Review and Execution Specification
 
-> **Version:** 1.4 | **Date:** 2026-11-02 | **Status:** The review is observed. The 8 harness fixes required before Stage D are Implemented and Verified offline, and Q-10 is applied (ADR-064). The rest of the specification is **Proposed**. Stage D and Stage E are **not authorized**, and nothing here starts them.
+> **Version:** 1.5 | **Date:** 2026-11-02 | **Status:** The review is observed. The 8 harness fixes required before Stage D are Implemented and Verified offline, and Q-10 is applied (ADR-064). The rest of the specification is **Proposed**. Stage D and Stage E are **not authorized**, and nothing here starts them.
 
 Related: [METHODOLOGY.md](../experiments/m0_feasibility/METHODOLOGY.md), [MODEL_EVALUATION.md](MODEL_EVALUATION.md), [MODEL_COMPARISON.md](MODEL_COMPARISON.md), [DECISIONS.md](DECISIONS.md), [SESSION_HANDOVER.md](SESSION_HANDOVER.md)
 
@@ -503,7 +503,7 @@ Do not paste a key into a conversation. Missing keys are reported by name only. 
 | Worst case: 3 canaries × 2 repetitions × 3 attempts = 18 | **$0.0378** | **$0.0396** |
 | Expected: 6 attempts at 5,000 and 800 tokens | $0.0074 | $0.0079 |
 
-The two worst cases total $0.0774, which rounds to the $0.08 ceiling. The catalog step is not billed by the published endpoint descriptions, which is **unverified**.
+The two worst cases total $0.0774, which rounds to the $0.08 ceiling.
 
 | Control | Verified offline by |
 |---|---|
@@ -547,3 +547,28 @@ Each `preflight` command needs its own decision to run. Exit codes: 0 passed, 1 
 **Host handling:** the host is passed on the command line, so `config/models.yaml` keeps its frozen hash during Stage D. Before Stage E, the confirmed host must be written there, and `FROZEN_SHA256` updated, which is a separate approved change.
 
 **If the strict schema is refused,** the run stops with `bad_request`. Using the `json_object` fallback changes `config/models.yaml`, so it needs approval first.
+
+## Catalog access and image-input reporting
+
+**What the first run did.** On 2026-11-02 the approved catalog command refused locally at commit `285d91d`, because `OPENROUTER_API_KEY` was not set. It made no network call, so **no live catalog response exists**.
+
+**Cost of the catalog call is undocumented.** OpenRouter's reference pages for this endpoint, its limits page, and its SDK page do not say whether it is free or charged. The prices in the reply describe the model, not the catalog call. Treat cost as unknown until the owner accepts that risk. Credit balance can be compared before and after with the account's own pages.
+
+**Key type is uncertain.** The endpoint is documented with a bearer API key, and its 403 example reads "Only management keys can perform this operation". A normal key may be refused. The command then stops with HTTP 403, and makes no other call.
+
+**Field used.** `data.architecture.input_modalities`, an array whose documented values are `text`, `image`, `file`, `audio`, and `video`.
+
+| Reported | Rule |
+|---|---|
+| `Supported` | The array holds `image`, and every entry is a string |
+| `Unsupported` | Non-empty, with only documented values, and no `image` |
+| `Unknown` | Missing, empty, not an array, a non-string entry, or an undocumented value such as `Image` or `vision` |
+
+**Limits on what this shows:**
+
+- The field belongs to the model. The endpoint schema has none, so `Supported` does not show that the chosen host accepts images. The report says so in `image_input_source`.
+- A listing is a catalog claim. Only the Stage D canaries can show that an image was received.
+- Names, descriptions, `pricing.image`, and `supports_image_reference` are never used.
+- The Hugging Face route has no documented field for this, so Model B reports `Unknown`.
+- `preflight` does not gate on this value. Its gates are unchanged.
+

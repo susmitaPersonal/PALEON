@@ -24,7 +24,7 @@ ENV = {"OPENROUTER_API_KEY": KEY, "HF_TOKEN": KEY}
 CANARIES = {hashlib.sha256(data).hexdigest() for data in preflight.make_canaries().values()}
 RUN = load_run_config(stage_d.RUN_CONFIG)
 MODELS = load_models(stage_d.MODELS_FILE, RUN)
-OPENROUTER = {"data": {"endpoints": [{
+OPENROUTER = {"data": {"architecture": {"input_modalities": ["image", "text"], "output_modalities": ["text"]}, "endpoints": [{
     "tag": "deepinfra", "provider_name": "DeepInfra", "pricing": {"prompt": "0.00000015", "completion": "0.0000006"},
     "supported_parameters": ["response_format", "structured_outputs", "seed", "max_tokens"], "quantization": "fp8",
     "max_completion_tokens": 16384, "context_length": 262144, "status": 0, "uptime_last_1d": 99.9}]}}
@@ -145,6 +145,7 @@ def test_a_key_cannot_be_sent_to_an_unexpected_gateway(tmp_path):
 @pytest.mark.parametrize("catalog, expected", [
     ({"data": {"endpoints": []}}, "not listed"),
     ({"unexpected": True}, "unexpected OpenRouter"),
+    ({"data": ["not", "an", "object"]}, "unexpected OpenRouter"),
     ({"data": {"endpoints": [{**OPENROUTER["data"]["endpoints"][0], "tag": "other"}]}}, "not listed"),
     ({"data": {"endpoints": [{**OPENROUTER["data"]["endpoints"][0], "pricing": {"prompt": "0.0000002", "completion": "0.0000007"}}]}}, "costs more"),
     ({"data": {"endpoints": [{**OPENROUTER["data"]["endpoints"][0], "supported_parameters": ["max_tokens"]}]}}, "structured output"),
@@ -160,6 +161,94 @@ def test_catalog_makes_no_paid_call_and_prints_hosts(tmp_path):
     transport, lines = Canaries(), []
     assert stage_d.execute(args("catalog", host=None), deps(tmp_path, transport, lines=lines)) == 0
     assert transport.calls == 0 and json.loads(lines[0])["host"] == "deepinfra"
+
+
+@pytest.mark.parametrize("architecture, expected", [
+    ({"input_modalities": ["image", "text"]}, "Supported"),
+    ({"input_modalities": ["text", "image", "file"]}, "Supported"),
+    ({"input_modalities": ["text"]}, "Unsupported"),
+    ({"input_modalities": ["text", "file", "audio", "video"]}, "Unsupported"),
+    ({}, "Unknown"),
+    ({"input_modalities": []}, "Unknown"),
+    ({"input_modalities": None}, "Unknown"),
+    ({"input_modalities": "image"}, "Unknown"),
+    ({"input_modalities": {"image": True}}, "Unknown"),
+    ({"input_modalities": ["image", 3]}, "Unknown"),
+    ({"input_modalities": ["text", "Image"]}, "Unknown"),
+    ({"input_modalities": ["text", "vision"]}, "Unknown"),
+    ({"modality": "text+image->text"}, "Unknown"),
+    (None, "Unknown"),
+    ("image", "Unknown"),
+    (["image"], "Unknown"),
+])
+def test_image_input_comes_only_from_the_documented_field(architecture, expected):
+    assert stage_d.image_input({"architecture": architecture}) == expected
+
+
+def test_a_missing_architecture_is_unknown():
+    assert stage_d.image_input({}) == "Unknown" and stage_d.image_input(None) == "Unknown"
+
+
+def image_catalog(**data):
+    return {"data": {"endpoints": OPENROUTER["data"]["endpoints"], **data}}
+
+
+@pytest.mark.parametrize("name, architecture, expected", [
+    ("supported", {"input_modalities": ["text", "image"]}, "Supported"),
+    ("unsupported", {"input_modalities": ["text"]}, "Unsupported"),
+    ("malformed", {"input_modalities": "image"}, "Unknown"),
+])
+def test_the_catalog_report_states_image_input_and_its_scope(tmp_path, name, architecture, expected):
+    lines = []
+    assert stage_d.execute(args("catalog", host=None), deps(tmp_path, catalog=image_catalog(architecture=architecture), lines=lines)) == 0
+    report = json.loads(lines[0])
+    assert report["image_input"] == expected
+    assert report["image_input_source"] == stage_d.OPENROUTER_IMAGE_SOURCE and "not this host" in report["image_input_source"]
+
+
+def test_a_catalog_with_no_architecture_still_reports_the_host(tmp_path):
+    lines = []
+    assert stage_d.execute(args("catalog", host=None), deps(tmp_path, catalog=image_catalog(), lines=lines)) == 0
+    assert json.loads(lines[0])["image_input"] == "Unknown" and json.loads(lines[0])["host"] == "deepinfra"
+
+
+@pytest.mark.parametrize("name", ["Vision Model", "qwen3-vl", "gemma-4-multimodal"])
+def test_image_input_is_never_inferred_from_a_name(name):
+    entry = {"id": name, "name": name, "description": "accepts images", "endpoints": []}
+    assert stage_d.image_input(entry) == "Unknown"
+
+
+def test_endpoint_level_fields_do_not_count_as_image_input():
+    item = {**OPENROUTER["data"]["endpoints"][0], "supports_image_reference": True,
+            "pricing": {"prompt": "0.00000015", "completion": "0.0000006", "image": "0.001"}}
+    assert stage_d.parse_openrouter({"data": {"endpoints": [item]}})[0].image_input == "Unknown"
+
+
+def test_hugging_face_reports_unknown_with_no_documented_field():
+    listing = stage_d.parse_huggingface(HUGGINGFACE, "google/gemma-4-31B-it:deepinfra")[0]
+    assert listing.image_input == "Unknown" and listing.image_input_source == stage_d.NO_IMAGE_SOURCE
+
+
+def test_the_catalog_step_is_one_get_with_no_inference_or_images(tmp_path, monkeypatch):
+    gets = []
+    transport = Canaries()
+    dependencies = deps(tmp_path, transport)
+    dependencies.get_json = lambda url, headers: gets.append(url) or OPENROUTER
+    dependencies.make_adapter = lambda *_: pytest.fail("an adapter was built")
+    dependencies.sleep = lambda _: pytest.fail("a retry wait ran")
+    monkeypatch.setattr(stage_d, "run_preflight", lambda *_: pytest.fail("preflight ran"))
+    monkeypatch.setattr(preflight, "make_canaries", lambda: pytest.fail("an image was generated"))
+    monkeypatch.setattr(stage_d, "RunGuard", lambda *_: pytest.fail("a run started"))
+    assert stage_d.execute(args("catalog", host=None), dependencies) == 0
+    assert gets == ["https://openrouter.ai/api/v1/models/qwen/qwen3-vl-30b-a3b-instruct/endpoints"]
+    assert transport.calls == 0 and not (tmp_path / "preflight").exists()
+
+
+@pytest.mark.parametrize("modalities", [["text"], "bad"])
+def test_preflight_gating_is_unchanged_by_the_new_field(tmp_path, modalities):
+    transport = Canaries()
+    catalog = image_catalog(architecture={"input_modalities": modalities})
+    assert stage_d.execute(args(), deps(tmp_path, transport, catalog=catalog)) == 0 and transport.calls == 6
 
 
 def test_model_b_is_pinned_by_id_and_reads_the_hugging_face_catalog(tmp_path):

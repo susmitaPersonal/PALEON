@@ -42,6 +42,11 @@ FROZEN_SHA256 = {
     "config/run.yaml": "9fc7125c7b891e0ce85159091eb75fdaeb0dcbb27d4f935f8f3545a23be4b2af",
     "config/models.yaml": "25222ee3a33f0405dc40852bb31eace0207d12e51225d9bfc23e4cdb7292fdc3",
 }
+IMAGE_SUPPORTED, IMAGE_UNSUPPORTED, IMAGE_UNKNOWN = "Supported", "Unsupported", "Unknown"
+# OpenRouter documents `data.architecture.input_modalities` for the model. Its endpoint schema has no such field.
+OPENROUTER_IMAGE_SOURCE = "data.architecture.input_modalities, model level, not this host"
+NO_IMAGE_SOURCE = "no documented field in this catalog"
+DOCUMENTED_INPUT_MODALITIES = {"text", "image", "file", "audio", "video"}
 GATEWAYS = {
     "qwen3_vl_30b": "https://openrouter.ai/api/v1",
     "gemma4_31b": "https://router.huggingface.co/v1",
@@ -67,6 +72,8 @@ class Listing:
     max_output_tokens: int | None = None
     quantization: str | None = None
     details: dict = field(default_factory=dict)
+    image_input: str = IMAGE_UNKNOWN
+    image_input_source: str = NO_IMAGE_SOURCE
 
 
 @dataclass
@@ -111,8 +118,21 @@ def _per_million(value: Any) -> float:
         raise CatalogError(f"unreadable price {value!r}") from exc
 
 
+def image_input(data: Any) -> str:
+    """Reads the catalog's stated input types only. A listing is a claim, and it never proves an image was received."""
+    architecture = data.get("architecture") if isinstance(data, dict) else None
+    modalities = architecture.get("input_modalities") if isinstance(architecture, dict) else None
+    if not isinstance(modalities, list) or not modalities or not all(isinstance(item, str) for item in modalities):
+        return IMAGE_UNKNOWN
+    if "image" in modalities:
+        return IMAGE_SUPPORTED
+    # An undocumented value could mean anything, so "no image" needs every value to be a documented one.
+    return IMAGE_UNSUPPORTED if set(modalities) <= DOCUMENTED_INPUT_MODALITIES else IMAGE_UNKNOWN
+
+
 def parse_openrouter(payload: Any) -> list[Listing]:
     try:
+        image = image_input(payload["data"])
         return [Listing(
             host=item.get("tag") or item["provider_name"], input_usd_per_mtok=_per_million(item["pricing"]["prompt"]),
             output_usd_per_mtok=_per_million(item["pricing"]["completion"]),
@@ -121,6 +141,7 @@ def parse_openrouter(payload: Any) -> list[Listing]:
             details={"structured_outputs": "structured_outputs" in item["supported_parameters"],
                      "seed": "seed" in item["supported_parameters"], "status": item.get("status"),
                      "uptime_last_1d": item.get("uptime_last_1d"), "context_length": item.get("context_length")},
+            image_input=image, image_input_source=OPENROUTER_IMAGE_SOURCE,
         ) for item in payload["data"]["endpoints"]]
     except (KeyError, TypeError, AttributeError) as exc:
         raise CatalogError("unexpected OpenRouter catalog shape") from exc

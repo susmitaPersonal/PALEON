@@ -4,6 +4,27 @@ All notable changes to ScriptEcho. Dates are in IST. No version has been release
 
 ## [Unreleased]
 
+### 2026-11-02: Image input in the Stage D catalog report
+
+Added:
+- `image_input` and `image_input_source` in the catalog report for each host. The value is `Supported`, `Unsupported`, or `Unknown`, read only from `data.architecture.input_modalities`.
+- 30 tests in `tests/test_stage_d.py`, covering all three outcomes, malformed and missing fields, and a one-GET boundary test.
+
+Fixed in documents:
+- The specification implied the catalog call is not billed. OpenRouter's pages do not say either way, so its cost is recorded as unknown.
+
+Found:
+- The field is model level, so it cannot show that a particular host accepts images.
+- The endpoint's 403 example mentions management keys, so a normal key may be refused.
+
+Verified:
+- 468 pytest tests passed, and 219 Vitest tests passed. 10 of 10 deliberate breaks were caught. `--check` exited 0, and `--live` exited 2.
+
+Not checked:
+- No live catalog response exists, so the field has never been seen in a real reply. The browser tests were not rerun, because no product file changed.
+
+No catalog call, inference, image, purchase, or model configuration change was made. The owner approved one local commit of this work, and nothing was pushed. The commit changes HEAD, so the catalog call needs approval on the new hash.
+
 ### 2026-11-02: Stage D preparation
 
 Added:

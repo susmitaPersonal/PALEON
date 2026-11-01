@@ -1,6 +1,6 @@
 # Session Handover
 
-> **Version:** 1.6 | **Last updated:** 2026-11-02, Stage D preparation committed locally and not run
+> **Version:** 1.8 | **Last updated:** 2026-11-02, catalog report change committed locally
 
 Update this document at the end of every substantial session, with observed results only. Older entries move to the session log at the bottom.
 
@@ -39,12 +39,13 @@ ScriptEcho helps people investigate unfamiliar historical scripts from images, r
 
 ## Exact next action
 
-**Wait for explicit approval.** The freeze commit is `67de8e71b119620a296fd3664d81de1f9e9aa0d9`. Stage D is prepared and has not run. The preparation is committed locally as the direct child of the freeze commit, and that approval covered nothing else. The owner decided that M0 precedes product-level real-model fixes (ADR-062), and that decision authorizes no inference. Stage D and Stage E stay unauthorized. Do not start anything until the user says so.
+**Wait for explicit approval.** The freeze commit is `67de8e71b119620a296fd3664d81de1f9e9aa0d9`. Stage D is prepared and has not run. The preparation is commit `285d91da9aad818b132ca362d9d146b57a5990e0`, the direct child of the freeze commit. **The catalog report change is committed locally as the direct child of `285d91d`. That commit is HEAD, and `git log` shows its hash, which a commit cannot contain.** The first approved catalog run, on `285d91d`, refused locally, because `OPENROUTER_API_KEY` was not set. No live catalog response exists. The owner decided that M0 precedes product-level real-model fixes (ADR-062), and that decision authorizes no inference. Stage D and Stage E stay unauthorized. Do not start anything until the user says so.
 
 The path to Stage D is in [M0_READINESS_AND_EXECUTION_SPEC.md](M0_READINESS_AND_EXECUTION_SPEC.md#required-before-stage-d):
 
-1. Approve Stage D: the $0.10 budget, keys, and whether Model B runs canaries before DeepInfra answers. The approval must name the full HEAD hash, which `git log` shows. Any new commit changes HEAD, so that hash must be approved again.
-2. Run the commands in [Phase 4](M0_READINESS_AND_EXECUTION_SPEC.md#phase-4-stage-d-preparation) with the approved hash. Send DeepInfra the drafted question before Stage E.
+1. **Next approval required:** approve the catalog call on the current HEAD hash, accepting that its cost is undocumented and that a normal key may be refused. The earlier approval named `285d91d`, and the command no longer accepts that hash. The owner runs it, because keys never enter this session.
+2. Approve Stage D: the $0.10 budget, keys, and whether Model B runs canaries before DeepInfra answers.
+3. Run the commands in [Phase 4](M0_READINESS_AND_EXECUTION_SPEC.md#phase-4-stage-d-preparation) with the approved hash. Send DeepInfra the drafted question before Stage E.
 
 **Before any push:** `origin/main` is at `3508da65`, which this clone does not have. Inspect it first, and do not force-push.
 
@@ -217,7 +218,9 @@ Images are gitignored. On a machine without them, `--check` validates metadata o
 
 Final run on the finished MVP code, 2026-11-01. **Passing tests do not cover the defects listed under [Post-MVP review](#post-mvp-review).**
 
-**Latest run, Stage D preparation:** 438 pytest tests passed, `--check` exited 0, `--live` exited 2, and the real Stage D command refused locally with exit 2. Vitest and browser tests were not rerun, because no product file changed.
+**Latest run, catalog report change:** 468 pytest and 219 Vitest tests passed, `--check` exited 0, and `--live` exited 2. Browser tests were not rerun.
+
+**Run for the Stage D preparation:** 438 pytest tests passed, `--check` exited 0, `--live` exited 2, and the real Stage D command refused locally with exit 2. Vitest and browser tests were not rerun, because no product file changed.
 
 **Run after Q-10 and the verifier work:** on Node 24.3.0 and Python 3.12.7, `npm test` exited 0 with **659 passed, 0 failed**: contracts 4, API 183, web 32, browser 36, experiment 404. `--check` exited 0 with no dataset problems and one expected live blocker, `--synthetic` kept its gate results, and `--live` exited 2. 19 of 19 deliberate breaks were caught. The browser run regenerated `docs/screenshots/`.
 
@@ -300,7 +303,7 @@ The wider product architecture (ADR-001 to ADR-013) and the November 15 target (
 
 ## Git status
 
-`main` has three commits: `5e5941dd2b823e06981e6dad42cbd490b7d5e4fa`, its child the M0 freeze commit `67de8e71b119620a296fd3664d81de1f9e9aa0d9`, and the Stage D preparation commit. Run `git log` for that hash, which a commit cannot contain. **All work to date is committed, and none of it has been pushed.** A remote, `origin`, is configured, its `main` holds a commit this clone does not have, and nothing has been pushed from this session. `data/`, `results/`, `node_modules/`, `dist/`, and test output are gitignored, apart from `results/.gitkeep`. Six screenshots in `docs/screenshots/` are committed, and a browser test run rewrites them, so it marks the tree as modified. Do not start a live run on a dirty tree.
+`main` has four commits, and the tree is clean: `5e5941dd2b823e06981e6dad42cbd490b7d5e4fa`, its child the M0 freeze commit `67de8e71b119620a296fd3664d81de1f9e9aa0d9`, the Stage D preparation commit `285d91da9aad818b132ca362d9d146b57a5990e0`, and the catalog report commit. Run `git log` for that hash, which a commit cannot contain. **All work to date is committed, and none of it has been pushed.** A remote, `origin`, is configured, its `main` holds a commit this clone does not have, and nothing has been pushed from this session. `data/`, `results/`, `node_modules/`, `dist/`, and test output are gitignored, apart from `results/.gitkeep`. Six screenshots in `docs/screenshots/` are committed, and a browser test run rewrites them, so it marks the tree as modified. Do not start a live run on a dirty tree.
 
 ## How to resume
 
@@ -323,6 +326,7 @@ The wider product architecture (ADR-001 to ADR-013) and the November 15 target (
 | 2026-11-01 | Post-MVP review: architecture and ADR review, offline probes, 21 numbered findings plus a list of smaller issues. No source changed. Waiting on five user decisions |
 | 2026-11-01 | Harness fixes approved and done: 8 fixes, 62 new tests, 384 pytest tests passed, 24 of 24 deliberate breaks caught. Git identity, `origin`, and Q-10 decided. Q-10 not applied. No commit, API call, or spending. Waiting on the user |
 | 2026-11-01 | M0 readiness: owner set M0 first (ADR-062). Scoring passed, 16 harness findings recorded, Proposed execution specification written. No harness change, model call, or spending. Waiting on the user |
+| 2026-11-02 | Catalog run refused locally with no key set. Image input added to the catalog report from `data.architecture.input_modalities`, model level only. 468 pytest tests passed, 10 of 10 deliberate breaks caught. No catalog call. Committed locally on approval, not pushed. Waiting on the catalog approval for the new hash |
 | 2026-11-02 | Stage D prepared: host and policy evidence, guarded command, 34 new tests, 438 pytest tests passed, 14 of 14 deliberate breaks caught. No provider call or spending. Committed locally on approval, not pushed. Waiting on the user |
 | 2026-11-01 | M0 freeze commit approved and made, with 174 files reviewed and all freeze hashes matching. No push. Waiting on Stage D approval |
 | 2026-11-01 | Q-10 applied: SE003 and SE004 accepted, SE010 held, gates 12/24 and 20/24. Verifier hardened (ADR-065), with the 13 adversarial cases as permanent tests. 659 tests passed, 19 of 19 deliberate breaks caught. No model call, spending, commit, or push. Then waiting on the freeze commit decision |
