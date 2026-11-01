@@ -23,8 +23,9 @@ export function loadCollection(directory: string): ReferenceCollection {
     .sort()
     .map((file) => JSON.parse(readFileSync(join(directory, "scripts", file), "utf8")));
   const sources = JSON.parse(readFileSync(join(directory, "sources.json"), "utf8"));
-  const visualTerms = JSON.parse(readFileSync(join(directory, "visual_vocabulary.json"), "utf8")).terms;
-  return ReferenceCollectionSchema.parse({ version: REFERENCE_VERSION, scripts, sources, visualTerms });
+  const vocabulary = JSON.parse(readFileSync(join(directory, "visual_vocabulary.json"), "utf8"));
+  return ReferenceCollectionSchema.parse({ version: REFERENCE_VERSION, scripts, sources, visualTerms: vocabulary.terms,
+    statementTerms: vocabulary.statementTerms });
 }
 
 function claimsOf(script: ScriptRecord): Claim[] {
@@ -72,6 +73,7 @@ export class ReferenceService {
   private readonly sources: Map<string, SourceRecord>;
   readonly version: string;
   readonly visualTerms: ReadonlySet<string>;
+  readonly statementTerms: ReadonlySet<string>;
 
   constructor(collection: ReferenceCollection) {
     const problems = checkCollection(collection);
@@ -80,6 +82,9 @@ export class ReferenceService {
     this.sources = new Map(collection.sources.map((source) => [source.id, source]));
     this.version = collection.version;
     this.visualTerms = new Set(collection.visualTerms);
+    const scriptWords = collection.scripts.flatMap((script) => [script.name, ...script.alternativeNames])
+      .flatMap((name) => name.toLowerCase().match(/\p{L}+/gu) ?? []);
+    this.statementTerms = new Set([...collection.visualTerms, ...collection.statementTerms, ...scriptWords]);
   }
 
   scriptIds(): string[] {

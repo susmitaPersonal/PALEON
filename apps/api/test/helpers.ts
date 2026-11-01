@@ -22,6 +22,7 @@ export class ScriptedProvider implements ModelProvider {
   readonly id = "scripted";
   readonly modelId = "scripted-model";
   readonly simulated = false;
+  readonly inferenceMode = "external";
   readonly calls: ProviderRequest[] = [];
 
   constructor(private readonly outcomes: (ProviderResponse | Error | ((request: ProviderRequest) => Promise<ProviderResponse>))[],
