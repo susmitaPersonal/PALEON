@@ -1,0 +1,34 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["vertical"],
+    "characterShapes": ["straight, curved, angular"],
+    "direction": "vertical",
+    "directionBasis": "evidence of vertical writing",
+    "limitations": ["damaged areas"],
+    "ambiguities": ["possible presence of other scripts"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "european",
+      "supportingEvidence": ["straight, curved, angular strokes"],
+      "contradictingEvidence": ["damaged areas"]
+    },
+    {
+      "rank": 2,
+      "scriptId": "indian",
+      "supportingEvidence": ["straight, curved, angular strokes"],
+      "contradictingEvidence": ["damaged areas"]
+    },
+    {
+      "rank": 3,
+      "scriptId": "arabian",
+      "supportingEvidence": ["straight, curved, angular strokes"],
+      "contradictingEvidence": ["damaged areas"]
+    }
+  ],
+  "statusReason": "The image shows vertical writing with straight, curved, and angular strokes, which could be consistent with European, Indian, or Arabian scripts. However, the presence of damaged areas makes it difficult to determine the exact script."
+}

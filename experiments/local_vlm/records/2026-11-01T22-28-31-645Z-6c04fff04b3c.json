@@ -1,0 +1,113 @@
+{
+  "experiment": "local_vlm",
+  "notM0": "This is a separate local run. It is not part of the M0 experiment.",
+  "image": {
+    "name": "generated_blank.png",
+    "sha256": "6c04fff04b3c72be7df55bad041c9173f29c056532af3075734d3a9bb2052cee",
+    "datasetRow": "generated_blank"
+  },
+  "wallMs": 438466,
+  "model": {
+    "id": "qwen2.5vl:3b",
+    "digest": "fb90415cde1ef08aa669ae74b082d49b158729b6db1ab183c941417d507e71a1",
+    "details": {
+      "family": "qwen25vl",
+      "parameterSize": "3.8B",
+      "quantization": "Q4_K_M"
+    }
+  },
+  "runtime": {
+    "ollama": "0.40.3",
+    "promptVersion": "script_analysis_v3"
+  },
+  "hardware": {
+    "platform": "darwin",
+    "release": "24.6.0",
+    "arch": "arm64",
+    "cpu": "Apple M1",
+    "memoryBytes": 8589934592
+  },
+  "parameters": {
+    "OLLAMA_NUM_CTX": "4096",
+    "OLLAMA_NUM_PREDICT": "900",
+    "MAX_MODEL_IMAGE_EDGE": "768"
+  },
+  "result": {
+    "analysisId": "72e4b409-7130-42f4-be88-b3884b73f296",
+    "status": "candidates",
+    "statusReason": null,
+    "observations": {
+      "writingPresent": true,
+      "imageQuality": "good",
+      "visualFeatures": [
+        "straight lines"
+      ],
+      "characterShapes": [
+        "rounded"
+      ],
+      "direction": "left_to_right",
+      "directionBasis": "text",
+      "limitations": [
+        "limited to a small portion of the image"
+      ],
+      "ambiguities": []
+    },
+    "candidates": [
+      {
+        "rank": 1,
+        "scriptId": "latin",
+        "supportingEvidence": [
+          "straight lines"
+        ],
+        "contradictingEvidence": [],
+        "scriptName": "Latin",
+        "directionCheck": "consistent",
+        "evidenceStrength": "weak"
+      },
+      {
+        "rank": 2,
+        "scriptId": "greek",
+        "supportingEvidence": [
+          "straight lines"
+        ],
+        "contradictingEvidence": [],
+        "scriptName": "Greek",
+        "directionCheck": "consistent",
+        "evidenceStrength": "weak"
+      }
+    ],
+    "unsupportedScriptIds": [],
+    "removedStatements": 11,
+    "recommendExpertReview": true,
+    "capabilities": {
+      "scriptIdentification": "available",
+      "languageIdentification": "unavailable",
+      "transcription": "unavailable",
+      "transliteration": "unavailable",
+      "translation": "unavailable"
+    },
+    "image": {
+      "width": 512,
+      "height": 512,
+      "format": "png",
+      "processedBytes": 1802
+    },
+    "provenance": {
+      "simulated": false,
+      "inferenceMode": "local",
+      "provider": "ollama",
+      "modelId": "qwen2.5vl:3b",
+      "modelVersion": "qwen2.5vl:3b",
+      "promptVersion": "script_analysis_v3",
+      "promptSha256": "5eea596c927efb79d770a598bd8efce3e250e9777b4a9dcd5b7f9d0a1728431f",
+      "referenceVersion": "2026-11-01",
+      "experimentId": null,
+      "analyzedAt": "2026-11-01T22:28:31.355Z",
+      "latencyMs": 438309,
+      "attempts": 1,
+      "inputTokens": 1648,
+      "outputTokens": 378,
+      "estimatedCostUsd": null
+    }
+  }
+}

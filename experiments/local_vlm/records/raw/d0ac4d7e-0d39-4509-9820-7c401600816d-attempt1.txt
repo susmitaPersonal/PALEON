@@ -1,0 +1,58 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": [
+      "carved stone",
+      "text in vertical format"
+    ],
+    "characterShapes": [
+      "square",
+      "rectangular",
+      "cylindrical"
+    ],
+    "direction": "vertical",
+    "directionBasis": "text",
+    "limitations": [
+      "damage and wear on the stone",
+      "possible distortion due to the vertical format"
+    ],
+    "ambiguities": [
+      "uncertainty about the exact nature of the script"
+    ]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "kharosthi",
+      "supportingEvidence": [
+        "character shapes resembling those of the Kharosthi script"
+      ],
+      "contradictingEvidence": [
+        "no clear evidence of other scripts"
+      ]
+    },
+    {
+      "rank": 2,
+      "scriptId": "boustrophedon",
+      "supportingEvidence": [
+        "vertical format suggests boustrophedon writing"
+      ],
+      "contradictingEvidence": [
+        "no clear evidence of other scripts"
+      ]
+    },
+    {
+      "rank": 3,
+      "scriptId": "unclear",
+      "supportingEvidence": [
+        "ambiguous nature of the script"
+      ],
+      "contradictingEvidence": [
+        "no clear evidence of other scripts"
+      ]
+    }
+  ],
+  "statusReason": "The image shows a carved stone with vertical text, which could potentially be in the Kharosthi script. However, the vertical format and the presence of wear and damage make it difficult to definitively identify the script. The other candidates, such as boustrophedon, are also possible but lack clear supporting evidence. The ambiguity of the script makes it challenging to determine the exact nature"
+}

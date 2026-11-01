@@ -1,0 +1,34 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["straight lines", "curved lines", "dots", "hooks"],
+    "characterShapes": ["angular", "curved", "looped"],
+    "direction": "left_to_right",
+    "directionBasis": "evidence from the direction of the lines",
+    "limitations": ["the image is a black and white photograph, which may affect the clarity of the characters"],
+    "ambiguities": ["the characters may be from a non-supported script"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "greek",
+      "supportingEvidence": ["straight lines", "curved lines", "dots", "hooks"],
+      "contradictingEvidence": ["the characters are not consistent with the typical features of Greek script"]
+    },
+    {
+      "rank": 2,
+      "scriptId": "kharosthi",
+      "supportingEvidence": ["straight lines", "curved lines", "dots", "hooks"],
+      "contradictingEvidence": ["the characters are not consistent with the typical features of Kharosthi script"]
+    },
+    {
+      "rank": 3,
+      "scriptId": "latin",
+      "supportingEvidence": ["straight lines", "curved lines", "dots", "hooks"],
+      "contradictingEvidence": ["the characters are not consistent with the typical features of Latin script"]
+    }
+  ],
+  "statusReason": "The image shows a black and white photograph of an inscription, which may affect the clarity of the characters. The characters appear to be consistent with the typical features of Greek, Kharosthi, and Latin scripts, but they may not be from a supported script."
+}

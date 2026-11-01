@@ -1,0 +1,210 @@
+{
+  "row": "SE031",
+  "browserMs": 193017,
+  "network": [
+    "GET /api/v1/runtime 200 application/json",
+    "POST /api/v1/analyses 200 application/x-ndjson",
+    "GET /api/v1/scripts/kharosthi 200 application/json",
+    "GET /api/v1/scripts/greek 200 application/json",
+    "GET /api/v1/comparisons 200 application/json"
+  ],
+  "consoleErrors": [],
+  "status": "candidates"
+}
+
+LOCAL MODEL RESULT
+
+Candidate scripts found
+
+Expert review recommended. Treat this as a lead, not an identification.
+
+Suggested outside the supported scripts, with no reference record: boustrophedon.
+
+2 statement(s) were removed, because they were not visual observations, repeated another statement, or looked like a historical claim.
+
+No percentages are shown. Why?
+Ranked candidates
+
+AI interpretation of the image, not verified.
+
+1
+Kharosthi
+Weak evidence
+Evidence for
+straight and angular strokes
+vertical lines
+Evidence against
+no clear horizontal lines
+
+Observed direction conflicts with the sourced record, so this candidate is rated weak. Some inscriptions break the usual direction.
+
+2
+Greek
+Moderate evidence
+Evidence for
+straight and angular strokes
+vertical lines
+Evidence against
+no clear horizontal lines
+
+Observed direction agrees with the sourced record. Other scripts share this direction, so this does not identify the script.
+
+AI OBSERVATION, NOT VERIFIED
+
+Seen in the image
+Image quality
+good
+Direction
+Left to right. evidence of horizontal lines
+Visual features
+
+None reported.
+
+Character shapes
+straight
+curved
+angled
+Limitations
+damaged edges
+Ambiguities
+possible presence of a script not supported
+
+FROM THE SOURCES
+
+Kharosthi: reference record
+Historical period
+First appears in fully developed form in the Asokan inscriptions, and disappeared from its homeland around the third century CE. [1] Section 14.2.1
+Geographic distribution
+Confined to the northwest of India. [1] Section 14.2.1
+Directionality
+Letters and digits are written from right to left. [1] Section 14.2.1, Directionality
+Characteristic
+An Indic script of the abugida type. [1] Section 14.2.1
+Characteristic
+The Shahbazgarhi and Mansehra versions of the Asokan edicts are written in Kharoshthi. [2] Introduction, pp. xi-xii
+Characteristic
+Gandharan reliquary inscriptions are catalogued in the Corpus of Kharoshthi inscriptions. [3] Catalog and bibliography
+Relationship
+Exact origins remain obscure, though the source calls it almost certainly related to Aramaic. [1] Section 14.2.1
+
+A stated relationship comes from its source. Visual similarity alone does not establish descent.
+
+Sources
+The Unicode Standard, Version 16.0, Core Specification, Chapter 14. Unicode Consortium, 2024. View source
+(opens in a new tab)
+ Accessed 2026-11-01.
+Inscriptions of Asoka, New Edition (Corpus Inscriptionum Indicarum, Vol. 1). Clarendon Press, for the Government of India, 1925. View source
+(opens in a new tab)
+ Accessed 2026-11-01.
+Catalog and Revised Texts and Translations of Gandharan Reliquary Inscriptions, in Gandharan Buddhist Reliquaries. Early Buddhist Manuscripts Project, University of Washington Press, 2012. View source
+(opens in a new tab)
+ Accessed 2026-11-01.
+Unicode Character Database, Version 16.0: UnicodeData.txt. Unicode Consortium, 2024. View source
+(opens in a new tab)
+ Accessed 2026-11-01.
+
+FROM THE SOURCES
+
+Greek: reference record
+Historical period
+No sourced claim is stored.
+Geographic distribution
+No sourced claim is stored.
+Directionality
+The script is written from left to right. The source calls left-to-right writing a Greek innovation. [1] Chapter introduction and Section 7.2.1
+Characteristic
+Archaic Greek texts do not use spaces. [1] Section 7.2.1
+Characteristic
+Ancient Greeks mainly used letters of the alphabet to represent numbers. [1] Section 7.2.3
+Relationship
+An adaptation of the Phoenician alphabet. [1] Chapter introduction
+Relationship
+Had a strong influence on the development of the Latin, Cyrillic, and Coptic scripts. [1] Section 7.2.1
+
+A stated relationship comes from its source. Visual similarity alone does not establish descent.
+
+Sources
+The Unicode Standard, Version 16.0, Core Specification, Chapter 7. Unicode Consortium, 2024. View source
+(opens in a new tab)
+ Accessed 2026-11-01.
+Unicode Character Database, Version 16.0: UnicodeData.txt. Unicode Consortium, 2024. View source
+(opens in a new tab)
+ Accessed 2026-11-01.
+
+FROM THE SOURCES
+
+Compare candidates
+Shared characteristics
+
+No shared characteristic is recorded.
+
+Differences
+Topic	Kharosthi	Greek	Sources
+Writing direction	Letters and digits are written from right to left.	The script is written from left to right. The source calls left-to-right writing a Greek innovation.	[1][2]
+Missing evidence
+Writing system type: no stored claim for Greek
+Historical period: no stored claim for Greek
+Geographic distribution: no stored claim for Greek
+Kharosthi reference characters
+𐨀
+KHAROSHTHI LETTER A
+U+10A00
+𐨐
+KHAROSHTHI LETTER KA
+U+10A10
+𐨕
+KHAROSHTHI LETTER CA
+U+10A15
+𐨬
+KHAROSHTHI LETTER VA
+U+10A2C
+Greek reference characters
+Α
+GREEK CAPITAL LETTER ALPHA
+U+0391
+Β
+GREEK CAPITAL LETTER BETA
+U+0392
+Λ
+GREEK CAPITAL LETTER LAMDA
+U+039B
+Ω
+GREEK CAPITAL LETTER OMEGA
+U+03A9
+
+Visual similarity does not establish historical descent or a linguistic relationship.
+
+Sources
+The Unicode Standard, Version 16.0, Core Specification, Chapter 14. Unicode Consortium, 2024. View source
+(opens in a new tab)
+ Accessed 2026-11-01.
+The Unicode Standard, Version 16.0, Core Specification, Chapter 7. Unicode Consortium, 2024. View source
+(opens in a new tab)
+ Accessed 2026-11-01.
+How this result was produced
+Download report (JSON)
+Mode
+Genuine local model inference, on this computer
+Provider
+ollama
+Model
+qwen2.5vl:3b
+Model version
+qwen2.5vl:3b
+Prompt version
+script_analysis_v2
+Reference version
+2026-11-01
+Analysed at
+11/2/2026, 3:00:21 AM
+Attempts
+1
+Tokens
+1584 in, 345 out
+Processed image
+465 × 768, from jpeg
+Not attempted
+
+PALEON does not identify language, transcribe, transliterate, or translate. These are separate tasks, and each needs its own evidence.
+
+Start another investigation

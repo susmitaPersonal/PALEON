@@ -1,0 +1,92 @@
+{
+  "generatedBy": "PALEON",
+  "notice": "AI observations are unverified. No historical claim here comes from the model.",
+  "result": {
+    "analysisId": "c838409a-6d4a-4d41-8270-801543f7c9cd",
+    "status": "candidates",
+    "statusReason": null,
+    "observations": {
+      "writingPresent": true,
+      "imageQuality": "good",
+      "visualFeatures": [],
+      "characterShapes": [
+        "straight",
+        "curved",
+        "angled"
+      ],
+      "direction": "left_to_right",
+      "directionBasis": "evidence of horizontal lines",
+      "limitations": [
+        "damaged edges"
+      ],
+      "ambiguities": [
+        "possible presence of a script not supported"
+      ]
+    },
+    "candidates": [
+      {
+        "rank": 1,
+        "scriptId": "kharosthi",
+        "supportingEvidence": [
+          "straight and angular strokes",
+          "vertical lines"
+        ],
+        "contradictingEvidence": [
+          "no clear horizontal lines"
+        ],
+        "scriptName": "Kharosthi",
+        "directionCheck": "conflict",
+        "evidenceStrength": "weak"
+      },
+      {
+        "rank": 2,
+        "scriptId": "greek",
+        "supportingEvidence": [
+          "straight and angular strokes",
+          "vertical lines"
+        ],
+        "contradictingEvidence": [
+          "no clear horizontal lines"
+        ],
+        "scriptName": "Greek",
+        "directionCheck": "consistent",
+        "evidenceStrength": "moderate"
+      }
+    ],
+    "unsupportedScriptIds": [
+      "boustrophedon"
+    ],
+    "removedStatements": 2,
+    "recommendExpertReview": true,
+    "capabilities": {
+      "scriptIdentification": "available",
+      "languageIdentification": "unavailable",
+      "transcription": "unavailable",
+      "transliteration": "unavailable",
+      "translation": "unavailable"
+    },
+    "image": {
+      "width": 465,
+      "height": 768,
+      "format": "jpeg",
+      "processedBytes": 108635
+    },
+    "provenance": {
+      "simulated": false,
+      "inferenceMode": "local",
+      "provider": "ollama",
+      "modelId": "qwen2.5vl:3b",
+      "modelVersion": "qwen2.5vl:3b",
+      "promptVersion": "script_analysis_v2",
+      "promptSha256": "f918dd00cfe41ee12ff5942faeda26f78f6712ac6655f97d732e97ba03779518",
+      "referenceVersion": "2026-11-01",
+      "experimentId": null,
+      "analyzedAt": "2026-11-01T21:30:21.168Z",
+      "latencyMs": 191452,
+      "attempts": 1,
+      "inputTokens": 1584,
+      "outputTokens": 345,
+      "estimatedCostUsd": null
+    }
+  }
+}

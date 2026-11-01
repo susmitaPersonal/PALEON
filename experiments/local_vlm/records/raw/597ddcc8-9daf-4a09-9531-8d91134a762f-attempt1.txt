@@ -1,0 +1,63 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": [
+      "straight lines",
+      "uniform thickness",
+      "clear contrast"
+    ],
+    "characterShapes": [
+      "rounded",
+      "slightly elongated"
+    ],
+    "direction": "left_to_right",
+    "directionBasis": "text",
+    "limitations": [
+      "limited to a small portion of the image"
+    ],
+    "ambiguities": [
+      "potential for confusion with other scripts"
+    ]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "latin",
+      "supportingEvidence": [
+        "straight lines",
+        "uniform thickness",
+        "clear contrast"
+      ],
+      "contradictingEvidence": [
+        "potential for confusion with other scripts"
+      ]
+    },
+    {
+      "rank": 2,
+      "scriptId": "greek",
+      "supportingEvidence": [
+        "straight lines",
+        "uniform thickness",
+        "clear contrast"
+      ],
+      "contradictingEvidence": [
+        "potential for confusion with other scripts"
+      ]
+    },
+    {
+      "rank": 3,
+      "scriptId": "boustrophedon",
+      "supportingEvidence": [
+        "straight lines",
+        "uniform thickness",
+        "clear contrast"
+      ],
+      "contradictingEvidence": [
+        "potential for confusion with other scripts"
+      ]
+    }
+  ],
+  "statusReason": "The image shows straight lines with uniform thickness and clear contrast, which are characteristic of the Latin script. However, the limited portion of the image and the potential for confusion with other scripts make it difficult to definitively identify the script."
+}

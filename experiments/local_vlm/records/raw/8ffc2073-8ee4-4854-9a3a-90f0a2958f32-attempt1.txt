@@ -1,0 +1,34 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["text"],
+    "characterShapes": ["straight", "curved", "angled"],
+    "direction": "left_to_right",
+    "directionBasis": "evidence of horizontal lines",
+    "limitations": ["damaged edges"],
+    "ambiguities": ["possible presence of a script not supported"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "kharosthi",
+      "supportingEvidence": ["straight and angular strokes", "vertical lines"],
+      "contradictingEvidence": ["no clear horizontal lines"]
+    },
+    {
+      "rank": 2,
+      "scriptId": "greek",
+      "supportingEvidence": ["straight and angular strokes", "vertical lines"],
+      "contradictingEvidence": ["no clear horizontal lines"]
+    },
+    {
+      "rank": 3,
+      "scriptId": "boustrophedon",
+      "supportingEvidence": ["vertical lines"],
+      "contradictingEvidence": ["no clear horizontal lines"]
+    }
+  ],
+  "statusReason": "The image shows a writing system with straight, angular, and curved strokes, which are characteristic of the Kharosthi script. However, the presence of vertical lines and the lack of clear horizontal lines may suggest that it could also be a Boustrophedon script. The Greek script is also a possibility due to the straight and angular strokes, but the lack of clear horizontal lines makes it less pl案"
+}

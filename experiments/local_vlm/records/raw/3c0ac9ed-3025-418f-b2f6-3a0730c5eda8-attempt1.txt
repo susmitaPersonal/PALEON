@@ -1,0 +1,34 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["straight lines", "curved lines", "dots", "hooks"],
+    "characterShapes": ["straight", "curved", "dots", "hooks"],
+    "direction": "left_to_right",
+    "directionBasis": "straight lines",
+    "limitations": ["dots and hooks"],
+    "ambiguities": ["dots and hooks"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "greek",
+      "supportingEvidence": ["straight lines", "curved lines", "dots", "hooks"],
+      "contradictingEvidence": ["dots and hooks"]
+    },
+    {
+      "rank": 2,
+      "scriptId": "latin",
+      "supportingEvidence": ["straight lines", "curved lines", "dots", "hooks"],
+      "contradictingEvidence": ["dots and hooks"]
+    },
+    {
+      "rank": 3,
+      "scriptId": "boustrophedon",
+      "supportingEvidence": ["dots and hooks"],
+      "contradictingEvidence": ["dots and hooks"]
+    }
+  ],
+  "statusReason": "The image shows straight lines, curved lines, dots, and hooks, which are characteristic of the Greek and Latin scripts. However, the presence of dots and hooks also suggests the possibility of the Boustrophedon script."
+}

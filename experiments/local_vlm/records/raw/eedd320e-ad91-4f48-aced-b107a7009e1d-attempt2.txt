@@ -1,0 +1,22 @@
+{
+  "status": "no_writing",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["smooth surface"],
+    "characterShapes": ["smooth"],
+    "direction": "unclear",
+    "directionBasis": null,
+    "limitations": ["the object is smooth and lacks any discernible writing"],
+    "ambiguities": ["the object's shape and smooth surface suggest it may be a seal or amulet, but no writing is visible"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "out_of_scope",
+      "supportingEvidence": ["the object's shape and smooth surface suggest it may be a seal or amulet, but no writing is visible"],
+      "contradictingEvidence": []
+    }
+  ],
+  "statusReason": "The object is smooth and lacks any discernible writing, indicating it is not a writing system."
+}

@@ -1,0 +1,89 @@
+{
+  "experiment": "local_vlm",
+  "notM0": "This is a separate local run. It is not part of the M0 experiment.",
+  "image": {
+    "name": "SE039.jpg",
+    "sha256": "7cadc542c8aa719d9bc1c5e4187022eb430435917fb53c114601fcece553e8db",
+    "datasetRow": "SE039"
+  },
+  "wallMs": 143765,
+  "model": {
+    "id": "qwen2.5vl:3b",
+    "digest": "fb90415cde1ef08aa669ae74b082d49b158729b6db1ab183c941417d507e71a1",
+    "details": {
+      "family": "qwen25vl",
+      "parameterSize": "3.8B",
+      "quantization": "Q4_K_M"
+    }
+  },
+  "runtime": {
+    "ollama": "0.40.3",
+    "promptVersion": "script_analysis_v3"
+  },
+  "hardware": {
+    "platform": "darwin",
+    "release": "24.6.0",
+    "arch": "arm64",
+    "cpu": "Apple M1",
+    "memoryBytes": 8589934592
+  },
+  "parameters": {
+    "OLLAMA_NUM_CTX": "4096",
+    "OLLAMA_NUM_PREDICT": "900",
+    "MAX_MODEL_IMAGE_EDGE": "768"
+  },
+  "result": {
+    "analysisId": "e3e4b929-7e6c-46c8-984b-f1969b0992a7",
+    "status": "no_writing",
+    "statusReason": "The object is a smooth, oval-shaped stone with no visible markings or writing.",
+    "observations": {
+      "writingPresent": false,
+      "imageQuality": "good",
+      "visualFeatures": [
+        "oval shape",
+        "smooth surface"
+      ],
+      "characterShapes": [],
+      "direction": "unclear",
+      "directionBasis": null,
+      "limitations": [
+        "the object is a single, smooth stone with no visible markings"
+      ],
+      "ambiguities": []
+    },
+    "candidates": [],
+    "unsupportedScriptIds": [],
+    "removedStatements": 3,
+    "recommendExpertReview": true,
+    "capabilities": {
+      "scriptIdentification": "available",
+      "languageIdentification": "unavailable",
+      "transcription": "unavailable",
+      "transliteration": "unavailable",
+      "translation": "unavailable"
+    },
+    "image": {
+      "width": 568,
+      "height": 768,
+      "format": "jpeg",
+      "processedBytes": 32200
+    },
+    "provenance": {
+      "simulated": false,
+      "inferenceMode": "local",
+      "provider": "ollama",
+      "modelId": "qwen2.5vl:3b",
+      "modelVersion": "qwen2.5vl:3b",
+      "promptVersion": "script_analysis_v3",
+      "promptSha256": "5eea596c927efb79d770a598bd8efce3e250e9777b4a9dcd5b7f9d0a1728431f",
+      "referenceVersion": "2026-11-01",
+      "experimentId": null,
+      "analyzedAt": "2026-11-01T22:35:11.149Z",
+      "latencyMs": 143471,
+      "attempts": 1,
+      "inputTokens": 1688,
+      "outputTokens": 160,
+      "estimatedCostUsd": null
+    }
+  }
+}

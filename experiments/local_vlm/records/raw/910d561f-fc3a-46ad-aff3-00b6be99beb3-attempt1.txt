@@ -1,0 +1,24 @@
+{
+  "status": "no_writing",
+  "observations": {
+    "writingPresent": false,
+    "imageQuality": "good",
+    "visualFeatures": [
+      "oval shape",
+      "smooth surface",
+      "light reflection",
+      "possible carving or engraving"
+    ],
+    "characterShapes": [],
+    "direction": "unclear",
+    "directionBasis": null,
+    "limitations": [
+      "the object is a single, smooth stone with no visible markings"
+    ],
+    "ambiguities": [
+      "the object could be a piece of jewelry or a decorative item"
+    ]
+  },
+  "candidates": [],
+  "statusReason": "The object is a smooth, oval-shaped stone with no visible markings or writing."
+}

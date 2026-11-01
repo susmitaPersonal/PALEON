@@ -1,0 +1,21 @@
+{
+  "status": "no_writing",
+  "observations": {
+    "writingPresent": false,
+    "imageQuality": "poor",
+    "visualFeatures": [
+      "random colored dots",
+      "no clear shapes or patterns"
+    ],
+    "characterShapes": [],
+    "direction": "unclear",
+    "directionBasis": null,
+    "limitations": [
+      "poor image quality",
+      "random colored dots"
+    ],
+    "ambiguities": []
+  },
+  "candidates": [],
+  "statusReason": "The image shows random colored dots with no clear shapes or patterns that resemble any known writing system."
+}

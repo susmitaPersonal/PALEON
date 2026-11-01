@@ -1,0 +1,34 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["text"],
+    "characterShapes": ["straight", "curved", "looped"],
+    "direction": "left_to_right",
+    "directionBasis": "evidence of horizontal lines",
+    "limitations": ["the stone is worn and some characters are difficult to discern"],
+    "ambiguities": ["the script could be a runic or kharosthi script"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "runic",
+      "supportingEvidence": ["the characters are angular and have a runic appearance"],
+      "contradictingEvidence": ["the characters are not consistent with the runic script"]
+    },
+    {
+      "rank": 2,
+      "scriptId": "kharosthi",
+      "supportingEvidence": ["the characters have a distinctive shape and style"],
+      "contradictingEvidence": ["the characters are not consistent with the kharosthi script"]
+    },
+    {
+      "rank": 3,
+      "scriptId": "latin",
+      "supportingEvidence": ["the characters are straight and consistent with Latin script"],
+      "contradictingEvidence": ["the characters are not consistent with the Latin script"]
+    }
+  ],
+  "statusReason": "The image shows a stone with carved characters that resemble a runic or kharosthi script. The characters are angular and have a distinctive shape, which is consistent with these scripts."
+}

@@ -1,0 +1,34 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["text"],
+    "characterShapes": ["curved", "straight", "angled"],
+    "direction": "left_to_right",
+    "directionBasis": "evidence of horizontal lines",
+    "limitations": ["damage to the stone"],
+    "ambiguities": ["possible presence of other scripts"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "greek",
+      "supportingEvidence": ["curved and straight lines"],
+      "contradictingEvidence": ["no clear indication of Greek script"]
+    },
+    {
+      "rank": 2,
+      "scriptId": "kharosthi",
+      "supportingEvidence": ["curved and angular shapes"],
+      "contradictingEvidence": ["no clear indication of Kharosthi script"]
+    },
+    {
+      "rank": 3,
+      "scriptId": "latin",
+      "supportingEvidence": ["straight lines"],
+      "contradictingEvidence": ["no clear indication of Latin script"]
+    }
+  ],
+  "statusReason": "The image shows a fragment of a stone with text that includes both curved and straight lines, which are characteristic of the Kharosthi script. However, the presence of Latin script characters also suggests that the image may contain elements of other scripts."
+}

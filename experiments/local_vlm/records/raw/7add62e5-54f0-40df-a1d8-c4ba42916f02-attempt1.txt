@@ -1,0 +1,34 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["carved"],
+    "characterShapes": ["straight", "curved", "looped", "hooked"],
+    "direction": "left_to_right",
+    "directionBasis": "evidence of text direction",
+    "limitations": ["the image is a fragment of a stone inscription"],
+    "ambiguities": ["the script may be a known writing system"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "latin",
+      "supportingEvidence": ["the presence of Latin characters"],
+      "contradictingEvidence": []
+    },
+    {
+      "rank": 2,
+      "scriptId": "greek",
+      "supportingEvidence": ["the presence of Greek characters"],
+      "contradictingEvidence": []
+    },
+    {
+      "rank": 3,
+      "scriptId": "boustrophedon",
+      "supportingEvidence": ["the presence of Greek characters"],
+      "contradictingEvidence": []
+    }
+  ],
+  "statusReason": "The image shows a fragment of a stone inscription with Latin characters, which is a known writing system."
+}

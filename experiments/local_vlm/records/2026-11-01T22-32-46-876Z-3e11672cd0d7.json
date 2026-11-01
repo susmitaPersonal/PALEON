@@ -1,0 +1,86 @@
+{
+  "experiment": "local_vlm",
+  "notM0": "This is a separate local run. It is not part of the M0 experiment.",
+  "image": {
+    "name": "generated_noise.png",
+    "sha256": "3e11672cd0d78e54f2fbbfa7991dbb7c78295d9ea2dd56ee278f69f9dc64a305",
+    "datasetRow": "generated_noise"
+  },
+  "wallMs": 254492,
+  "model": {
+    "id": "qwen2.5vl:3b",
+    "digest": "fb90415cde1ef08aa669ae74b082d49b158729b6db1ab183c941417d507e71a1",
+    "details": {
+      "family": "qwen25vl",
+      "parameterSize": "3.8B",
+      "quantization": "Q4_K_M"
+    }
+  },
+  "runtime": {
+    "ollama": "0.40.3",
+    "promptVersion": "script_analysis_v3"
+  },
+  "hardware": {
+    "platform": "darwin",
+    "release": "24.6.0",
+    "arch": "arm64",
+    "cpu": "Apple M1",
+    "memoryBytes": 8589934592
+  },
+  "parameters": {
+    "OLLAMA_NUM_CTX": "4096",
+    "OLLAMA_NUM_PREDICT": "900",
+    "MAX_MODEL_IMAGE_EDGE": "768"
+  },
+  "result": {
+    "analysisId": "573aa761-40e1-4bb1-a378-f124dea19b30",
+    "status": "insufficient_evidence",
+    "statusReason": "Image quality is too poor to show that no writing is present.",
+    "observations": {
+      "writingPresent": false,
+      "imageQuality": "poor",
+      "visualFeatures": [],
+      "characterShapes": [],
+      "direction": "unclear",
+      "directionBasis": null,
+      "limitations": [
+        "poor image quality"
+      ],
+      "ambiguities": []
+    },
+    "candidates": [],
+    "unsupportedScriptIds": [],
+    "removedStatements": 4,
+    "recommendExpertReview": true,
+    "capabilities": {
+      "scriptIdentification": "available",
+      "languageIdentification": "unavailable",
+      "transcription": "unavailable",
+      "transliteration": "unavailable",
+      "translation": "unavailable"
+    },
+    "image": {
+      "width": 512,
+      "height": 512,
+      "format": "png",
+      "processedBytes": 230004
+    },
+    "provenance": {
+      "simulated": false,
+      "inferenceMode": "local",
+      "provider": "ollama",
+      "modelId": "qwen2.5vl:3b",
+      "modelVersion": "qwen2.5vl:3b",
+      "promptVersion": "script_analysis_v3",
+      "promptSha256": "5eea596c927efb79d770a598bd8efce3e250e9777b4a9dcd5b7f9d0a1728431f",
+      "referenceVersion": "2026-11-01",
+      "experimentId": null,
+      "analyzedAt": "2026-11-01T22:32:46.678Z",
+      "latencyMs": 254343,
+      "attempts": 1,
+      "inputTokens": 1648,
+      "outputTokens": 136,
+      "estimatedCostUsd": null
+    }
+  }
+}

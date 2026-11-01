@@ -1,0 +1,34 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["straight lines", "curved lines", "dots", "hooks", "loops"],
+    "characterShapes": ["straight", "curved", "dots", "hooks", "loops"],
+    "direction": "left_to_right",
+    "directionBasis": "evidence of horizontal lines and consistent direction",
+    "limitations": ["the script is not clearly legible"],
+    "ambiguities": ["the script could be a known writing system"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "greek",
+      "supportingEvidence": ["straight lines", "curved lines", "dots", "hooks", "loops"],
+      "contradictingEvidence": ["the script is not clearly legible"]
+    },
+    {
+      "rank": 2,
+      "scriptId": "kharosthi",
+      "supportingEvidence": ["straight lines", "curved lines", "dots", "hooks", "loops"],
+      "contradictingEvidence": ["the script is not clearly legible"]
+    },
+    {
+      "rank": 3,
+      "scriptId": "latin",
+      "supportingEvidence": ["straight lines", "curved lines", "dots", "hooks", "loops"],
+      "contradictingEvidence": ["the script is not clearly legible"]
+    }
+  ],
+  "statusReason": "The script appears to be a known writing system, but it is not clearly legible. The shapes of the marks suggest it could be Greek, Kharosthi, or Latin, but the exact script cannot be determined with certainty."
+}

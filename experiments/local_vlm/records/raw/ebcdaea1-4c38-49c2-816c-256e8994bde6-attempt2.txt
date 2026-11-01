@@ -1,0 +1,34 @@
+{
+  "status": "no_writing",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "poor",
+    "visualFeatures": ["random colored dots"],
+    "characterShapes": ["irregular"],
+    "direction": "unclear",
+    "directionBasis": null,
+    "limitations": ["image is heavily distorted"],
+    "ambiguities": ["could be a form of writing"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "out_of_scope",
+      "supportingEvidence": ["random colored dots"],
+      "contradictingEvidence": []
+    },
+    {
+      "rank": 2,
+      "scriptId": "no_writing",
+      "supportingEvidence": ["random colored dots"],
+      "contradictingEvidence": []
+    },
+    {
+      "rank": 3,
+      "scriptId": "candidates",
+      "supportingEvidence": ["random colored dots"],
+      "contradictingEvidence": []
+    }
+  ],
+  "statusReason": "The image is heavily distorted and does not show any recognizable writing system."
+}
