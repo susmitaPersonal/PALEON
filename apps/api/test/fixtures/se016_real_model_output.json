@@ -1,0 +1,34 @@
+{
+  "status": "candidates",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["straight lines", "curved lines", "dots", "hooks", "loops"],
+    "characterShapes": ["straight", "curved", "dots", "hooks", "loops"],
+    "direction": "left_to_right",
+    "directionBasis": "evidence of left-to-right direction",
+    "limitations": ["the image is a black and white photograph, which may affect the clarity of the characters"],
+    "ambiguities": ["the characters may be part of a different script or language"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "greek",
+      "supportingEvidence": ["the presence of letters with straight and curved lines"],
+      "contradictingEvidence": ["the image is a black and white photograph, which may affect the clarity of the characters"]
+    },
+    {
+      "rank": 2,
+      "scriptId": "latin",
+      "supportingEvidence": ["the presence of letters with straight and curved lines"],
+      "contradictingEvidence": ["the image is a black and white photograph, which may affect the clarity of the characters"]
+    },
+    {
+      "rank": 3,
+      "scriptId": "out_of_scope",
+      "supportingEvidence": ["the presence of letters with straight and curved lines"],
+      "contradictingEvidence": ["the image is a black and white photograph, which may affect the clarity of the characters"]
+    }
+  ],
+  "statusReason": "The image shows a Greek inscription with letters that have straight and curved lines, suggesting a Greek script. The image is a black and white photograph, which may affect the clarity of the characters."
+}

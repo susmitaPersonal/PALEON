@@ -1,0 +1,34 @@
+{
+  "status": "no_writing",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "poor",
+    "visualFeatures": ["random colored dots"],
+    "characterShapes": ["irregular"],
+    "direction": "unclear",
+    "directionBasis": null,
+    "limitations": ["image is heavily distorted"],
+    "ambiguities": ["possible noise or artifact"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "out_of_scope",
+      "supportingEvidence": ["random colored dots"],
+      "contradictingEvidence": []
+    },
+    {
+      "rank": 2,
+      "scriptId": "no_writing",
+      "supportingEvidence": ["random colored dots"],
+      "contradictingEvidence": []
+    },
+    {
+      "rank": 3,
+      "scriptId": "insufficient_evidence",
+      "supportingEvidence": ["random colored dots"],
+      "contradictingEvidence": []
+    }
+  ],
+  "statusReason": "The image is heavily distorted and contains random colored dots, making it impossible to determine if there is any writing present."
+}

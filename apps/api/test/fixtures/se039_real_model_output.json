@@ -1,0 +1,34 @@
+{
+  "status": "no_writing",
+  "observations": {
+    "writingPresent": true,
+    "imageQuality": "good",
+    "visualFeatures": ["a white, oval-shaped object"],
+    "characterShapes": ["irregular"],
+    "direction": "unclear",
+    "directionBasis": null,
+    "limitations": ["the object is not clearly visible"],
+    "ambiguities": ["the object could be a natural stone or a carved item"]
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "scriptId": "out_of_scope",
+      "supportingEvidence": ["the object is not a known writing system"],
+      "contradictingEvidence": []
+    },
+    {
+      "rank": 2,
+      "scriptId": "no_writing",
+      "supportingEvidence": ["the object is not a known writing system"],
+      "contradictingEvidence": []
+    },
+    {
+      "rank": 3,
+      "scriptId": "insufficient_evidence",
+      "supportingEvidence": ["the object is not a known writing system"],
+      "contradictingEvidence": []
+    }
+  ],
+  "statusReason": "The object is not a known writing system."
+}

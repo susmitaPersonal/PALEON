@@ -24,6 +24,7 @@ export class OpenAICompatibleProvider implements ModelProvider {
   readonly id: string;
   readonly modelId: string;
   readonly simulated = false;
+  readonly inferenceMode = "external";
   readonly inputUsdPerMtok: number | null;
   readonly outputUsdPerMtok: number | null;
   private readonly fetchImpl: typeof fetch;

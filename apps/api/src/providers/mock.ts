@@ -13,6 +13,7 @@ export class MockProvider implements ModelProvider {
   readonly id = "mock";
   readonly modelId = "scriptecho-mock";
   readonly simulated = true;
+  readonly inferenceMode = "simulated";
   readonly inputUsdPerMtok = null;
   readonly outputUsdPerMtok = null;
 
