@@ -1,0 +1,584 @@
+{
+ "scriptId": "kharosthi",
+ "version": "2026-11-02",
+ "scope": "Core vowels, consonants, and vowel signs",
+ "inherentVowel": "a",
+ "schemes": [
+  {
+   "id": "conventional",
+   "label": "Conventional romanisation",
+   "reversible": false
+  },
+  {
+   "id": "unicode",
+   "label": "Unicode characters",
+   "reversible": true
+  }
+ ],
+ "sourceIds": [
+  "unicode-16-ucd"
+ ],
+ "signs": [
+  {
+   "id": "u10a00",
+   "character": "𐨀",
+   "codePoint": "U+10A00",
+   "name": "KHAROSHTHI LETTER A",
+   "kind": "vowel",
+   "values": [
+    "a"
+   ],
+   "schemes": {
+    "unicode": "𐨀"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a01",
+   "character": "𐨁",
+   "codePoint": "U+10A01",
+   "name": "KHAROSHTHI VOWEL SIGN I",
+   "kind": "vowel_sign",
+   "values": [
+    "i"
+   ],
+   "schemes": {
+    "unicode": "𐨁"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a02",
+   "character": "𐨂",
+   "codePoint": "U+10A02",
+   "name": "KHAROSHTHI VOWEL SIGN U",
+   "kind": "vowel_sign",
+   "values": [
+    "u"
+   ],
+   "schemes": {
+    "unicode": "𐨂"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a05",
+   "character": "𐨅",
+   "codePoint": "U+10A05",
+   "name": "KHAROSHTHI VOWEL SIGN E",
+   "kind": "vowel_sign",
+   "values": [
+    "e"
+   ],
+   "schemes": {
+    "unicode": "𐨅"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a06",
+   "character": "𐨆",
+   "codePoint": "U+10A06",
+   "name": "KHAROSHTHI VOWEL SIGN O",
+   "kind": "vowel_sign",
+   "values": [
+    "o"
+   ],
+   "schemes": {
+    "unicode": "𐨆"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a10",
+   "character": "𐨐",
+   "codePoint": "U+10A10",
+   "name": "KHAROSHTHI LETTER KA",
+   "kind": "consonant",
+   "values": [
+    "ka"
+   ],
+   "schemes": {
+    "unicode": "𐨐"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a11",
+   "character": "𐨑",
+   "codePoint": "U+10A11",
+   "name": "KHAROSHTHI LETTER KHA",
+   "kind": "consonant",
+   "values": [
+    "kha"
+   ],
+   "schemes": {
+    "unicode": "𐨑"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a12",
+   "character": "𐨒",
+   "codePoint": "U+10A12",
+   "name": "KHAROSHTHI LETTER GA",
+   "kind": "consonant",
+   "values": [
+    "ga"
+   ],
+   "schemes": {
+    "unicode": "𐨒"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a13",
+   "character": "𐨓",
+   "codePoint": "U+10A13",
+   "name": "KHAROSHTHI LETTER GHA",
+   "kind": "consonant",
+   "values": [
+    "gha"
+   ],
+   "schemes": {
+    "unicode": "𐨓"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a15",
+   "character": "𐨕",
+   "codePoint": "U+10A15",
+   "name": "KHAROSHTHI LETTER CA",
+   "kind": "consonant",
+   "values": [
+    "ca"
+   ],
+   "schemes": {
+    "unicode": "𐨕"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a16",
+   "character": "𐨖",
+   "codePoint": "U+10A16",
+   "name": "KHAROSHTHI LETTER CHA",
+   "kind": "consonant",
+   "values": [
+    "cha"
+   ],
+   "schemes": {
+    "unicode": "𐨖"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a17",
+   "character": "𐨗",
+   "codePoint": "U+10A17",
+   "name": "KHAROSHTHI LETTER JA",
+   "kind": "consonant",
+   "values": [
+    "ja"
+   ],
+   "schemes": {
+    "unicode": "𐨗"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a19",
+   "character": "𐨙",
+   "codePoint": "U+10A19",
+   "name": "KHAROSHTHI LETTER NYA",
+   "kind": "consonant",
+   "values": [
+    "ña"
+   ],
+   "schemes": {
+    "unicode": "𐨙"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a1a",
+   "character": "𐨚",
+   "codePoint": "U+10A1A",
+   "name": "KHAROSHTHI LETTER TTA",
+   "kind": "consonant",
+   "values": [
+    "ṭa"
+   ],
+   "schemes": {
+    "unicode": "𐨚"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a1b",
+   "character": "𐨛",
+   "codePoint": "U+10A1B",
+   "name": "KHAROSHTHI LETTER TTHA",
+   "kind": "consonant",
+   "values": [
+    "ṭha"
+   ],
+   "schemes": {
+    "unicode": "𐨛"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a1c",
+   "character": "𐨜",
+   "codePoint": "U+10A1C",
+   "name": "KHAROSHTHI LETTER DDA",
+   "kind": "consonant",
+   "values": [
+    "ḍa"
+   ],
+   "schemes": {
+    "unicode": "𐨜"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a1d",
+   "character": "𐨝",
+   "codePoint": "U+10A1D",
+   "name": "KHAROSHTHI LETTER DDHA",
+   "kind": "consonant",
+   "values": [
+    "ḍha"
+   ],
+   "schemes": {
+    "unicode": "𐨝"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a1e",
+   "character": "𐨞",
+   "codePoint": "U+10A1E",
+   "name": "KHAROSHTHI LETTER NNA",
+   "kind": "consonant",
+   "values": [
+    "ṇa"
+   ],
+   "schemes": {
+    "unicode": "𐨞"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a1f",
+   "character": "𐨟",
+   "codePoint": "U+10A1F",
+   "name": "KHAROSHTHI LETTER TA",
+   "kind": "consonant",
+   "values": [
+    "ta"
+   ],
+   "schemes": {
+    "unicode": "𐨟"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a20",
+   "character": "𐨠",
+   "codePoint": "U+10A20",
+   "name": "KHAROSHTHI LETTER THA",
+   "kind": "consonant",
+   "values": [
+    "tha"
+   ],
+   "schemes": {
+    "unicode": "𐨠"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a21",
+   "character": "𐨡",
+   "codePoint": "U+10A21",
+   "name": "KHAROSHTHI LETTER DA",
+   "kind": "consonant",
+   "values": [
+    "da"
+   ],
+   "schemes": {
+    "unicode": "𐨡"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a22",
+   "character": "𐨢",
+   "codePoint": "U+10A22",
+   "name": "KHAROSHTHI LETTER DHA",
+   "kind": "consonant",
+   "values": [
+    "dha"
+   ],
+   "schemes": {
+    "unicode": "𐨢"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a23",
+   "character": "𐨣",
+   "codePoint": "U+10A23",
+   "name": "KHAROSHTHI LETTER NA",
+   "kind": "consonant",
+   "values": [
+    "na"
+   ],
+   "schemes": {
+    "unicode": "𐨣"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a24",
+   "character": "𐨤",
+   "codePoint": "U+10A24",
+   "name": "KHAROSHTHI LETTER PA",
+   "kind": "consonant",
+   "values": [
+    "pa"
+   ],
+   "schemes": {
+    "unicode": "𐨤"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a25",
+   "character": "𐨥",
+   "codePoint": "U+10A25",
+   "name": "KHAROSHTHI LETTER PHA",
+   "kind": "consonant",
+   "values": [
+    "pha"
+   ],
+   "schemes": {
+    "unicode": "𐨥"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a26",
+   "character": "𐨦",
+   "codePoint": "U+10A26",
+   "name": "KHAROSHTHI LETTER BA",
+   "kind": "consonant",
+   "values": [
+    "ba"
+   ],
+   "schemes": {
+    "unicode": "𐨦"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a27",
+   "character": "𐨧",
+   "codePoint": "U+10A27",
+   "name": "KHAROSHTHI LETTER BHA",
+   "kind": "consonant",
+   "values": [
+    "bha"
+   ],
+   "schemes": {
+    "unicode": "𐨧"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a28",
+   "character": "𐨨",
+   "codePoint": "U+10A28",
+   "name": "KHAROSHTHI LETTER MA",
+   "kind": "consonant",
+   "values": [
+    "ma"
+   ],
+   "schemes": {
+    "unicode": "𐨨"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a29",
+   "character": "𐨩",
+   "codePoint": "U+10A29",
+   "name": "KHAROSHTHI LETTER YA",
+   "kind": "consonant",
+   "values": [
+    "ya"
+   ],
+   "schemes": {
+    "unicode": "𐨩"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a2a",
+   "character": "𐨪",
+   "codePoint": "U+10A2A",
+   "name": "KHAROSHTHI LETTER RA",
+   "kind": "consonant",
+   "values": [
+    "ra"
+   ],
+   "schemes": {
+    "unicode": "𐨪"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a2b",
+   "character": "𐨫",
+   "codePoint": "U+10A2B",
+   "name": "KHAROSHTHI LETTER LA",
+   "kind": "consonant",
+   "values": [
+    "la"
+   ],
+   "schemes": {
+    "unicode": "𐨫"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a2c",
+   "character": "𐨬",
+   "codePoint": "U+10A2C",
+   "name": "KHAROSHTHI LETTER VA",
+   "kind": "consonant",
+   "values": [
+    "va"
+   ],
+   "schemes": {
+    "unicode": "𐨬"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a2d",
+   "character": "𐨭",
+   "codePoint": "U+10A2D",
+   "name": "KHAROSHTHI LETTER SHA",
+   "kind": "consonant",
+   "values": [
+    "śa"
+   ],
+   "schemes": {
+    "unicode": "𐨭"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a2e",
+   "character": "𐨮",
+   "codePoint": "U+10A2E",
+   "name": "KHAROSHTHI LETTER SSA",
+   "kind": "consonant",
+   "values": [
+    "ṣa"
+   ],
+   "schemes": {
+    "unicode": "𐨮"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a2f",
+   "character": "𐨯",
+   "codePoint": "U+10A2F",
+   "name": "KHAROSHTHI LETTER SA",
+   "kind": "consonant",
+   "values": [
+    "sa"
+   ],
+   "schemes": {
+    "unicode": "𐨯"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a30",
+   "character": "𐨰",
+   "codePoint": "U+10A30",
+   "name": "KHAROSHTHI LETTER ZA",
+   "kind": "consonant",
+   "values": [
+    "za"
+   ],
+   "schemes": {
+    "unicode": "𐨰"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u10a31",
+   "character": "𐨱",
+   "codePoint": "U+10A31",
+   "name": "KHAROSHTHI LETTER HA",
+   "kind": "consonant",
+   "values": [
+    "ha"
+   ],
+   "schemes": {
+    "unicode": "𐨱"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  }
+ ],
+ "limitations": [
+  "Modern Unicode forms stand for the sign. They are not attested letter shapes.",
+  "Unicode names read from unicodedata 15.0.0.",
+  "Values are conventions entered by a non-specialist, and no expert has reviewed them.",
+  "Modified consonants, numerals, and punctuation are not included."
+ ]
+}

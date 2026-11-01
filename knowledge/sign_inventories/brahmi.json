@@ -1,0 +1,824 @@
+{
+ "scriptId": "brahmi",
+ "version": "2026-11-02",
+ "scope": "Core vowels, consonants, and vowel signs",
+ "inherentVowel": "a",
+ "schemes": [
+  {
+   "id": "conventional",
+   "label": "Conventional romanisation",
+   "reversible": false
+  },
+  {
+   "id": "unicode",
+   "label": "Unicode characters",
+   "reversible": true
+  }
+ ],
+ "sourceIds": [
+  "unicode-16-ucd"
+ ],
+ "signs": [
+  {
+   "id": "u11005",
+   "character": "𑀅",
+   "codePoint": "U+11005",
+   "name": "BRAHMI LETTER A",
+   "kind": "vowel",
+   "values": [
+    "a"
+   ],
+   "schemes": {
+    "unicode": "𑀅"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11006",
+   "character": "𑀆",
+   "codePoint": "U+11006",
+   "name": "BRAHMI LETTER AA",
+   "kind": "vowel",
+   "values": [
+    "ā"
+   ],
+   "schemes": {
+    "unicode": "𑀆"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11007",
+   "character": "𑀇",
+   "codePoint": "U+11007",
+   "name": "BRAHMI LETTER I",
+   "kind": "vowel",
+   "values": [
+    "i"
+   ],
+   "schemes": {
+    "unicode": "𑀇"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11008",
+   "character": "𑀈",
+   "codePoint": "U+11008",
+   "name": "BRAHMI LETTER II",
+   "kind": "vowel",
+   "values": [
+    "ī"
+   ],
+   "schemes": {
+    "unicode": "𑀈"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11009",
+   "character": "𑀉",
+   "codePoint": "U+11009",
+   "name": "BRAHMI LETTER U",
+   "kind": "vowel",
+   "values": [
+    "u"
+   ],
+   "schemes": {
+    "unicode": "𑀉"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1100a",
+   "character": "𑀊",
+   "codePoint": "U+1100A",
+   "name": "BRAHMI LETTER UU",
+   "kind": "vowel",
+   "values": [
+    "ū"
+   ],
+   "schemes": {
+    "unicode": "𑀊"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1100f",
+   "character": "𑀏",
+   "codePoint": "U+1100F",
+   "name": "BRAHMI LETTER E",
+   "kind": "vowel",
+   "values": [
+    "e"
+   ],
+   "schemes": {
+    "unicode": "𑀏"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11010",
+   "character": "𑀐",
+   "codePoint": "U+11010",
+   "name": "BRAHMI LETTER AI",
+   "kind": "vowel",
+   "values": [
+    "ai"
+   ],
+   "schemes": {
+    "unicode": "𑀐"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11011",
+   "character": "𑀑",
+   "codePoint": "U+11011",
+   "name": "BRAHMI LETTER O",
+   "kind": "vowel",
+   "values": [
+    "o"
+   ],
+   "schemes": {
+    "unicode": "𑀑"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11012",
+   "character": "𑀒",
+   "codePoint": "U+11012",
+   "name": "BRAHMI LETTER AU",
+   "kind": "vowel",
+   "values": [
+    "au"
+   ],
+   "schemes": {
+    "unicode": "𑀒"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11013",
+   "character": "𑀓",
+   "codePoint": "U+11013",
+   "name": "BRAHMI LETTER KA",
+   "kind": "consonant",
+   "values": [
+    "ka"
+   ],
+   "schemes": {
+    "unicode": "𑀓"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11014",
+   "character": "𑀔",
+   "codePoint": "U+11014",
+   "name": "BRAHMI LETTER KHA",
+   "kind": "consonant",
+   "values": [
+    "kha"
+   ],
+   "schemes": {
+    "unicode": "𑀔"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11015",
+   "character": "𑀕",
+   "codePoint": "U+11015",
+   "name": "BRAHMI LETTER GA",
+   "kind": "consonant",
+   "values": [
+    "ga"
+   ],
+   "schemes": {
+    "unicode": "𑀕"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11016",
+   "character": "𑀖",
+   "codePoint": "U+11016",
+   "name": "BRAHMI LETTER GHA",
+   "kind": "consonant",
+   "values": [
+    "gha"
+   ],
+   "schemes": {
+    "unicode": "𑀖"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11017",
+   "character": "𑀗",
+   "codePoint": "U+11017",
+   "name": "BRAHMI LETTER NGA",
+   "kind": "consonant",
+   "values": [
+    "ṅa"
+   ],
+   "schemes": {
+    "unicode": "𑀗"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11018",
+   "character": "𑀘",
+   "codePoint": "U+11018",
+   "name": "BRAHMI LETTER CA",
+   "kind": "consonant",
+   "values": [
+    "ca"
+   ],
+   "schemes": {
+    "unicode": "𑀘"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11019",
+   "character": "𑀙",
+   "codePoint": "U+11019",
+   "name": "BRAHMI LETTER CHA",
+   "kind": "consonant",
+   "values": [
+    "cha"
+   ],
+   "schemes": {
+    "unicode": "𑀙"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1101a",
+   "character": "𑀚",
+   "codePoint": "U+1101A",
+   "name": "BRAHMI LETTER JA",
+   "kind": "consonant",
+   "values": [
+    "ja"
+   ],
+   "schemes": {
+    "unicode": "𑀚"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1101b",
+   "character": "𑀛",
+   "codePoint": "U+1101B",
+   "name": "BRAHMI LETTER JHA",
+   "kind": "consonant",
+   "values": [
+    "jha"
+   ],
+   "schemes": {
+    "unicode": "𑀛"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1101c",
+   "character": "𑀜",
+   "codePoint": "U+1101C",
+   "name": "BRAHMI LETTER NYA",
+   "kind": "consonant",
+   "values": [
+    "ña"
+   ],
+   "schemes": {
+    "unicode": "𑀜"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1101d",
+   "character": "𑀝",
+   "codePoint": "U+1101D",
+   "name": "BRAHMI LETTER TTA",
+   "kind": "consonant",
+   "values": [
+    "ṭa"
+   ],
+   "schemes": {
+    "unicode": "𑀝"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1101e",
+   "character": "𑀞",
+   "codePoint": "U+1101E",
+   "name": "BRAHMI LETTER TTHA",
+   "kind": "consonant",
+   "values": [
+    "ṭha"
+   ],
+   "schemes": {
+    "unicode": "𑀞"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1101f",
+   "character": "𑀟",
+   "codePoint": "U+1101F",
+   "name": "BRAHMI LETTER DDA",
+   "kind": "consonant",
+   "values": [
+    "ḍa"
+   ],
+   "schemes": {
+    "unicode": "𑀟"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11020",
+   "character": "𑀠",
+   "codePoint": "U+11020",
+   "name": "BRAHMI LETTER DDHA",
+   "kind": "consonant",
+   "values": [
+    "ḍha"
+   ],
+   "schemes": {
+    "unicode": "𑀠"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11021",
+   "character": "𑀡",
+   "codePoint": "U+11021",
+   "name": "BRAHMI LETTER NNA",
+   "kind": "consonant",
+   "values": [
+    "ṇa"
+   ],
+   "schemes": {
+    "unicode": "𑀡"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11022",
+   "character": "𑀢",
+   "codePoint": "U+11022",
+   "name": "BRAHMI LETTER TA",
+   "kind": "consonant",
+   "values": [
+    "ta"
+   ],
+   "schemes": {
+    "unicode": "𑀢"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11023",
+   "character": "𑀣",
+   "codePoint": "U+11023",
+   "name": "BRAHMI LETTER THA",
+   "kind": "consonant",
+   "values": [
+    "tha"
+   ],
+   "schemes": {
+    "unicode": "𑀣"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11024",
+   "character": "𑀤",
+   "codePoint": "U+11024",
+   "name": "BRAHMI LETTER DA",
+   "kind": "consonant",
+   "values": [
+    "da"
+   ],
+   "schemes": {
+    "unicode": "𑀤"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11025",
+   "character": "𑀥",
+   "codePoint": "U+11025",
+   "name": "BRAHMI LETTER DHA",
+   "kind": "consonant",
+   "values": [
+    "dha"
+   ],
+   "schemes": {
+    "unicode": "𑀥"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11026",
+   "character": "𑀦",
+   "codePoint": "U+11026",
+   "name": "BRAHMI LETTER NA",
+   "kind": "consonant",
+   "values": [
+    "na"
+   ],
+   "schemes": {
+    "unicode": "𑀦"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11027",
+   "character": "𑀧",
+   "codePoint": "U+11027",
+   "name": "BRAHMI LETTER PA",
+   "kind": "consonant",
+   "values": [
+    "pa"
+   ],
+   "schemes": {
+    "unicode": "𑀧"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11028",
+   "character": "𑀨",
+   "codePoint": "U+11028",
+   "name": "BRAHMI LETTER PHA",
+   "kind": "consonant",
+   "values": [
+    "pha"
+   ],
+   "schemes": {
+    "unicode": "𑀨"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11029",
+   "character": "𑀩",
+   "codePoint": "U+11029",
+   "name": "BRAHMI LETTER BA",
+   "kind": "consonant",
+   "values": [
+    "ba"
+   ],
+   "schemes": {
+    "unicode": "𑀩"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1102a",
+   "character": "𑀪",
+   "codePoint": "U+1102A",
+   "name": "BRAHMI LETTER BHA",
+   "kind": "consonant",
+   "values": [
+    "bha"
+   ],
+   "schemes": {
+    "unicode": "𑀪"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1102b",
+   "character": "𑀫",
+   "codePoint": "U+1102B",
+   "name": "BRAHMI LETTER MA",
+   "kind": "consonant",
+   "values": [
+    "ma"
+   ],
+   "schemes": {
+    "unicode": "𑀫"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1102c",
+   "character": "𑀬",
+   "codePoint": "U+1102C",
+   "name": "BRAHMI LETTER YA",
+   "kind": "consonant",
+   "values": [
+    "ya"
+   ],
+   "schemes": {
+    "unicode": "𑀬"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1102d",
+   "character": "𑀭",
+   "codePoint": "U+1102D",
+   "name": "BRAHMI LETTER RA",
+   "kind": "consonant",
+   "values": [
+    "ra"
+   ],
+   "schemes": {
+    "unicode": "𑀭"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1102e",
+   "character": "𑀮",
+   "codePoint": "U+1102E",
+   "name": "BRAHMI LETTER LA",
+   "kind": "consonant",
+   "values": [
+    "la"
+   ],
+   "schemes": {
+    "unicode": "𑀮"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1102f",
+   "character": "𑀯",
+   "codePoint": "U+1102F",
+   "name": "BRAHMI LETTER VA",
+   "kind": "consonant",
+   "values": [
+    "va"
+   ],
+   "schemes": {
+    "unicode": "𑀯"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11030",
+   "character": "𑀰",
+   "codePoint": "U+11030",
+   "name": "BRAHMI LETTER SHA",
+   "kind": "consonant",
+   "values": [
+    "śa"
+   ],
+   "schemes": {
+    "unicode": "𑀰"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11031",
+   "character": "𑀱",
+   "codePoint": "U+11031",
+   "name": "BRAHMI LETTER SSA",
+   "kind": "consonant",
+   "values": [
+    "ṣa"
+   ],
+   "schemes": {
+    "unicode": "𑀱"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11032",
+   "character": "𑀲",
+   "codePoint": "U+11032",
+   "name": "BRAHMI LETTER SA",
+   "kind": "consonant",
+   "values": [
+    "sa"
+   ],
+   "schemes": {
+    "unicode": "𑀲"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11033",
+   "character": "𑀳",
+   "codePoint": "U+11033",
+   "name": "BRAHMI LETTER HA",
+   "kind": "consonant",
+   "values": [
+    "ha"
+   ],
+   "schemes": {
+    "unicode": "𑀳"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11034",
+   "character": "𑀴",
+   "codePoint": "U+11034",
+   "name": "BRAHMI LETTER LLA",
+   "kind": "consonant",
+   "values": [
+    "ḷa"
+   ],
+   "schemes": {
+    "unicode": "𑀴"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11038",
+   "character": "𑀸",
+   "codePoint": "U+11038",
+   "name": "BRAHMI VOWEL SIGN AA",
+   "kind": "vowel_sign",
+   "values": [
+    "ā"
+   ],
+   "schemes": {
+    "unicode": "𑀸"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1103a",
+   "character": "𑀺",
+   "codePoint": "U+1103A",
+   "name": "BRAHMI VOWEL SIGN I",
+   "kind": "vowel_sign",
+   "values": [
+    "i"
+   ],
+   "schemes": {
+    "unicode": "𑀺"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1103b",
+   "character": "𑀻",
+   "codePoint": "U+1103B",
+   "name": "BRAHMI VOWEL SIGN II",
+   "kind": "vowel_sign",
+   "values": [
+    "ī"
+   ],
+   "schemes": {
+    "unicode": "𑀻"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1103c",
+   "character": "𑀼",
+   "codePoint": "U+1103C",
+   "name": "BRAHMI VOWEL SIGN U",
+   "kind": "vowel_sign",
+   "values": [
+    "u"
+   ],
+   "schemes": {
+    "unicode": "𑀼"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u1103d",
+   "character": "𑀽",
+   "codePoint": "U+1103D",
+   "name": "BRAHMI VOWEL SIGN UU",
+   "kind": "vowel_sign",
+   "values": [
+    "ū"
+   ],
+   "schemes": {
+    "unicode": "𑀽"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11042",
+   "character": "𑁂",
+   "codePoint": "U+11042",
+   "name": "BRAHMI VOWEL SIGN E",
+   "kind": "vowel_sign",
+   "values": [
+    "e"
+   ],
+   "schemes": {
+    "unicode": "𑁂"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11043",
+   "character": "𑁃",
+   "codePoint": "U+11043",
+   "name": "BRAHMI VOWEL SIGN AI",
+   "kind": "vowel_sign",
+   "values": [
+    "ai"
+   ],
+   "schemes": {
+    "unicode": "𑁃"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11044",
+   "character": "𑁄",
+   "codePoint": "U+11044",
+   "name": "BRAHMI VOWEL SIGN O",
+   "kind": "vowel_sign",
+   "values": [
+    "o"
+   ],
+   "schemes": {
+    "unicode": "𑁄"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u11045",
+   "character": "𑁅",
+   "codePoint": "U+11045",
+   "name": "BRAHMI VOWEL SIGN AU",
+   "kind": "vowel_sign",
+   "values": [
+    "au"
+   ],
+   "schemes": {
+    "unicode": "𑁅"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  }
+ ],
+ "limitations": [
+  "Modern Unicode forms stand for the sign. They are not attested letter shapes.",
+  "Unicode names read from unicodedata 15.0.0.",
+  "Values are conventions entered by a non-specialist, and no expert has reviewed them.",
+  "Numerals, punctuation, and later or regional letters are not included."
+ ]
+}

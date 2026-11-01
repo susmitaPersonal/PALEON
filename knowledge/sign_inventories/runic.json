@@ -1,0 +1,389 @@
+{
+ "scriptId": "runic",
+ "version": "2026-11-02",
+ "scope": "Elder Futhark only",
+ "inherentVowel": null,
+ "schemes": [
+  {
+   "id": "conventional",
+   "label": "Conventional romanisation",
+   "reversible": false
+  },
+  {
+   "id": "unicode",
+   "label": "Unicode characters",
+   "reversible": true
+  }
+ ],
+ "sourceIds": [
+  "unicode-16-ucd"
+ ],
+ "signs": [
+  {
+   "id": "u16a0",
+   "character": "ᚠ",
+   "codePoint": "U+16A0",
+   "name": "RUNIC LETTER FEHU FEOH FE F",
+   "kind": "letter",
+   "values": [
+    "f"
+   ],
+   "schemes": {
+    "unicode": "ᚠ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16a2",
+   "character": "ᚢ",
+   "codePoint": "U+16A2",
+   "name": "RUNIC LETTER URUZ UR U",
+   "kind": "letter",
+   "values": [
+    "u"
+   ],
+   "schemes": {
+    "unicode": "ᚢ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16a6",
+   "character": "ᚦ",
+   "codePoint": "U+16A6",
+   "name": "RUNIC LETTER THURISAZ THURS THORN",
+   "kind": "letter",
+   "values": [
+    "þ"
+   ],
+   "schemes": {
+    "unicode": "ᚦ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16a8",
+   "character": "ᚨ",
+   "codePoint": "U+16A8",
+   "name": "RUNIC LETTER ANSUZ A",
+   "kind": "letter",
+   "values": [
+    "a"
+   ],
+   "schemes": {
+    "unicode": "ᚨ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16b1",
+   "character": "ᚱ",
+   "codePoint": "U+16B1",
+   "name": "RUNIC LETTER RAIDO RAD REID R",
+   "kind": "letter",
+   "values": [
+    "r"
+   ],
+   "schemes": {
+    "unicode": "ᚱ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16b2",
+   "character": "ᚲ",
+   "codePoint": "U+16B2",
+   "name": "RUNIC LETTER KAUNA",
+   "kind": "letter",
+   "values": [
+    "k"
+   ],
+   "schemes": {
+    "unicode": "ᚲ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16b7",
+   "character": "ᚷ",
+   "codePoint": "U+16B7",
+   "name": "RUNIC LETTER GEBO GYFU G",
+   "kind": "letter",
+   "values": [
+    "g"
+   ],
+   "schemes": {
+    "unicode": "ᚷ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16b9",
+   "character": "ᚹ",
+   "codePoint": "U+16B9",
+   "name": "RUNIC LETTER WUNJO WYNN W",
+   "kind": "letter",
+   "values": [
+    "w"
+   ],
+   "schemes": {
+    "unicode": "ᚹ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16ba",
+   "character": "ᚺ",
+   "codePoint": "U+16BA",
+   "name": "RUNIC LETTER HAGLAZ H",
+   "kind": "letter",
+   "values": [
+    "h"
+   ],
+   "schemes": {
+    "unicode": "ᚺ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16be",
+   "character": "ᚾ",
+   "codePoint": "U+16BE",
+   "name": "RUNIC LETTER NAUDIZ NYD NAUD N",
+   "kind": "letter",
+   "values": [
+    "n"
+   ],
+   "schemes": {
+    "unicode": "ᚾ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16c1",
+   "character": "ᛁ",
+   "codePoint": "U+16C1",
+   "name": "RUNIC LETTER ISAZ IS ISS I",
+   "kind": "letter",
+   "values": [
+    "i"
+   ],
+   "schemes": {
+    "unicode": "ᛁ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16c3",
+   "character": "ᛃ",
+   "codePoint": "U+16C3",
+   "name": "RUNIC LETTER JERAN J",
+   "kind": "letter",
+   "values": [
+    "j"
+   ],
+   "schemes": {
+    "unicode": "ᛃ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16c7",
+   "character": "ᛇ",
+   "codePoint": "U+16C7",
+   "name": "RUNIC LETTER IWAZ EOH",
+   "kind": "letter",
+   "values": [
+    "ï"
+   ],
+   "schemes": {
+    "unicode": "ᛇ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16c8",
+   "character": "ᛈ",
+   "codePoint": "U+16C8",
+   "name": "RUNIC LETTER PERTHO PEORTH P",
+   "kind": "letter",
+   "values": [
+    "p"
+   ],
+   "schemes": {
+    "unicode": "ᛈ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16c9",
+   "character": "ᛉ",
+   "codePoint": "U+16C9",
+   "name": "RUNIC LETTER ALGIZ EOLHX",
+   "kind": "letter",
+   "values": [
+    "z"
+   ],
+   "schemes": {
+    "unicode": "ᛉ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16ca",
+   "character": "ᛊ",
+   "codePoint": "U+16CA",
+   "name": "RUNIC LETTER SOWILO S",
+   "kind": "letter",
+   "values": [
+    "s"
+   ],
+   "schemes": {
+    "unicode": "ᛊ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16cf",
+   "character": "ᛏ",
+   "codePoint": "U+16CF",
+   "name": "RUNIC LETTER TIWAZ TIR TYR T",
+   "kind": "letter",
+   "values": [
+    "t"
+   ],
+   "schemes": {
+    "unicode": "ᛏ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16d2",
+   "character": "ᛒ",
+   "codePoint": "U+16D2",
+   "name": "RUNIC LETTER BERKANAN BEORC BJARKAN B",
+   "kind": "letter",
+   "values": [
+    "b"
+   ],
+   "schemes": {
+    "unicode": "ᛒ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16d6",
+   "character": "ᛖ",
+   "codePoint": "U+16D6",
+   "name": "RUNIC LETTER EHWAZ EH E",
+   "kind": "letter",
+   "values": [
+    "e"
+   ],
+   "schemes": {
+    "unicode": "ᛖ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16d7",
+   "character": "ᛗ",
+   "codePoint": "U+16D7",
+   "name": "RUNIC LETTER MANNAZ MAN M",
+   "kind": "letter",
+   "values": [
+    "m"
+   ],
+   "schemes": {
+    "unicode": "ᛗ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16da",
+   "character": "ᛚ",
+   "codePoint": "U+16DA",
+   "name": "RUNIC LETTER LAUKAZ LAGU LOGR L",
+   "kind": "letter",
+   "values": [
+    "l"
+   ],
+   "schemes": {
+    "unicode": "ᛚ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16dc",
+   "character": "ᛜ",
+   "codePoint": "U+16DC",
+   "name": "RUNIC LETTER INGWAZ",
+   "kind": "letter",
+   "values": [
+    "ŋ"
+   ],
+   "schemes": {
+    "unicode": "ᛜ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16de",
+   "character": "ᛞ",
+   "codePoint": "U+16DE",
+   "name": "RUNIC LETTER DAGAZ DAEG D",
+   "kind": "letter",
+   "values": [
+    "d"
+   ],
+   "schemes": {
+    "unicode": "ᛞ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u16df",
+   "character": "ᛟ",
+   "codePoint": "U+16DF",
+   "name": "RUNIC LETTER OTHALAN ETHEL O",
+   "kind": "letter",
+   "values": [
+    "o"
+   ],
+   "schemes": {
+    "unicode": "ᛟ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  }
+ ],
+ "limitations": [
+  "Modern Unicode forms stand for the sign. They are not attested letter shapes.",
+  "Unicode names read from unicodedata 15.0.0.",
+  "Values are conventions entered by a non-specialist, and no expert has reviewed them.",
+  "Younger futharks and Anglo-Frisian runes are not included."
+ ]
+}

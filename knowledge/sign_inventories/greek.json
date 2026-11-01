@@ -1,0 +1,389 @@
+{
+ "scriptId": "greek",
+ "version": "2026-11-02",
+ "scope": "The 24 letters only",
+ "inherentVowel": null,
+ "schemes": [
+  {
+   "id": "conventional",
+   "label": "Conventional romanisation",
+   "reversible": false
+  },
+  {
+   "id": "unicode",
+   "label": "Unicode characters",
+   "reversible": true
+  }
+ ],
+ "sourceIds": [
+  "unicode-16-ucd"
+ ],
+ "signs": [
+  {
+   "id": "u0391",
+   "character": "Α",
+   "codePoint": "U+0391",
+   "name": "GREEK CAPITAL LETTER ALPHA",
+   "kind": "letter",
+   "values": [
+    "a"
+   ],
+   "schemes": {
+    "unicode": "Α"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0392",
+   "character": "Β",
+   "codePoint": "U+0392",
+   "name": "GREEK CAPITAL LETTER BETA",
+   "kind": "letter",
+   "values": [
+    "b"
+   ],
+   "schemes": {
+    "unicode": "Β"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0393",
+   "character": "Γ",
+   "codePoint": "U+0393",
+   "name": "GREEK CAPITAL LETTER GAMMA",
+   "kind": "letter",
+   "values": [
+    "g"
+   ],
+   "schemes": {
+    "unicode": "Γ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0394",
+   "character": "Δ",
+   "codePoint": "U+0394",
+   "name": "GREEK CAPITAL LETTER DELTA",
+   "kind": "letter",
+   "values": [
+    "d"
+   ],
+   "schemes": {
+    "unicode": "Δ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0395",
+   "character": "Ε",
+   "codePoint": "U+0395",
+   "name": "GREEK CAPITAL LETTER EPSILON",
+   "kind": "letter",
+   "values": [
+    "e"
+   ],
+   "schemes": {
+    "unicode": "Ε"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0396",
+   "character": "Ζ",
+   "codePoint": "U+0396",
+   "name": "GREEK CAPITAL LETTER ZETA",
+   "kind": "letter",
+   "values": [
+    "z"
+   ],
+   "schemes": {
+    "unicode": "Ζ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0397",
+   "character": "Η",
+   "codePoint": "U+0397",
+   "name": "GREEK CAPITAL LETTER ETA",
+   "kind": "letter",
+   "values": [
+    "ē"
+   ],
+   "schemes": {
+    "unicode": "Η"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0398",
+   "character": "Θ",
+   "codePoint": "U+0398",
+   "name": "GREEK CAPITAL LETTER THETA",
+   "kind": "letter",
+   "values": [
+    "th"
+   ],
+   "schemes": {
+    "unicode": "Θ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0399",
+   "character": "Ι",
+   "codePoint": "U+0399",
+   "name": "GREEK CAPITAL LETTER IOTA",
+   "kind": "letter",
+   "values": [
+    "i"
+   ],
+   "schemes": {
+    "unicode": "Ι"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u039a",
+   "character": "Κ",
+   "codePoint": "U+039A",
+   "name": "GREEK CAPITAL LETTER KAPPA",
+   "kind": "letter",
+   "values": [
+    "k"
+   ],
+   "schemes": {
+    "unicode": "Κ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u039b",
+   "character": "Λ",
+   "codePoint": "U+039B",
+   "name": "GREEK CAPITAL LETTER LAMDA",
+   "kind": "letter",
+   "values": [
+    "l"
+   ],
+   "schemes": {
+    "unicode": "Λ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u039c",
+   "character": "Μ",
+   "codePoint": "U+039C",
+   "name": "GREEK CAPITAL LETTER MU",
+   "kind": "letter",
+   "values": [
+    "m"
+   ],
+   "schemes": {
+    "unicode": "Μ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u039d",
+   "character": "Ν",
+   "codePoint": "U+039D",
+   "name": "GREEK CAPITAL LETTER NU",
+   "kind": "letter",
+   "values": [
+    "n"
+   ],
+   "schemes": {
+    "unicode": "Ν"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u039e",
+   "character": "Ξ",
+   "codePoint": "U+039E",
+   "name": "GREEK CAPITAL LETTER XI",
+   "kind": "letter",
+   "values": [
+    "x"
+   ],
+   "schemes": {
+    "unicode": "Ξ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u039f",
+   "character": "Ο",
+   "codePoint": "U+039F",
+   "name": "GREEK CAPITAL LETTER OMICRON",
+   "kind": "letter",
+   "values": [
+    "o"
+   ],
+   "schemes": {
+    "unicode": "Ο"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u03a0",
+   "character": "Π",
+   "codePoint": "U+03A0",
+   "name": "GREEK CAPITAL LETTER PI",
+   "kind": "letter",
+   "values": [
+    "p"
+   ],
+   "schemes": {
+    "unicode": "Π"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u03a1",
+   "character": "Ρ",
+   "codePoint": "U+03A1",
+   "name": "GREEK CAPITAL LETTER RHO",
+   "kind": "letter",
+   "values": [
+    "r"
+   ],
+   "schemes": {
+    "unicode": "Ρ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u03a3",
+   "character": "Σ",
+   "codePoint": "U+03A3",
+   "name": "GREEK CAPITAL LETTER SIGMA",
+   "kind": "letter",
+   "values": [
+    "s"
+   ],
+   "schemes": {
+    "unicode": "Σ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u03a4",
+   "character": "Τ",
+   "codePoint": "U+03A4",
+   "name": "GREEK CAPITAL LETTER TAU",
+   "kind": "letter",
+   "values": [
+    "t"
+   ],
+   "schemes": {
+    "unicode": "Τ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u03a5",
+   "character": "Υ",
+   "codePoint": "U+03A5",
+   "name": "GREEK CAPITAL LETTER UPSILON",
+   "kind": "letter",
+   "values": [
+    "y"
+   ],
+   "schemes": {
+    "unicode": "Υ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u03a6",
+   "character": "Φ",
+   "codePoint": "U+03A6",
+   "name": "GREEK CAPITAL LETTER PHI",
+   "kind": "letter",
+   "values": [
+    "ph"
+   ],
+   "schemes": {
+    "unicode": "Φ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u03a7",
+   "character": "Χ",
+   "codePoint": "U+03A7",
+   "name": "GREEK CAPITAL LETTER CHI",
+   "kind": "letter",
+   "values": [
+    "ch"
+   ],
+   "schemes": {
+    "unicode": "Χ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u03a8",
+   "character": "Ψ",
+   "codePoint": "U+03A8",
+   "name": "GREEK CAPITAL LETTER PSI",
+   "kind": "letter",
+   "values": [
+    "ps"
+   ],
+   "schemes": {
+    "unicode": "Ψ"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u03a9",
+   "character": "Ω",
+   "codePoint": "U+03A9",
+   "name": "GREEK CAPITAL LETTER OMEGA",
+   "kind": "letter",
+   "values": [
+    "ō"
+   ],
+   "schemes": {
+    "unicode": "Ω"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  }
+ ],
+ "limitations": [
+  "Modern Unicode forms stand for the sign. They are not attested letter shapes.",
+  "Unicode names read from unicodedata 15.0.0.",
+  "Values are conventions entered by a non-specialist, and no expert has reviewed them.",
+  "Local epichoric alphabets, digamma, and other archaic letters are not included."
+ ]
+}

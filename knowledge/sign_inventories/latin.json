@@ -1,0 +1,376 @@
+{
+ "scriptId": "latin",
+ "version": "2026-11-02",
+ "scope": "Classical capitals only",
+ "inherentVowel": null,
+ "schemes": [
+  {
+   "id": "conventional",
+   "label": "Conventional romanisation",
+   "reversible": false
+  },
+  {
+   "id": "unicode",
+   "label": "Unicode characters",
+   "reversible": true
+  }
+ ],
+ "sourceIds": [
+  "unicode-16-ucd"
+ ],
+ "signs": [
+  {
+   "id": "u0041",
+   "character": "A",
+   "codePoint": "U+0041",
+   "name": "LATIN CAPITAL LETTER A",
+   "kind": "letter",
+   "values": [
+    "a"
+   ],
+   "schemes": {
+    "unicode": "A"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0042",
+   "character": "B",
+   "codePoint": "U+0042",
+   "name": "LATIN CAPITAL LETTER B",
+   "kind": "letter",
+   "values": [
+    "b"
+   ],
+   "schemes": {
+    "unicode": "B"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0043",
+   "character": "C",
+   "codePoint": "U+0043",
+   "name": "LATIN CAPITAL LETTER C",
+   "kind": "letter",
+   "values": [
+    "c"
+   ],
+   "schemes": {
+    "unicode": "C"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0044",
+   "character": "D",
+   "codePoint": "U+0044",
+   "name": "LATIN CAPITAL LETTER D",
+   "kind": "letter",
+   "values": [
+    "d"
+   ],
+   "schemes": {
+    "unicode": "D"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0045",
+   "character": "E",
+   "codePoint": "U+0045",
+   "name": "LATIN CAPITAL LETTER E",
+   "kind": "letter",
+   "values": [
+    "e"
+   ],
+   "schemes": {
+    "unicode": "E"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0046",
+   "character": "F",
+   "codePoint": "U+0046",
+   "name": "LATIN CAPITAL LETTER F",
+   "kind": "letter",
+   "values": [
+    "f"
+   ],
+   "schemes": {
+    "unicode": "F"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0047",
+   "character": "G",
+   "codePoint": "U+0047",
+   "name": "LATIN CAPITAL LETTER G",
+   "kind": "letter",
+   "values": [
+    "g"
+   ],
+   "schemes": {
+    "unicode": "G"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0048",
+   "character": "H",
+   "codePoint": "U+0048",
+   "name": "LATIN CAPITAL LETTER H",
+   "kind": "letter",
+   "values": [
+    "h"
+   ],
+   "schemes": {
+    "unicode": "H"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0049",
+   "character": "I",
+   "codePoint": "U+0049",
+   "name": "LATIN CAPITAL LETTER I",
+   "kind": "letter",
+   "values": [
+    "i",
+    "j"
+   ],
+   "schemes": {
+    "unicode": "I"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u004b",
+   "character": "K",
+   "codePoint": "U+004B",
+   "name": "LATIN CAPITAL LETTER K",
+   "kind": "letter",
+   "values": [
+    "k"
+   ],
+   "schemes": {
+    "unicode": "K"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u004c",
+   "character": "L",
+   "codePoint": "U+004C",
+   "name": "LATIN CAPITAL LETTER L",
+   "kind": "letter",
+   "values": [
+    "l"
+   ],
+   "schemes": {
+    "unicode": "L"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u004d",
+   "character": "M",
+   "codePoint": "U+004D",
+   "name": "LATIN CAPITAL LETTER M",
+   "kind": "letter",
+   "values": [
+    "m"
+   ],
+   "schemes": {
+    "unicode": "M"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u004e",
+   "character": "N",
+   "codePoint": "U+004E",
+   "name": "LATIN CAPITAL LETTER N",
+   "kind": "letter",
+   "values": [
+    "n"
+   ],
+   "schemes": {
+    "unicode": "N"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u004f",
+   "character": "O",
+   "codePoint": "U+004F",
+   "name": "LATIN CAPITAL LETTER O",
+   "kind": "letter",
+   "values": [
+    "o"
+   ],
+   "schemes": {
+    "unicode": "O"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0050",
+   "character": "P",
+   "codePoint": "U+0050",
+   "name": "LATIN CAPITAL LETTER P",
+   "kind": "letter",
+   "values": [
+    "p"
+   ],
+   "schemes": {
+    "unicode": "P"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0051",
+   "character": "Q",
+   "codePoint": "U+0051",
+   "name": "LATIN CAPITAL LETTER Q",
+   "kind": "letter",
+   "values": [
+    "q"
+   ],
+   "schemes": {
+    "unicode": "Q"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0052",
+   "character": "R",
+   "codePoint": "U+0052",
+   "name": "LATIN CAPITAL LETTER R",
+   "kind": "letter",
+   "values": [
+    "r"
+   ],
+   "schemes": {
+    "unicode": "R"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0053",
+   "character": "S",
+   "codePoint": "U+0053",
+   "name": "LATIN CAPITAL LETTER S",
+   "kind": "letter",
+   "values": [
+    "s"
+   ],
+   "schemes": {
+    "unicode": "S"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0054",
+   "character": "T",
+   "codePoint": "U+0054",
+   "name": "LATIN CAPITAL LETTER T",
+   "kind": "letter",
+   "values": [
+    "t"
+   ],
+   "schemes": {
+    "unicode": "T"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0056",
+   "character": "V",
+   "codePoint": "U+0056",
+   "name": "LATIN CAPITAL LETTER V",
+   "kind": "letter",
+   "values": [
+    "u",
+    "v"
+   ],
+   "schemes": {
+    "unicode": "V"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0058",
+   "character": "X",
+   "codePoint": "U+0058",
+   "name": "LATIN CAPITAL LETTER X",
+   "kind": "letter",
+   "values": [
+    "x"
+   ],
+   "schemes": {
+    "unicode": "X"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u0059",
+   "character": "Y",
+   "codePoint": "U+0059",
+   "name": "LATIN CAPITAL LETTER Y",
+   "kind": "letter",
+   "values": [
+    "y"
+   ],
+   "schemes": {
+    "unicode": "Y"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  },
+  {
+   "id": "u005a",
+   "character": "Z",
+   "codePoint": "U+005A",
+   "name": "LATIN CAPITAL LETTER Z",
+   "kind": "letter",
+   "values": [
+    "z"
+   ],
+   "schemes": {
+    "unicode": "Z"
+   },
+   "allographs": [],
+   "reviewStatus": "unreviewed"
+  }
+ ],
+ "limitations": [
+  "Modern Unicode forms stand for the sign. They are not attested letter shapes.",
+  "Unicode names read from unicodedata 15.0.0.",
+  "Values are conventions entered by a non-specialist, and no expert has reviewed them.",
+  "I and V each keep two readings, because the choice depends on the word."
+ ]
+}
