@@ -47,13 +47,13 @@ flowchart LR
     Manifest["dataset/manifest.csv<br/>Implemented"] --> Check["manifest.py checks<br/>Verified offline"]
     Prompt["prompts/eval_v1.md<br/>Implemented, hash checked"] --> Runner["runner.py<br/>Verified offline"]
     Runner --> Adapter["adapter.py<br/>Verified offline"]
-    Adapter -.->|"no entry point uses live/"| Provider["Hosted model<br/>Not connected"]
+    Adapter -.->|"only live/stage_d.py, not run"| Provider["Hosted model<br/>Not connected"]
     Runner --> Validate["validation.py + schema.py<br/>Verified offline"]
     Validate --> Metrics["metrics.py<br/>Verified offline"]
     Metrics --> Report["report.py<br/>Verified offline"]
 ```
 
-`src/run.py` joins these modules into one command that runs a full synthetic experiment. A transport exists in `live/`, but `src/` never imports it and `--live` is refused, so the harness cannot reach a provider. It shares no code with the product, and its prompt stays frozen.
+`src/run.py` joins these modules into one command that runs a full synthetic experiment. A transport exists in `live/`, and `src/` never imports it. `--live` is refused. Only `live/stage_d.py` can reach a provider, with generated images, and it refuses to run without the owner's approved commit (ADR-067). It shares no code with the product, and its prompt stays frozen.
 
 ## Technology decisions
 

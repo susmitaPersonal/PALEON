@@ -1,6 +1,6 @@
 """Stage D checks, using generated images only. No dataset image can reach a provider from here.
 
-No entry point calls this. Stage D approval adds that, along with keys and a budget.
+Only live/stage_d.py calls this, and it refuses to run without the owner's approved commit.
 """
 import io
 import random

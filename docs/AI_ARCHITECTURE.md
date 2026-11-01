@@ -10,7 +10,7 @@ Related: [MODEL_EVALUATION.md](MODEL_EVALUATION.md), [MODEL_COMPARISON.md](MODEL
 
 | Capability | Experiment harness | Product | Notes |
 |---|---|---|---|
-| Vision-language model integration | Implemented, with its transport unreachable from any command | Implemented, disabled by default, never run for real | `adapter.py` and `openaiCompatible.ts`, both tested with fakes |
+| Vision-language model integration | Implemented. Only the approval-gated `live/stage_d.py` can reach its transport, and it has not run | Implemented, disabled by default, never run for real | `adapter.py` and `openaiCompatible.ts`, both tested with fakes |
 | Script identification | Implemented as a prompt and schema, untested on a model | Implemented, untested on a model | Single call, no reference material |
 | Abstention | Implemented as a prompt and schema, untested on a model | Implemented, untested on a model | Four dispositions |
 | Output validation | Verified offline | Verified offline in Zod | `schema.py`, `validation.py`, `packages/contracts` |

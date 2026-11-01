@@ -26,6 +26,7 @@ This runs typechecking, reference validation, unit and integration tests, browse
 | Upload security, invalid images | `apps/api/test/intake.test.ts` |
 | Malformed output, retries, timeouts, provider failures, verification | `apps/api/test/analysis.test.ts` |
 | The 13 adversarial cases, verifier rules, and known limits | `apps/api/test/adversarial.test.ts` |
+| Stage D command, with fake catalogs and transports | `experiments/m0_feasibility/tests/test_stage_d.py` |
 | Q-10 margin clearing, including a pixel comparison with the originals | `experiments/m0_feasibility/tests/test_margin_clearing.py` |
 | Provider adapter, configuration, logging | `apps/api/test/providers.test.ts` |
 | Historical source and citation integrity | `apps/api/test/references.test.ts` |

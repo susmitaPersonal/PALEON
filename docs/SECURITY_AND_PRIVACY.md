@@ -1,6 +1,6 @@
 # Security and Privacy
 
-> **Version:** 0.4 | **Last updated:** 2026-11-01 | **Status:** Local MVP controls Implemented and Verified by the named offline tests. Public deployment is Pending, and the gaps below must be closed first.
+> **Version:** 0.5 | **Last updated:** 2026-11-02 | **Status:** Local MVP controls Implemented and Verified by the named offline tests. Public deployment is Pending, and the gaps below must be closed first.
 
 Related: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md), [RISKS_AND_LIMITATIONS.md](RISKS_AND_LIMITATIONS.md)
 
@@ -15,7 +15,7 @@ Related: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md), [RISKS_AND_LIMITATION
 | Harness imports no network client | Verified offline | `test_runner.py` |
 | Downloaded images are gitignored | Verified | `git check-ignore` run 2026-11-01 |
 
-**No keys exist in this repository or environment as of the last update.** Keep them in a local `.env`, and never paste them into a conversation.
+**No keys exist in this repository or environment as of the last update.** The harness reads keys from the process environment and does not load `.env`. Never paste them into a conversation. See [Credentials](M0_READINESS_AND_EXECUTION_SPEC.md#credentials).
 
 ## API key management
 
@@ -58,7 +58,7 @@ Local use is the only supported mode. These are not done, and deployment is not 
 | No daily spending budget in the application | Rate limits do not protect the wallet. Use a provider key limit |
 | The rate limiter lives in memory, and all direct clients share one bucket | Adequate for one local user only. Behind a proxy, set `TRUST_PROXY=true` and use one instance |
 | No CI, secret scanning, or automated dependency checks | These checks were run by hand |
-| Provider data questions are open | Model A's host is unknown, and DeepInfra's exception is unresolved. See the table below |
+| Provider data questions are open | Model A's host is not confirmed, and DeepInfra has not answered on Gemma. See the table below |
 | Web server static paths and TLS were not reviewed for internet exposure | The server is meant for loopback |
 
 ## Data retention
@@ -79,8 +79,8 @@ In demo mode nothing leaves the machine. If a real provider is enabled, images a
 | Risk | Mitigation | Status |
 |---|---|---|
 | Provider retains or trains on images | `data_collection: "deny"` configured for OpenRouter | Configured, not tested |
-| Hugging Face and DeepInfra data handling | Policies read on 2026-11-01. See [M0_READINESS_AND_EXECUTION_SPEC.md](M0_READINESS_AND_EXECUTION_SPEC.md#does-image-data-leave-this-machine) | Vendor statements only. **DeepInfra's "Google models" training exception is unresolved for Gemma** |
-| Model A's host data handling | Read its policy once Stage D identifies and pins the host | **Host unknown** |
+| Hugging Face and DeepInfra data handling | Policies read on 2026-11-01. See [M0_READINESS_AND_EXECUTION_SPEC.md](M0_READINESS_AND_EXECUTION_SPEC.md#does-image-data-leave-this-machine) | Vendor statements only. Evidence suggests the "Google models" exception does not cover Gemma, but **DeepInfra has not confirmed this** |
+| Model A's host data handling | DeepInfra's terms read for the Proposed host: zero retention for hosted models. Confirm the host at the catalog step | **Host not yet confirmed** |
 | Free endpoints may have different terms | Use paid endpoints for this run | Decided |
 | Traffic screening by the gateway | OpenRouter's ZDR page announces CSAM screening from 2026-10-27. Confirm and disclose | Open |
 | Model output carries instructions | Treat output as untrusted data, with no tools or URL fields | Proposed |

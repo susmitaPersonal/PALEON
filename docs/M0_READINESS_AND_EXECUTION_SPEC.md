@@ -1,6 +1,6 @@
 # M0 Readiness Review and Execution Specification
 
-> **Version:** 1.3 | **Date:** 2026-11-01 | **Status:** The review is observed. The 8 harness fixes required before Stage D are Implemented and Verified offline, and Q-10 is applied (ADR-064). The rest of the specification is **Proposed**. Stage D and Stage E are **not authorized**, and nothing here starts them.
+> **Version:** 1.4 | **Date:** 2026-11-02 | **Status:** The review is observed. The 8 harness fixes required before Stage D are Implemented and Verified offline, and Q-10 is applied (ADR-064). The rest of the specification is **Proposed**. Stage D and Stage E are **not authorized**, and nothing here starts them.
 
 Related: [METHODOLOGY.md](../experiments/m0_feasibility/METHODOLOGY.md), [MODEL_EVALUATION.md](MODEL_EVALUATION.md), [MODEL_COMPARISON.md](MODEL_COMPARISON.md), [DECISIONS.md](DECISIONS.md), [SESSION_HANDOVER.md](SESSION_HANDOVER.md)
 
@@ -12,7 +12,7 @@ Related: [METHODOLOGY.md](../experiments/m0_feasibility/METHODOLOGY.md), [MODEL_
 |---|---|
 | Can M0 run today? | **No.** `--live` is refused, and the steps under [Required before Stage D](#required-before-stage-d) remain |
 | Are results from the offline path trustworthy? | Yes for metric logic. 404 tests pass, and hand-built cases on the real denominators gave the expected counts |
-| What blocks Stage D? | Stage D approval, keys, a budget, Model A's host, and the DeepInfra question. The 8 harness fixes and Q-10 are done |
+| What blocks Stage D? | Stage D approval, keys, and a budget. See [Phase 4](#phase-4-stage-d-preparation) |
 | Largest model risk | Model B may see each image at roughly 800 × 800 px, not 2,048 px (H-12) |
 | Planned usage cost | About $0.26 for 204 calls, by estimate |
 | Maximum usage cost | **$2.00 stop limit.** The calculated ceiling is $1.39 at today's list prices |
@@ -96,7 +96,7 @@ The Findings table above records the state at review. The owner approved the 8 f
 |---|---|---|
 | H-01 | Verified offline | `src/guard.py` stops before an attempt on the attempt, time, or spending limit, with limits holding across runs. Attempts with no usage count at the ceiling |
 | H-02 | Verified offline | `auth`, `credit_exhausted`, or `bad_request` makes 1 call, then stops. 5 provider failures in a row also stop the run. Records are kept, and `stopped.json` gives the reason |
-| H-03 | Verified offline, **not reachable** | `live/transport.py` and `live/preflight.py` sit outside `src/`, so the test banning network clients from `src/` still holds. `run_model` accepts an injected adapter and image source. **`--live` stays refused, and no command can start preflight** |
+| H-03 | Verified offline | `live/transport.py` and `live/preflight.py` sit outside `src/`, so the test banning network clients from `src/` still holds. `run_model` accepts an injected adapter and image source. **`--live` stays refused.** Only `live/stage_d.py` starts preflight (ADR-067) |
 | H-04 | Verified offline for the rule | `allow_fallbacks: false` is set. `order` stays empty until Stage D names a host, so `--check` prints `live_blockers: ["qwen3_vl_30b: no pinned host"]` |
 | H-05 | Verified offline | A wait above 30 s counts as a failure with no retry. Unusable values use the 2 s default |
 | H-06 | Verified offline | Malformed envelopes become recorded failures, malformed usage stays unknown, and any reply can be stored unchanged |
@@ -235,7 +235,7 @@ These are vendor statements. Nothing here independently verifies them.
 | `config/models.yaml` | `25222ee3a33f0405dc40852bb31eace0207d12e51225d9bfc23e4cdb7292fdc3` |
 | `prompts/eval_v1.md` | `67085eb828b94a407b0693c20ccdc5f47919fc7e5e817dae157a5d232c6db111` |
 
-The configuration hashes include the Implemented limits. `max_attempts_per_model` rose from 288 to 306, because 34 images need 102 repetitions at up to 3 attempts. Stage D sets Model A's host in `config/models.yaml`, which will change that one hash, and the report must state it.
+The configuration hashes include the Implemented limits. `max_attempts_per_model` rose from 288 to 306, because 34 images need 102 repetitions at up to 3 attempts. After Stage D, writing Model A's host to `config/models.yaml` will change that one hash, and that needs approval.
 
 ## Repetitions and prompt
 
@@ -328,7 +328,7 @@ Nothing below runs until Stage D is approved. **Canaries are generated locally, 
 | Output limit (H-16) | `finish_reason` is `stop`, with reasoning tokens recorded | Owner decides. A change is allowed only before Stage E |
 | Caching (H-13) | Repeat calls show no cached response | Disclose it, and treat reproducibility as weak evidence |
 
-Model B runs only if the DeepInfra question is answered and the owner accepts its image detail. **If it does not run, the report says "not run", and the experiment stands on Model A alone.**
+Model B enters Stage E only if the DeepInfra question is answered and the owner accepts its image detail. Whether it may run canaries first is an owner decision (Phase 4). **If it does not run, the report says "not run", and the experiment stands on Model A alone.**
 
 ## Metrics and thresholds
 
@@ -393,11 +393,11 @@ Each step needs the owner's approval. Approval of one does not extend to the nex
 | 2 | **Done.** Q-10 applied, and rows and gates reissued (ADR-064) | None |
 | 3 | **Done.** Harness fixes H-01 to H-06, H-08, and H-10, with tests | None |
 | 4 | **Done.** Freeze commit of the prompt, manifest, configuration, and code, the direct child of `5e5941d`. Not pushed | None |
-| 5 | **Approve Stage D:** keys, budget, generated canaries, the DeepInfra question, and adding the entry point | Up to $0.08 ceiling |
+| 5 | **Approve Stage D:** the exact HEAD hash, keys, the budget, generated canaries, and whether Model B takes part | Up to $0.08 ceiling. Proposed stop $0.10 |
 | 6 | Report Stage D, fill in the values set there, and fix H-07, H-09, H-11, and H-15 | None |
 | 7 | **Approve Stage E:** sending 34 images to third parties, and the final model list | Up to $1.32 ceiling |
 
-**Stage D sets one remaining value** in `config/models.yaml`, Model A, under `provider`: `order: ["<host>"]`. The `limits` block in `config/run.yaml` is in place.
+**One value remains:** Model A's host. Stage D passes it on the command line, and it is written to `config/models.yaml` under `provider`, `order: ["<host>"]`, only before Stage E, with approval.
 
 # Phase 3: Product verifier
 
@@ -409,3 +409,141 @@ Each step needs the owner's approval. Approval of one does not extend to the nex
 |---|---|
 | The 13 adversarial cases in the [audit](COMPETITION_READINESS_AUDIT.md#safeguard-tests) | **Stays in P0.** They must be fixed and tested before real inference through the application |
 | Review P0 items 1 to 14 | Stay in P0, and still gate product inference |
+
+# Phase 4: Stage D preparation
+
+**Prepared on 2026-11-02. Stage D has not run, and no provider API was called.** Everything below is read from public pages or tested offline with fakes. Published means a vendor's statement. Third-party trackers are named as such.
+
+## Model A: recommended route (Proposed, ADR-068)
+
+| Item | Value | Evidence |
+|---|---|---|
+| Gateway | OpenRouter, unchanged (ADR-014) | Published |
+| Endpoint | `POST https://openrouter.ai/api/v1/chat/completions` | Published |
+| Model ID | `qwen/qwen3-vl-30b-a3b-instruct` | Published |
+| **Recommended host** | **DeepInfra**, subject to the catalog step | Inference, below |
+| Host slug | Expected `deepinfra`. Use the exact tag the catalog prints, because OpenRouter matches every endpoint of a base slug | **Unverified** |
+| Pin | `provider.order: [<tag>]`, `allow_fallbacks: false`, `require_parameters: true`, `data_collection: deny` | Published behaviour |
+| Weights label | `Qwen/Qwen3-VL-30B-A3B-Instruct`, Hub revision `9c4b90e1...`. A host's loaded weights cannot be proven | Published |
+
+**Why DeepInfra:**
+
+- OpenRouter's public pages name no host, so its route cannot be confirmed before the catalog step.
+- DeepInfra's own page lists the model at $0.15 and $0.60, which equals `config/models.yaml`, with 262,144 tokens of context, `fp8`, and tags for Multimodal, JSON, and Zero retention.
+- Its terms make zero retention contractual for models it hosts, and that controls over its other documents.
+- The Hub lists DeepInfra as a provider of this model.
+- A third-party tracker reports 100% uptime for DeepInfra and 75% for Novita. This is weak evidence.
+
+| Alternative | Why not first | Source |
+|---|---|---|
+| Novita | $0.20 and $0.70, above the configured prices, so the command refuses it unless the prices change. 128K context, 32K output, and it states structured output support. No retention statement found | Novita page |
+| Alibaba | $0.13 to $0.20 reported, sources disagree | Trackers only |
+| SiliconFlow, Fireworks | Higher reported prices | Tracker only |
+
+**Capabilities, and how far each is known:**
+
+| Capability | Status |
+|---|---|
+| Image input | DeepInfra tags Multimodal and documents base64 `data:` URIs in `image_url`. **Not proven on this route** |
+| Image formats | OpenRouter lists PNG, JPEG, WebP, and GIF. DeepInfra's examples show PNG only, so JPEG on DeepInfra is **unverified**. The canaries and dataset are JPEG |
+| Size limits | No per-image limit found on DeepInfra or on OpenRouter's image page. The canary tests 1,576 KB |
+| Context and output | 262,144 tokens of context. DeepInfra states no maximum output. Its example uses 4,092 |
+| Structured output | DeepInfra's tag says JSON, and its API page documents no `response_format`. **Strict `json_schema` is unknown.** The pre-agreed fallback is `json_object` |
+| Seed | OpenRouter's page lists `seed`. DeepInfra's API page does not mention it |
+
+## Model B: DeepInfra training question
+
+**Finding: the evidence points to the exception not applying to Gemma, but DeepInfra has not confirmed that. Do not treat Model B as cleared for historical images.**
+
+| Source | Exact language | Reading |
+|---|---|---|
+| Docs, Data Privacy | "We do not use data you submit to our APIs for training models, except when using Google or Anthropic models", "where the receiving company's training policy applies" | Literal reading could cover Gemma, a Google model |
+| Same page | "We do not share data... except when using Google or Anthropic models", "where we are required to transfer data to those endpoints to fulfill the request" | The exception describes a transfer to another company's endpoints |
+| Terms, Section 7(b), modified 2026-10-15 | "Provider will not retain, store, or log any Customer Data", "beyond the period strictly necessary", and it applies to "models hosted by Provider" | Contractual |
+| Terms, Section 5 | Section 7(b) "controls over the Privacy Policy and any other Provider policy, webpage, or documentation" | The terms outrank the docs page |
+| Gemma 4 31B page | Tags "Public" and "Zero retention", `fp8`, private endpoint option, listed DeepInfra prices | Looks DeepInfra-hosted |
+| Gemini 2.5 Flash page | Label "Partner". No Zero retention tag, quantization, or private endpoint | Looks proxied. This is the direct contrast |
+
+**Still unresolved:**
+
+1. The page never says that "Google model" excludes Gemma, and it never says Gemma is self-hosted.
+2. Sections 7(b) and 18 do not define "third-party model", and Section 18 includes "third-party open-source models".
+3. Requests through Hugging Face are billed by Hugging Face, so whether DeepInfra's customer terms apply directly to a routed request is unclear.
+4. Google's Gemma terms are not the question here, and were not assessed for this.
+
+**Effect by stage.** Stage D sends generated canaries, the prompt, and the schema, so a training exception exposes no historical image. **It need not block Stage D, and this changes the earlier rule, so it needs the owner's decision.** Stage E should still wait for a written answer. Send this to policy@deepinfra.com:
+
+> Does the "Google or Anthropic models" exception in your Data Privacy page apply to google/gemma-4-31B-it? Is that model hosted by DeepInfra, so that Section 7(b) of your terms applies? Does the answer change when requests are routed through Hugging Face Inference Providers with Hugging Face billing?
+
+**New observation:** the recommended routes put both models on DeepInfra, so a host-level fault would affect both. The models and gateways still differ.
+
+## Credentials
+
+| Variable | Used for | Requirements |
+|---|---|---|
+| `OPENROUTER_API_KEY` | Model A, and the catalog step | Paid credits. Create a dedicated key with a credit limit |
+| `HF_TOKEN` | Model B | Fine-grained token with "Make calls to Inference Providers" only. Free accounts must buy credits |
+
+Loading (Verified offline): keys are read from the process environment only, and `.env` is not loaded by the harness. Set them in the shell that runs the command, without placing the value in shell history:
+
+```bash
+read -rs OPENROUTER_API_KEY && export OPENROUTER_API_KEY
+read -rs HF_TOKEN && export HF_TOKEN
+```
+
+Do not paste a key into a conversation. Missing keys are reported by name only. A test confirms the key reaches no output or record. Delete or rotate each key after M0.
+
+## Stage D budget
+
+**Proposed for approval: $0.05 of estimated usage per model, $0.10 for both.** This is enforced by `MAX_USD_PER_MODEL` across all runs.
+
+| | Model A | Model B |
+|---|---|---|
+| Attempt ceiling: 8,000 input and 1,500 output tokens | $0.0012 + $0.0009 = **$0.0021** | $0.0016 + $0.0006 = **$0.0022** |
+| Worst case: 3 canaries × 2 repetitions × 3 attempts = 18 | **$0.0378** | **$0.0396** |
+| Expected: 6 attempts at 5,000 and 800 tokens | $0.0074 | $0.0079 |
+
+The two worst cases total $0.0774, which rounds to the $0.08 ceiling. The catalog step is not billed by the published endpoint descriptions, which is **unverified**.
+
+| Control | Verified offline by |
+|---|---|
+| 18 attempts per model across all runs | `test_attempts_are_limited_across_runs` |
+| Spending stop, using real usage or the ceiling | `test_the_spending_stop_holds_when_usage_is_far_above_the_assumption` |
+| Fatal errors stop after 1 call | `test_a_fatal_error_stops_after_one_paid_call` |
+| 5 provider failures in a row stop the run | `test_an_outage_stops_within_the_limit` |
+| Retries capped per repetition | `tests/test_live_safety.py` |
+
+**These are estimates.** The hard limits are outside this code: set an OpenRouter key limit of $0.10 for Stage D. Hugging Face personal accounts have no documented spending limit, so the balance is the limit.
+
+**Money paid may be higher than usage.** OpenRouter's official FAQ states no minimum purchase, and its fee did not render. Third-party sources report a $5 minimum and a 5.5% fee with a $0.80 floor, and these are **unverified**. No Hugging Face minimum was found. OpenRouter's FAQ allows a refund request for unused credits within 24 hours, excluding fees.
+
+## Stage D command (Implemented, ADR-067)
+
+`live/stage_d.py` handles one named model per command. It sends only the 3 generated canaries. `src/run.py --live` stays refused.
+
+```bash
+cd experiments/m0_feasibility
+
+# Step 1: list hosts and prices. No inference.
+../../.venv/bin/python -m live.stage_d catalog --model qwen3_vl_30b --approved-commit <full hash>
+
+# Step 2: send canaries to the host printed by step 1.
+../../.venv/bin/python -m live.stage_d preflight --model qwen3_vl_30b --host <tag> --approved-commit <full hash>
+
+# Step 3, only if the owner approves Model B for Stage D.
+../../.venv/bin/python -m live.stage_d preflight --model gemma4_31b --approved-commit <full hash>
+```
+
+Each `preflight` command needs its own decision to run. Exit codes: 0 passed, 1 a check failed, 2 refused.
+
+| Safety check | Before |
+|---|---|
+| `--approved-commit` equals HEAD, tree clean, four frozen hashes match, gateway URL is the expected one, key present | Any network use |
+| Host named for Model A, and refused for Model B | Any network use |
+| Host listed, price not above the configured price, structured output listed, enough output tokens, attempts left | Any paid call |
+
+**It cannot reach Stage E by construction:** it imports no manifest or image loader, its images come only from `make_canaries`, a test confirms every sent hash is a canary, and results go to `results/preflight/`, which no metric reads. It takes no model list, so it cannot run both models in one command.
+
+**Host handling:** the host is passed on the command line, so `config/models.yaml` keeps its frozen hash during Stage D. Before Stage E, the confirmed host must be written there, and `FROZEN_SHA256` updated, which is a separate approved change.
+
+**If the strict schema is refused,** the run stops with `bad_request`. Using the `json_object` fallback changes `config/models.yaml`, so it needs approval first.

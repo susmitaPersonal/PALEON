@@ -4,6 +4,35 @@ All notable changes to ScriptEcho. Dates are in IST. No version has been release
 
 ## [Unreleased]
 
+### 2026-11-02: Stage D preparation
+
+Added:
+- `live/stage_d.py`: a `catalog` step and a `preflight` step, one named model at a time, using generated images only. It refuses before any network use without the approved commit, a clean tree, matching frozen hashes, the expected gateway, and a key.
+- `tests/test_stage_d.py`: 34 tests with fake catalogs and transports.
+- ADR-067, and ADR-068, which is Proposed.
+- Phase 4 of `docs/M0_READINESS_AND_EXECUTION_SPEC.md`: host evidence, DeepInfra policy language, credentials, budget, and commands.
+
+Changed:
+- `.gitignore` covers `results/preflight/` and `results/live/`.
+- `.env.example` says the harness does not read `.env`.
+- Docstrings in `live/preflight.py` and `live/transport.py` name the new entry point.
+
+Found:
+- OpenRouter's public pages name no host for Model A. DeepInfra's own page lists it at the configured prices.
+- DeepInfra's Gemini page is labelled Partner with no zero-retention tag, while its Gemma page shows Zero retention. Its terms make zero retention for hosted models control over its other documents. This suggests the training exception does not cover Gemma, and DeepInfra has not confirmed it.
+- Strict `json_schema` is undocumented on DeepInfra for Model A.
+
+Verified:
+- On Python 3.12.7: 438 pytest tests passed. 14 of 14 deliberate breaks of the Stage D checks were caught, after 2 survived at first and their tests were added.
+- `--check` exited 0 with no dataset problems, and `--live` exited 2.
+- The real command refused locally with exit 2. All four frozen hashes are unchanged.
+
+Not checked:
+- Nothing has met a real provider. The catalog reply shapes are untested against a live reply.
+- The 36 browser tests were not rerun. No product file changed.
+
+No model or provider API was called, no image was sent, and nothing was spent. The owner approved one local commit of this work, and nothing was pushed.
+
 ### 2026-11-01: M0 freeze commit
 
 Added:

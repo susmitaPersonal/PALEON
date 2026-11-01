@@ -1,4 +1,4 @@
-"""The only code that can reach a provider. No entry point uses it until Stage D is approved."""
+"""Provider transport. Only live/stage_d.py uses it, and that refuses to run without Stage D approval."""
 import time
 from collections.abc import Callable
 

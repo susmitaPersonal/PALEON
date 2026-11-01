@@ -47,7 +47,7 @@ The offline path is complete. Each of these belongs to a later stage, and none i
 | Gap | Needed for |
 |---|---|
 | `httpx` transport | Implemented in `live/`, never run against a provider |
-| Preflight checks with generated canaries | Implemented in `live/`, with no entry point. A catalog check is not built |
+| Preflight checks with generated canaries | Implemented, with a catalog check, in `live/stage_d.py`. Not run |
 | Live mode in `run.py`, using `LocalImageSource` and credentials | Stage D and E. `--live` stays refused |
 | Provider-specific extras, such as thinking control, if Stage D requires them | Stage D |
 
@@ -57,7 +57,7 @@ The offline path is complete. Each of these belongs to a later stage, and none i
 |---|---|---|---|---|
 | 1 | Review the MVP and Stage C.2, and decide on margin clearing | User | Decisions recorded | Done (ADR-064) |
 | 2 | Apply those decisions, and recalculate gates | Task 1 | `--check` clean; gates updated | Done, 12/24 and 20/24 |
-| 3 | Stage D: live checks | Freeze commit, funded keys | Canary and structured output proven per provider | **Not authorized** |
+| 3 | Stage D: live checks | Preparation commit, funded keys | Canary and structured output proven per provider | **Not authorized** |
 | 4 | Stage E: full run and report | Task 3 | Report, confusion matrix, failure analysis, go/no-go | **Not authorized** |
 | 5 | Commit the accumulated work | User review at the end | Reviewed diff; no secrets or dataset images | Done, as the freeze commit. Not pushed |
 

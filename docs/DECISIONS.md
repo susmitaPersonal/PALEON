@@ -1,6 +1,6 @@
 # Decisions
 
-> **Version:** 1.2 | **Last updated:** 2026-11-01
+> **Version:** 1.3 | **Last updated:** 2026-11-02
 
 Architecture Decision Records for ScriptEcho. Related: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md), [AI_ARCHITECTURE.md](AI_ARCHITECTURE.md), [CLAUDE.md](../CLAUDE.md)
 
@@ -639,4 +639,22 @@ Proposed. These apply to the maintained documents, and the frozen baseline stays
 - **Decision:** Commit the app screenshots. ADR-026 stands for everything under `data/`.
 - **Alternatives:** Exclude and gitignore them, which breaks the README image.
 - **Trade-offs:** They add 5.3 MB to history. The browser suite rewrites them, so a browser test run marks them as modified (F-18).
+
+### ADR-067: Run Stage D through one approval-gated command
+
+- **Date:** 2026-11-02
+- **Status:** Implemented at the user's direction; Verified offline by `tests/test_stage_d.py`. Proposed as the way to run Stage D. **Running it needs separate approval.** This updates ADR-063, which said no command could start preflight
+- **Context:** Stage D needs an entry point, and hosts can be read only through a catalog endpoint that needs a key. An accidental paid call or Stage E run must be impossible by construction.
+- **Decision:** `live/stage_d.py` has a free `catalog` step and a `preflight` step, for one named model. It refuses before any network use unless the approved commit is HEAD, the tree is clean, frozen hashes match, the gateway is expected, and a key is present. It refuses before any paid call unless the catalog confirms host, price, and structured output. It imports no dataset loader, and it stops at $0.05 of estimated usage and 18 attempts per model, across runs. Model A's host is a command argument, so `config/models.yaml` keeps its frozen hash. `--live` stays refused.
+- **Alternatives:** Enable `--live`, which sits beside the Stage E path. Write the host into `config/models.yaml` first, which changes a frozen file before the host is confirmed.
+- **Trade-offs:** The command needs a clean tree, so the preparation must be committed before it can run. The catalog reply shapes come from documentation and an earlier snapshot, and a mismatch refuses safely. Moving to Stage E still needs a change to `config/models.yaml` and `FROZEN_SHA256`.
+
+### ADR-068: Prefer DeepInfra as Model A's host
+
+- **Date:** 2026-11-02
+- **Status:** Proposed. Depends on the Stage D catalog step
+- **Context:** OpenRouter's public pages name no host. ADR-014 fixes the model and gateway, and leaves the host open.
+- **Decision:** Pin Model A to DeepInfra through OpenRouter, using the exact catalog tag, with fallbacks off.
+- **Alternatives:** Novita, whose listed price is above the configured price. Calling DeepInfra directly, which would change the gateway in ADR-014.
+- **Trade-offs:** Both models would sit on one host, so a host fault would affect both. Strict `json_schema` is undocumented there, so the `json_object` fallback may be needed.
 

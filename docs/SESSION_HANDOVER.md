@@ -1,6 +1,6 @@
 # Session Handover
 
-> **Version:** 1.4 | **Last updated:** 2026-11-01, M0 freeze commit made
+> **Version:** 1.6 | **Last updated:** 2026-11-02, Stage D preparation committed locally and not run
 
 Update this document at the end of every substantial session, with observed results only. Older entries move to the session log at the bottom.
 
@@ -39,11 +39,12 @@ ScriptEcho helps people investigate unfamiliar historical scripts from images, r
 
 ## Exact next action
 
-**Wait for explicit approval.** The freeze commit is made, and that approval covered nothing else. The owner decided that M0 precedes product-level real-model fixes (ADR-062), and that decision authorizes no inference. Stage D and Stage E stay unauthorized. Do not start anything until the user says so.
+**Wait for explicit approval.** The freeze commit is `67de8e71b119620a296fd3664d81de1f9e9aa0d9`. Stage D is prepared and has not run. The preparation is committed locally as the direct child of the freeze commit, and that approval covered nothing else. The owner decided that M0 precedes product-level real-model fixes (ADR-062), and that decision authorizes no inference. Stage D and Stage E stay unauthorized. Do not start anything until the user says so.
 
 The path to Stage D is in [M0_READINESS_AND_EXECUTION_SPEC.md](M0_READINESS_AND_EXECUTION_SPEC.md#required-before-stage-d):
 
-1. Approve Stage D: keys, budget, generated canaries, the DeepInfra question, and adding the entry point.
+1. Approve Stage D: the $0.10 budget, keys, and whether Model B runs canaries before DeepInfra answers. The approval must name the full HEAD hash, which `git log` shows. Any new commit changes HEAD, so that hash must be approved again.
+2. Run the commands in [Phase 4](M0_READINESS_AND_EXECUTION_SPEC.md#phase-4-stage-d-preparation) with the approved hash. Send DeepInfra the drafted question before Stage E.
 
 **Before any push:** `origin/main` is at `3508da65`, which this clone does not have. Inspect it first, and do not force-push.
 
@@ -94,7 +95,7 @@ Other open questions are Q-5 and Q-6 in [DECISIONS.md](DECISIONS.md).
 | Gaps at review | No live path, no spending guard, fatal errors did not stop the run, OpenRouter route not pinned. **Now fixed offline, except that Stage D must name Model A's host** |
 | Crashes shown by probe, now fixed | `httpx` timeouts, malformed envelopes, a lone surrogate, and `Retry-After` of `inf` or `-5` |
 | Largest model risk | Model B may see about 800 × 800 px by default (H-12). This is arithmetic on published config |
-| Unresolved | Model A's host is unknown, and DeepInfra's "Google models" training exception may cover Gemma |
+| Unresolved | Model A's host is Proposed as DeepInfra, unconfirmed until the catalog step. DeepInfra has not confirmed that its "Google models" exception excludes Gemma |
 | Proposed limits | 648 requests at most, and a $2.00 stop limit. Calculated ceiling $1.39, planned $0.26, all estimates |
 | Product verifier | No shared dependency with M0, so unchanged |
 
@@ -172,7 +173,7 @@ Each of these needs its own approval. Approval of one does not extend to another
 - Downloading or adding any further image.
 - Sending images to any third-party service, other than this session under ADR-060.
 - Modifying `data/images/`.
-- Enabling `--live`, or adding any command that reaches `live/`.
+- Enabling `--live`, or running `live/stage_d.py` in any mode that reaches a network. Its catalog step counts.
 - Accessing PyPI or any registry other than npm. Use of a local cache must be disclosed.
 - Editing `docs/ARCHITECTURE.md`, or changing `prompts/eval_v1.md`.
 - Changing a script label, or reclassifying one without documented evidence and approval.
@@ -216,7 +217,9 @@ Images are gitignored. On a machine without them, `--check` validates metadata o
 
 Final run on the finished MVP code, 2026-11-01. **Passing tests do not cover the defects listed under [Post-MVP review](#post-mvp-review).**
 
-**Latest run, after Q-10 and the verifier work:** on Node 24.3.0 and Python 3.12.7, `npm test` exited 0 with **659 passed, 0 failed**: contracts 4, API 183, web 32, browser 36, experiment 404. `--check` exited 0 with no dataset problems and one expected live blocker, `--synthetic` kept its gate results, and `--live` exited 2. 19 of 19 deliberate breaks were caught. The browser run regenerated `docs/screenshots/`.
+**Latest run, Stage D preparation:** 438 pytest tests passed, `--check` exited 0, `--live` exited 2, and the real Stage D command refused locally with exit 2. Vitest and browser tests were not rerun, because no product file changed.
+
+**Run after Q-10 and the verifier work:** on Node 24.3.0 and Python 3.12.7, `npm test` exited 0 with **659 passed, 0 failed**: contracts 4, API 183, web 32, browser 36, experiment 404. `--check` exited 0 with no dataset problems and one expected live blocker, `--synthetic` kept its gate results, and `--live` exited 2. 19 of 19 deliberate breaks were caught. The browser run regenerated `docs/screenshots/`.
 
 Earlier run, after the harness fixes: 179 Vitest and 384 pytest tests passed, and 24 of 24 deliberate breaks were caught.
 
@@ -279,14 +282,14 @@ The wider product architecture (ADR-001 to ADR-013) and the November 15 target (
 
 ### Not built
 
-- Experiment: an entry point for preflight and live mode, a catalog check, and fixes H-07, H-09, H-11, and H-15.
+- Experiment: live mode for Stage E, and fixes H-07, H-09, H-11, and H-15.
 - Product: crop tool, transcription, authentication, CI, spending budget, a clean-install check.
 
 ### Provider
 
 - Image input and structured output are not proven for either model.
-- DeepInfra and Hugging Face data policies were read on 2026-11-01, as vendor statements. Whether DeepInfra's "Google models" exception covers Gemma is unresolved.
-- Model A's host is unknown, because OpenRouter's public pages name none.
+- DeepInfra and Hugging Face data policies were read as vendor statements. The evidence suggests the "Google models" exception does not cover Gemma, and DeepInfra has not confirmed that.
+- Model A's host is Proposed as DeepInfra (ADR-068), because OpenRouter's public pages name none.
 - `OPENROUTER_API_KEY` and `HF_TOKEN` are not set. Hugging Face free accounts have no included credits.
 
 ### Environment
@@ -297,7 +300,7 @@ The wider product architecture (ADR-001 to ADR-013) and the November 15 target (
 
 ## Git status
 
-`main` has two commits: `5e5941dd2b823e06981e6dad42cbd490b7d5e4fa`, and its direct child, the M0 freeze commit. Run `git log` for the hash, which a commit cannot contain. **All work to date is in that commit, and neither commit has been pushed.** A remote, `origin`, is configured, its `main` holds a commit this clone does not have, and nothing has been pushed from this session. `data/`, `results/synthetic/`, `node_modules/`, `dist/`, and test output are gitignored. Six screenshots in `docs/screenshots/` are committed, and a browser test run rewrites them, so it marks the tree as modified. Do not start a live run on a dirty tree.
+`main` has three commits: `5e5941dd2b823e06981e6dad42cbd490b7d5e4fa`, its child the M0 freeze commit `67de8e71b119620a296fd3664d81de1f9e9aa0d9`, and the Stage D preparation commit. Run `git log` for that hash, which a commit cannot contain. **All work to date is committed, and none of it has been pushed.** A remote, `origin`, is configured, its `main` holds a commit this clone does not have, and nothing has been pushed from this session. `data/`, `results/`, `node_modules/`, `dist/`, and test output are gitignored, apart from `results/.gitkeep`. Six screenshots in `docs/screenshots/` are committed, and a browser test run rewrites them, so it marks the tree as modified. Do not start a live run on a dirty tree.
 
 ## How to resume
 
@@ -320,6 +323,7 @@ The wider product architecture (ADR-001 to ADR-013) and the November 15 target (
 | 2026-11-01 | Post-MVP review: architecture and ADR review, offline probes, 21 numbered findings plus a list of smaller issues. No source changed. Waiting on five user decisions |
 | 2026-11-01 | Harness fixes approved and done: 8 fixes, 62 new tests, 384 pytest tests passed, 24 of 24 deliberate breaks caught. Git identity, `origin`, and Q-10 decided. Q-10 not applied. No commit, API call, or spending. Waiting on the user |
 | 2026-11-01 | M0 readiness: owner set M0 first (ADR-062). Scoring passed, 16 harness findings recorded, Proposed execution specification written. No harness change, model call, or spending. Waiting on the user |
+| 2026-11-02 | Stage D prepared: host and policy evidence, guarded command, 34 new tests, 438 pytest tests passed, 14 of 14 deliberate breaks caught. No provider call or spending. Committed locally on approval, not pushed. Waiting on the user |
 | 2026-11-01 | M0 freeze commit approved and made, with 174 files reviewed and all freeze hashes matching. No push. Waiting on Stage D approval |
 | 2026-11-01 | Q-10 applied: SE003 and SE004 accepted, SE010 held, gates 12/24 and 20/24. Verifier hardened (ADR-065), with the 13 adversarial cases as permanent tests. 659 tests passed, 19 of 19 deliberate breaks caught. No model call, spending, commit, or push. Then waiting on the freeze commit decision |
 | 2026-11-01 | Approvals recorded: npm access (ADR-053) and session image processing (ADR-060). Git identity checked and left Pending (ADR-061). Review 1.1 re-verified the findings, added 3 sections and F-23 and F-24, and narrowed P0 to gate product inference, not M0. No source changed. Waiting on the user |
